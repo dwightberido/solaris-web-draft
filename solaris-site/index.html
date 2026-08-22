@@ -135,6 +135,9 @@ button,input,select,textarea{font:inherit;color:inherit}
   transition:color .3s var(--e1)}
 .nav-links a::after{content:"";position:absolute;left:0;right:100%;bottom:0;height:1px;
   background:var(--sun);transition:right .4s var(--e1)}
+/* the section you are actually looking at, lit without needing the mouse */
+.nav-links a.current{color:var(--sun)}
+.nav-links a.current::after{right:0}
 .nav-links a:hover{color:var(--text-primary)}
 .nav-links a:hover::after{right:0}
 .nav-cta{flex:none}
@@ -1307,7 +1310,7 @@ body.paused *,body.paused *::before,body.paused *::after{animation-play-state:pa
           </span>
           <h3 id="qdone-h">Got it.</h3>
           <p id="qdone-p">We will call you within one business day.</p>
-          <p class="qmicro">A copy goes straight to solarisenergiecorp@gmail.com.</p>
+          <p class="qmicro">This goes straight to our inbox and we reply within one business day.</p>
         </div>
       </div>
     </div>
@@ -1349,7 +1352,7 @@ body.paused *,body.paused *::before,body.paused *::after{animation-play-state:pa
       </ul>
     </div>
   </div>
-  <p class="disclose">Working draft for internal review. The company registration, project list, capacity totals and team are real. The email address is real. The phone number and every peso figure are still placeholders: the calculator runs on Visayan Electric&#8217;s current rate but on published market assumptions for installed cost, listed in full under the calculator itself, not on Solaris pricing. The quote form delivers to solarisenergiecorp@gmail.com through Netlify. Replace the phone number and confirm the cost per kWp before this page goes public.</p>
+  <p class="disclose">Working draft for internal review. The company registration, project list, capacity totals and team are real. The email address is real. The phone number and every peso figure are still placeholders: the calculator runs on Visayan Electric&#8217;s current rate but on published market assumptions for installed cost, listed in full under the calculator itself, not on Solaris pricing. The quote form delivers through Netlify Forms; the destination inbox is set in the Netlify dashboard. Replace the phone number and confirm the cost per kWp before this page goes public.</p>
   <div class="footbase">
     <span>&copy; 2026 Solaris Energie Ventures Corporation</span>
     <span>Solar for Cebu homes and businesses.</span>
@@ -1391,11 +1394,29 @@ $$('#navlinks a').forEach(function(a){a.addEventListener('click',function(){
 
 /* ================= PAGE-LEVEL SCROLL EFFECTS ================= */
 var proc=$('#tracker'), procfill=$('#trkfill'), steps=$$('.trk-step');
+/* scroll-spy: light the nav item for whatever section the reader is on */
+var spy=$$('#navlinks a[href^="#"]').map(function(a){
+  return {a:a, el:document.getElementById(a.getAttribute('href').slice(1))};
+}).filter(function(o){return o.el});
+var spyCache=-2;
+function updateSpy(){
+  if(!spy.length) return;
+  var line=window.pageYOffset+nav.offsetHeight+48, idx=-1;
+  for(var i=0;i<spy.length;i++){
+    if(spy[i].el.getBoundingClientRect().top+window.pageYOffset<=line) idx=i;
+  }
+  /* the last section is usually too short to ever reach the line, so claim it at the bottom */
+  if(window.innerHeight+window.pageYOffset>=document.body.scrollHeight-4) idx=spy.length-1;
+  if(idx===spyCache) return;
+  spyCache=idx;
+  for(var j=0;j<spy.length;j++) spy[j].a.classList.toggle('current', j===idx);
+}
 var pageRaf=null, navStuck=false, procCache=-1, stepCache=-1;
 function pageUpdate(){
   pageRaf=null;
   var st=window.pageYOffset>28;
   if(st!==navStuck){navStuck=st;nav.classList.toggle('stuck',st)}
+  updateSpy();
   if(proc&&!pinned){
     var r=proc.getBoundingClientRect(), vh=window.innerHeight;
     var p=clamp((vh*0.80-r.top)/(r.height*0.72),0,1);
