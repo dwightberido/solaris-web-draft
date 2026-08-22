@@ -1,0 +1,10 @@
+# macOS
+.DS_Store
+
+# the build skill and its extracted copy, not part of the site
+10k-websites-skill.zip
+_skill_extract/
+
+# working backups superseded by git history
+index.v2.backup
+projects.pre-pdf.json

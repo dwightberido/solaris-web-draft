@@ -1,0 +1,1748 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Solaris Energie Corporation | Solar for Philippine homes and businesses</title>
+<meta name="description" content="Grid-tied, hybrid and off-grid solar designed on your real electricity bills and built for Philippine weather. Free site survey, itemized proposal, net metering filed for you.">
+<meta name="theme-color" content="#080D1A">
+<meta property="og:title" content="Solaris Energie Corporation">
+<meta property="og:description" content="Sun-hours in. Pesos out. Solar designed on your real bills and your real roof.">
+<meta property="og:type" content="website">
+<!-- DEPLOY STEP: patch og:url and og:image with the live absolute URL before zipping -->
+<meta property="og:url" content="https://example.com/">
+<meta property="og:image" content="https://example.com/assets/hero-5.webp">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cg fill='%23F7A423'%3E%3Cpath d='M23 1h2l1 7h-4z'/%3E%3Cpath d='M23 1h2l1 7h-4z' transform='rotate(18 24 24)'/%3E%3Cpath d='M23 1h2l1 7h-4z' transform='rotate(36 24 24)'/%3E%3Cpath d='M23 1h2l1 7h-4z' transform='rotate(54 24 24)'/%3E%3Cpath d='M23 1h2l1 7h-4z' transform='rotate(72 24 24)'/%3E%3Cpath d='M23 1h2l1 7h-4z' transform='rotate(-18 24 24)'/%3E%3Cpath d='M23 1h2l1 7h-4z' transform='rotate(-36 24 24)'/%3E%3Cpath d='M23 1h2l1 7h-4z' transform='rotate(-54 24 24)'/%3E%3Cpath d='M23 1h2l1 7h-4z' transform='rotate(-72 24 24)'/%3E%3C/g%3E%3Ccircle cx='24' cy='27' r='13' fill='%232E7D4E'/%3E%3Cpath d='M13 21h22l-3 12H16z' fill='%2355B573'/%3E%3Cg stroke='%2314522F' stroke-width='1.1'%3E%3Cpath d='M13.7 25h20.6M14.4 29h19.2M21 21l-1.6 12M28 21l1.6 12'/%3E%3C/g%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ============ TOKENS ============ */
+:root{
+  --canvas:#080D1A; --canvas-2:#0B1120; --panel:#111B2E; --panel-2:#16223A;
+  --line:#22314C; --line-strong:#40567F;
+  --blue:#8CACE0; --blue-deep:#3F5C8F;
+  --sun:#F7A423; --sun-hi:#FFC65E; --leaf:#84D06E;
+  --text-primary:#E9EEF7; --text-secondary:#A6B6CF; --text-tertiary:#8095B4;
+  --e1:cubic-bezier(.22,.61,.36,1); --e2:cubic-bezier(.65,0,.35,1);
+  --tshadow:0 1px 2px rgba(4,6,14,.95),0 3px 12px rgba(4,6,14,.78),0 10px 44px rgba(4,6,14,.8);
+  --disp:'Archivo',system-ui,sans-serif;
+  --body:'IBM Plex Sans',system-ui,sans-serif;
+  --mono:'IBM Plex Mono',ui-monospace,monospace;
+  --gut:clamp(20px,5vw,88px);
+}
+*,*::before,*::after{box-sizing:border-box}
+html,body{overflow-x:hidden;overflow-x:clip}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--canvas);color:var(--text-primary);
+  font-family:var(--body);font-size:clamp(16px,1.02vw,17.5px);line-height:1.6;
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+img{max-width:100%;display:block}
+h1,h2,h3,h4{margin:0;font-family:var(--disp);font-weight:700;font-stretch:112%;
+  line-height:1.02;letter-spacing:-.018em}
+p{margin:0}
+a{color:inherit}
+button,input,select,textarea{font:inherit;color:inherit}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;
+  clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap;border:0}
+:focus-visible{outline:2px solid var(--sun);outline-offset:3px;border-radius:2px}
+::selection{background:var(--sun);color:#0A1120}
+
+/* ============ FIXED ENVIRONMENT LAYER ============ */
+.env{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.env-glow{position:absolute;inset:-20%;
+  background:
+    radial-gradient(60% 45% at 18% 12%,rgba(247,164,35,.10) 0%,rgba(247,164,35,0) 60%),
+    radial-gradient(70% 50% at 84% 74%,rgba(63,92,143,.20) 0%,rgba(63,92,143,0) 62%),
+    radial-gradient(50% 40% at 50% 108%,rgba(132,208,110,.06) 0%,rgba(132,208,110,0) 60%);
+  animation:envdrift 96s var(--e2) -22s infinite alternate}
+@keyframes envdrift{
+  0%{transform:translate3d(0,0,0) scale(1)}
+  50%{transform:translate3d(2.4%,-1.8%,0) scale(1.07)}
+  100%{transform:translate3d(-1.8%,2.2%,0) scale(1.03)}}
+.env-grain{position:absolute;inset:0;opacity:.5;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='.42'/%3E%3C/svg%3E")}
+.env-motes{position:absolute;inset:0}
+.mote{position:absolute;width:2px;height:2px;border-radius:50%;background:var(--sun-hi);
+  opacity:.16;animation:mote 34s linear infinite}
+@keyframes mote{
+  0%{transform:translate3d(0,12vh,0);opacity:0}
+  12%{opacity:.2} 88%{opacity:.14}
+  100%{transform:translate3d(3vw,-104vh,0);opacity:0}}
+.page{position:relative;z-index:1}
+
+/* ============ LEDGER RULE (the signature element) ============ */
+.led{display:block;width:100%;height:9px;position:relative;
+  border-top:1px solid var(--line);overflow:hidden}
+.led::before{content:"";position:absolute;inset:0 0 auto 0;height:5px;
+  background-image:linear-gradient(90deg,var(--line) 0 1px,transparent 1px 100%);
+  background-size:11px 100%;opacity:.85}
+.led.gold{border-top-color:rgba(247,164,35,.5)}
+.led.gold::before{background-image:linear-gradient(90deg,rgba(247,164,35,.55) 0 1px,transparent 1px 100%)}
+.lrow{display:grid;grid-template-columns:1fr auto;align-items:baseline;gap:16px;
+  padding:13px 0;border-bottom:1px solid var(--line)}
+.lrow dt,.lrow .lk{font-family:var(--mono);font-size:.735rem;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--text-tertiary);margin:0}
+.lrow dd,.lrow .lv{margin:0;font-family:var(--mono);font-size:.94rem;color:var(--text-primary);
+  font-variant-numeric:tabular-nums}
+.lrow .lv em{font-style:normal;color:var(--sun)}
+.kick{font-family:var(--mono);font-size:.72rem;letter-spacing:.19em;text-transform:uppercase;
+  color:var(--sun);display:inline-flex;align-items:baseline;gap:.7em}
+.kick::before{content:"";width:26px;height:1px;background:var(--sun);opacity:.75;
+  transform:translateY(-.28em)}
+.unit{font-family:var(--mono);font-size:.7rem;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--text-tertiary)}
+.chip{display:inline-block;padding:.42em .8em;background:rgba(8,12,24,.55);
+  border:1px solid rgba(140,172,224,.28);border-radius:10px;backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);text-shadow:0 1px 3px rgba(4,6,14,.85)}
+
+/* ============ BUTTONS ============ */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.6em;
+  padding:.86em 1.5em;border-radius:3px;border:1px solid transparent;cursor:pointer;
+  font-family:var(--mono);font-size:.82rem;letter-spacing:.09em;text-transform:uppercase;
+  text-decoration:none;text-shadow:none;position:relative;overflow:hidden;
+  transition:background .35s var(--e1),color .35s var(--e1),border-color .35s var(--e1),transform .35s var(--e1)}
+.btn-p{background:var(--sun);color:#0A1120;font-weight:500}
+.btn-p:hover{background:var(--sun-hi);transform:translateY(-2px)}
+.btn-s{background:rgba(140,172,224,.06);color:var(--text-primary);border-color:var(--line-strong)}
+.btn-s:hover{border-color:var(--blue);background:rgba(140,172,224,.13);transform:translateY(-2px)}
+.btn .ar{transition:transform .35s var(--e1)}
+.btn:hover .ar{transform:translateX(4px)}
+@media (pointer:coarse){.btn{min-height:44px;display:inline-flex;align-items:center;justify-content:center}}
+
+/* ============ NAV ============ */
+.skip{position:absolute;left:-9999px;top:0;z-index:200;background:var(--sun);color:#0A1120;
+  padding:12px 20px;font-family:var(--mono);font-size:.8rem}
+.skip:focus{left:12px;top:12px}
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;
+  justify-content:space-between;gap:24px;padding:11px var(--gut);
+  transition:background .5s var(--e1),border-color .5s var(--e1),backdrop-filter .5s var(--e1);
+  border-bottom:1px solid transparent}
+.nav.stuck{background:rgba(8,13,26,.82);backdrop-filter:blur(16px);
+  -webkit-backdrop-filter:blur(16px);border-bottom-color:var(--line)}
+.brand{display:flex;align-items:center;text-decoration:none;flex:none;
+  background:#fff;border-radius:3px;padding:5px 9px;line-height:0;
+  box-shadow:0 2px 14px rgba(4,6,14,.35)}
+.brand img{width:clamp(104px,10.5vw,134px);height:auto;flex:none;display:block}
+.brand .bt{display:flex;flex-direction:column;line-height:1}
+.brand .b1{font-family:var(--disp);font-weight:700;font-stretch:112%;font-size:1.06rem;
+  letter-spacing:.04em;color:var(--text-primary)}
+.brand .b2{font-family:var(--mono);font-size:.53rem;letter-spacing:.23em;
+  text-transform:uppercase;color:var(--leaf);margin-top:3px}
+.nav-links{display:flex;align-items:center;gap:clamp(14px,1.9vw,30px);list-style:none;margin:0;padding:0}
+.nav-links a{font-family:var(--mono);font-size:.755rem;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--text-secondary);text-decoration:none;position:relative;padding:6px 0;
+  transition:color .3s var(--e1)}
+.nav-links a::after{content:"";position:absolute;left:0;right:100%;bottom:0;height:1px;
+  background:var(--sun);transition:right .4s var(--e1)}
+.nav-links a:hover{color:var(--text-primary)}
+.nav-links a:hover::after{right:0}
+.nav-cta{flex:none}
+.mob-only{display:none}
+.burger{display:none;width:44px;height:44px;background:none;border:1px solid var(--line-strong);
+  border-radius:3px;cursor:pointer;padding:0;align-items:center;justify-content:center}
+.burger span{display:block;width:18px;height:1.5px;background:var(--text-primary);position:relative;
+  transition:background .3s var(--e1)}
+.burger span::before,.burger span::after{content:"";position:absolute;left:0;width:18px;height:1.5px;
+  background:var(--text-primary);transition:transform .4s var(--e1)}
+.burger span::before{top:-6px}.burger span::after{top:6px}
+.nav.open .burger span{background:transparent}
+.nav.open .burger span::before{transform:translateY(6px) rotate(45deg)}
+.nav.open .burger span::after{transform:translateY(-6px) rotate(-45deg)}
+@media (max-width:900px){
+  .nav-links{position:fixed;inset:82px 0 auto 0;flex-direction:column;align-items:stretch;gap:0;
+    background:rgba(8,13,26,.97);backdrop-filter:blur(18px);border-bottom:1px solid var(--line);
+    padding:8px var(--gut) 22px;transform:translateY(-12px);opacity:0;pointer-events:none;
+    transition:opacity .4s var(--e1),transform .4s var(--e1)}
+  .nav.open .nav-links{opacity:1;transform:none;pointer-events:auto}
+  .nav-links li{border-bottom:1px solid var(--line)}
+  .nav-links a{display:block;padding:16px 0;font-size:.85rem}
+  .burger{display:inline-flex}
+  .nav-cta{display:none}
+  .mob-only{display:block}
+}
+
+/* ============ THE STATIC HERO ============ */
+.hero{position:relative;min-height:100svh;overflow:hidden;
+  background:linear-gradient(168deg,#0B1526,#080D1A)}
+.hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+  object-position:52% 46%;transform-origin:50% 50%;will-change:transform;
+  animation:kenburns 46s var(--e2) -8s infinite alternate}
+@keyframes kenburns{
+  from{transform:scale(1.045) translate(.7%,.6%)}
+  to{transform:scale(1.135) translate(-1.1%,-1.5%)}}
+.hero.off .hero-img{animation-play-state:paused}
+.hero-scrim{position:absolute;inset:0;pointer-events:none;background:
+  linear-gradient(180deg,rgba(6,9,20,.72) 0%,rgba(6,9,20,.24) 19%,rgba(6,9,20,.52) 47%,rgba(6,9,20,.90) 100%),
+  linear-gradient(101deg,rgba(4,6,14,.88) 0%,rgba(4,6,14,.74) 26%,rgba(4,6,14,.30) 52%,rgba(4,6,14,0) 74%),
+  radial-gradient(ellipse 88% 58% at 24% 74%,rgba(4,6,14,.58) 0%,rgba(4,6,14,0) 78%)}
+/* on a phone the text runs the full width, so the wash has to come from below instead */
+@media (max-width:720px){
+  /* crop to the array rather than the field, so the dark panels do the work
+     and the wash can stay light enough to keep the sunset alive */
+  .hero-img{object-position:33% 54%}
+  .hero-scrim{background:
+    linear-gradient(180deg,rgba(6,9,20,.58) 0%,rgba(6,9,20,.18) 15%,rgba(6,9,20,.70) 35%,rgba(6,9,20,.88) 62%,rgba(6,9,20,.92) 100%)}
+}
+.hero-grain{position:absolute;inset:0;pointer-events:none;opacity:.3;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='m'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23m)' opacity='.5'/%3E%3C/svg%3E")}
+.hero-in{position:relative;z-index:2;min-height:100svh;display:grid;align-content:end;
+  gap:22px;padding:150px var(--gut) clamp(34px,7vh,74px);text-shadow:var(--tshadow)}
+.hero-in > *{max-width:min(760px,92vw)}
+.hero-in .kick,.hero-in .cta-row{justify-self:start}
+.hero h2{font-size:clamp(2.4rem,6.4vw,5.1rem);max-width:13ch;letter-spacing:-.025em}
+.hero .sub{color:var(--text-secondary);max-width:46ch;font-size:clamp(1rem,1.28vw,1.24rem);
+  line-height:1.55}
+.hero .cta-row{display:flex;flex-wrap:wrap;gap:12px}
+.hero .btn{text-shadow:none}
+.hero .sled{display:grid;gap:0;width:min(560px,92vw);margin-top:2px}
+.hero .sled .lrow{padding:11px 0}
+.hero-cue{position:absolute;z-index:3;right:var(--gut);bottom:clamp(34px,7vh,74px);
+  display:flex;align-items:center;gap:10px;font-family:var(--mono);font-size:.7rem;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--text-tertiary)}
+.hero-cue svg{animation:cuebob 2.9s var(--e2) -.6s infinite}
+@keyframes cuebob{0%,100%{transform:translateY(-3px)}50%{transform:translateY(3px)}}
+@media (max-width:900px){.hero-cue{display:none}}
+@media (max-height:560px){.hero-cue{display:none}}
+/* the hero's one-time entrance: words rise, then the rest arrives in stages */
+.hero-h .w{display:inline-block;opacity:0;transform:translateY(30px);
+  animation:wrise .95s var(--e1) forwards;animation-delay:calc(.28s + var(--i,0)*.105s)}
+@keyframes wrise{to{opacity:1;transform:none}}
+.hero-st{opacity:0;transform:translateY(16px);
+  animation:strise .9s var(--e1) forwards;animation-delay:calc(.34s + var(--d,0)*1ms)}
+@keyframes strise{to{opacity:1;transform:none}}
+
+/* ============ SECTION SHELL + REVEAL ============ */
+.sec{position:relative;padding:clamp(78px,10.5vh,146px) var(--gut)}
+.sec.alt{background:linear-gradient(180deg,rgba(11,17,32,0),rgba(11,17,32,.85) 12%,rgba(11,17,32,.85) 88%,rgba(11,17,32,0))}
+.wrap{max-width:1220px;margin:0 auto}
+.sec-head{display:grid;gap:18px;margin-bottom:clamp(38px,5vh,64px)}
+.sec-head h2{font-size:clamp(1.85rem,3.9vw,3.15rem);max-width:19ch}
+.sec-head .lede{color:var(--text-secondary);max-width:58ch;font-size:clamp(1rem,1.13vw,1.13rem)}
+.rv .rvi{opacity:0;transform:translateY(20px);
+  transition:opacity .78s var(--e1),transform .78s var(--e1)}
+.rv.in .rvi{opacity:1;transform:none}
+.rv.in .rvi:nth-child(1){transition-delay:0ms}
+.rv.in .rvi:nth-child(2){transition-delay:85ms}
+.rv.in .rvi:nth-child(3){transition-delay:170ms}
+.rv.in .rvi:nth-child(4){transition-delay:255ms}
+.rv.in .rvi:nth-child(5){transition-delay:340ms}
+.rv.in .rvi:nth-child(6){transition-delay:425ms}
+.rv.in .rvi:nth-child(7){transition-delay:510ms}
+.rv.in .rvi:nth-child(8){transition-delay:595ms}
+.rv.done .rvi:nth-child(n){transition-delay:0s !important}
+
+/* ---- 1. THE BILL ---- */
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid var(--line)}
+.stat{padding:34px 30px 30px;border-right:1px solid var(--line);position:relative;overflow:hidden}
+.stat:last-child{border-right:0}
+.stat .n{font-family:var(--disp);font-weight:700;font-stretch:112%;
+  font-size:clamp(2.3rem,4.6vw,3.9rem);line-height:1;color:var(--sun);
+  font-variant-numeric:tabular-nums;letter-spacing:-.03em}
+.stat .n small{font-size:.42em;color:var(--text-secondary);letter-spacing:0;margin-left:.25em}
+.stat .lab{margin-top:14px;color:var(--text-secondary);font-size:.965rem;max-width:26ch}
+.stat::after{content:"";position:absolute;left:0;bottom:0;width:100%;height:1px;
+  background:linear-gradient(90deg,var(--sun),transparent);opacity:.34;
+  animation:statpulse 7s var(--e2) -2s infinite}
+@keyframes statpulse{0%,100%{opacity:.14}50%{opacity:.46}}
+.fineprint{margin-top:22px;font-family:var(--mono);font-size:.73rem;letter-spacing:.045em;
+  color:var(--text-tertiary);max-width:70ch}
+@media (max-width:820px){.stats{grid-template-columns:1fr}
+  .stat{border-right:0;border-bottom:1px solid var(--line)}}
+
+/* ---- 2. THE CALCULATOR (the centrepiece) ---- */
+.calcwrap{display:grid;grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);
+  gap:clamp(24px,3.4vw,56px);align-items:start}
+@media (max-width:1000px){.calcwrap{grid-template-columns:1fr}}
+.calcbox{background:linear-gradient(165deg,var(--panel),#0D1626);border:1px solid var(--line);
+  border-radius:4px;padding:clamp(20px,2.6vw,32px)}
+.ctl{display:grid;gap:9px;margin-bottom:24px}
+.ctl:last-of-type{margin-bottom:0}
+.ctl > .lk{font-family:var(--mono);font-size:.71rem;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--text-tertiary)}
+.billval{font-family:var(--disp);font-weight:700;font-stretch:112%;font-size:clamp(2rem,3.6vw,2.9rem);
+  color:var(--sun);line-height:1;font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+.billval small{font-size:.34em;color:var(--text-secondary);letter-spacing:.08em;margin-left:.5em;
+  font-family:var(--mono);text-transform:uppercase}
+input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:26px;background:none;
+  cursor:pointer;margin:0}
+input[type=range]::-webkit-slider-runnable-track{height:3px;background:var(--line-strong);border-radius:2px}
+input[type=range]::-moz-range-track{height:3px;background:var(--line-strong);border-radius:2px}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:20px;height:20px;border-radius:50%;
+  background:var(--sun);border:3px solid #0C1424;margin-top:-8.5px;
+  box-shadow:0 0 0 1px var(--sun),0 3px 12px rgba(247,164,35,.4)}
+input[type=range]::-moz-range-thumb{width:20px;height:20px;border-radius:50%;background:var(--sun);
+  border:3px solid #0C1424;box-shadow:0 0 0 1px var(--sun)}
+input[type=range]:focus-visible{outline:2px solid var(--sun);outline-offset:6px;border-radius:4px}
+.seg{display:flex;gap:0;border:1px solid var(--line-strong);border-radius:3px;overflow:hidden}
+.seg button{flex:1;background:none;border:0;padding:.78em .5em;cursor:pointer;font-family:var(--mono);
+  font-size:.75rem;letter-spacing:.07em;text-transform:uppercase;color:var(--text-secondary);
+  border-right:1px solid var(--line-strong);
+  transition:background .3s var(--e1),color .3s var(--e1)}
+.seg button:last-child{border-right:0}
+.seg button:hover{background:rgba(140,172,224,.08);color:var(--text-primary)}
+.seg button[aria-pressed=true]{background:var(--sun);color:#0A1120;font-weight:500}
+.calcout{margin-top:26px;display:grid}
+.calcout .lrow:last-child{border-bottom:0}
+.calcout .lv{font-size:1rem}
+.headline-row{border-top:1px solid var(--sun);border-bottom:1px solid var(--sun) !important;
+  background:rgba(247,164,35,.06);padding:16px 14px !important;margin-top:6px}
+.headline-row .lv{font-size:1.18rem !important}
+.calccta{margin-top:22px;display:grid;gap:12px}
+.calccta .btn{width:100%}
+.calcnote{font-family:var(--mono);font-size:.7rem;line-height:1.75;color:var(--text-tertiary)}
+/* the live diagram */
+.viz{position:relative;background:linear-gradient(168deg,#0E1930,#0A1120);border:1px solid var(--line);
+  border-radius:4px;padding:clamp(16px,2vw,26px);overflow:hidden}
+.viz::before{content:"";position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(58% 40% at 50% 4%,rgba(247,164,35,.16),transparent 70%);
+  opacity:calc(.3 + .7*var(--day,0))}
+.viz svg{width:100%;height:auto;display:block;position:relative}
+.arc-track{stroke:var(--line-strong);stroke-width:1;stroke-dasharray:2 6;fill:none;opacity:.7}
+.arc-live{stroke:var(--sun);stroke-width:1.6;fill:none;opacity:.85}
+.roof-face{fill:#0E1728;stroke:var(--line-strong);stroke-width:1.2}
+.roof-edge{fill:#0A1120;stroke:var(--line-strong);stroke-width:1.2}
+.cell{fill:#111C30;stroke:#0A1120;stroke-width:1.1;
+  transition:fill .45s var(--e1),opacity .45s var(--e1)}
+.cell.on{fill:#2E5490}
+.cell.on.day{fill:#4C82CC}
+.sun-g circle.core{fill:var(--sun-hi)}
+.sun-g circle.halo{fill:var(--sun);opacity:.2}
+.sun-g line{stroke:var(--sun);stroke-width:1.6;stroke-linecap:round}
+.beam{stroke:var(--sun-hi);stroke-width:1;opacity:0;stroke-linecap:round}
+.vizcap{position:absolute;top:clamp(16px,2vw,26px);right:clamp(16px,2vw,26px);z-index:2;
+  font-family:var(--mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;
+  padding:.4em .7em;background:rgba(8,12,24,.7);border:1px solid var(--line);border-radius:3px;
+  color:var(--text-secondary);backdrop-filter:blur(8px)}
+.bills{margin-top:18px;display:grid;gap:11px}
+.billbar{display:grid;grid-template-columns:88px 1fr;gap:13px;align-items:center}
+.billbar .bl{font-family:var(--mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--text-tertiary);text-align:right}
+.billbar .bt{position:relative;height:32px;background:rgba(140,172,224,.07);border-radius:2px;
+  overflow:hidden}
+.billbar .bf{position:absolute;inset:0 auto 0 0;width:var(--bw,0%);border-radius:2px;
+  transition:width .55s var(--e1)}
+.billbar.now .bf{background:linear-gradient(90deg,#4A5B78,#65799B)}
+.billbar.after .bf{background:linear-gradient(90deg,var(--sun),var(--sun-hi))}
+.billbar .bn{position:absolute;top:50%;transform:translateY(-50%);left:11px;font-family:var(--mono);
+  font-size:.79rem;color:#fff;font-variant-numeric:tabular-nums;text-shadow:0 1px 3px rgba(4,6,14,.9);
+  white-space:nowrap}
+.billbar.after .bn{color:#0A1120;text-shadow:none;font-weight:500}
+.teachrow{margin-top:16px;display:flex;gap:11px;align-items:flex-start;min-height:52px;
+  padding:12px 14px;border:1px solid var(--line);border-left:2px solid var(--leaf);
+  background:rgba(132,208,110,.045)}
+.teachrow p{font-size:.9rem;color:var(--text-secondary)}
+.dayrow{margin-top:16px;display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+.assump{margin-top:20px;border-top:1px solid var(--line)}
+.assump summary{cursor:pointer;padding:15px 0;font-family:var(--mono);font-size:.72rem;
+  letter-spacing:.11em;text-transform:uppercase;color:var(--sun);list-style:none;
+  display:flex;justify-content:space-between;align-items:center;gap:12px}
+.assump summary::-webkit-details-marker{display:none}
+.assump summary::after{content:"+";font-size:1.1rem;line-height:1}
+.assump[open] summary::after{content:"\2212"}
+.assump dl{display:grid;padding-bottom:14px}
+.assump .lrow{padding:9px 0}
+.assump .lrow:last-child{border-bottom:0}
+.assump .lv{font-size:.85rem}
+
+/* ---- SERVICES ---- */
+.svcs{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--line)}
+@media (max-width:900px){.svcs{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:540px){.svcs{grid-template-columns:1fr}}
+.svc{padding:clamp(22px,2.5vw,30px);border-right:1px solid var(--line);position:relative;overflow:hidden}
+.svc:last-child{border-right:0}
+@media (max-width:900px){.svc:nth-child(2){border-right:0}
+  .svc:nth-child(1),.svc:nth-child(2){border-bottom:1px solid var(--line)}}
+@media (max-width:540px){.svc{border-right:0;border-bottom:1px solid var(--line)}
+  .svc:last-child{border-bottom:0}}
+.svc .sn{font-family:var(--mono);font-size:.7rem;letter-spacing:.13em;color:var(--sun)}
+.svc h3{margin-top:14px;font-size:clamp(1.02rem,1.35vw,1.22rem);letter-spacing:-.006em}
+.svc p{margin-top:10px;color:var(--text-secondary);font-size:.92rem}
+.svc .ico{margin-top:2px;color:var(--blue);opacity:.9}
+.svc::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;
+  background:linear-gradient(90deg,var(--sun),transparent);opacity:.2;
+  animation:statpulse 8s var(--e2) -3s infinite}
+
+/* ---- TRACK RECORD ---- */
+.bignums{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line)}
+@media (max-width:860px){.bignums{grid-template-columns:repeat(2,1fr)}
+  .bignums > div:nth-child(-n+2){border-bottom:1px solid var(--line)}}
+.bignums > div{padding:28px 22px;border-right:1px solid var(--line)}
+.bignums > div:last-child{border-right:0}
+@media (max-width:860px){.bignums > div:nth-child(2n){border-right:0}}
+.bignums .n{font-family:var(--disp);font-weight:700;font-stretch:112%;
+  font-size:clamp(2rem,3.7vw,3.2rem);line-height:1;color:var(--sun);letter-spacing:-.03em;
+  font-variant-numeric:tabular-nums}
+.bignums .n small{font-size:.36em;color:var(--text-secondary);margin-left:.28em;letter-spacing:0}
+.bignums .l{margin-top:11px;color:var(--text-secondary);font-size:.9rem}
+.pfilter{display:flex;flex-wrap:wrap;gap:9px;margin:32px 0 16px}
+.pfilter button{background:none;border:1px solid var(--line-strong);border-radius:3px;
+  padding:.6em 1.05em;cursor:pointer;font-family:var(--mono);font-size:.72rem;letter-spacing:.09em;
+  text-transform:uppercase;color:var(--text-secondary);
+  transition:background .3s var(--e1),color .3s var(--e1),border-color .3s var(--e1)}
+.pfilter button:hover{border-color:var(--blue);color:var(--text-primary)}
+.pfilter button[aria-pressed=true]{background:var(--sun);border-color:var(--sun);color:#0A1120}
+.plist{max-height:min(620px,72vh);overflow-y:auto;border:1px solid var(--line);
+  background:linear-gradient(180deg,rgba(17,27,46,.55),rgba(11,17,32,.3))}
+.prow{display:grid;grid-template-columns:84px 202px minmax(0,1fr) minmax(0,.86fr);gap:16px;
+  padding:15px 20px;border-bottom:1px solid var(--line);align-items:baseline}
+.prow:last-child{border-bottom:0}
+.prow .py{font-family:var(--mono);font-size:.79rem;color:var(--text-tertiary);
+  font-variant-numeric:tabular-nums}
+.prow .pc{font-family:var(--mono);font-size:.82rem;color:var(--sun);font-variant-numeric:tabular-nums;
+  white-space:nowrap;overflow-wrap:normal}
+.prow .pw{font-size:.93rem;min-width:0;overflow-wrap:anywhere}
+.prow .pw i{font-style:normal;color:var(--text-tertiary);display:block;margin-top:3px;
+  font-size:.85rem}
+.prow .pk{font-family:var(--mono);font-size:.74rem;color:var(--text-secondary);text-align:right;
+  letter-spacing:.02em;min-width:0;overflow-wrap:anywhere}
+.prow .pk b{font-weight:400;color:var(--blue);display:block;font-size:.69rem;letter-spacing:.1em;
+  text-transform:uppercase;margin-bottom:4px}
+.prow.live .py::after{content:"";display:inline-block;width:5px;height:5px;border-radius:50%;
+  background:var(--leaf);margin-left:7px;vertical-align:middle;
+  animation:statpulse 2.6s var(--e2) infinite}
+@media (max-width:1180px){
+  .prow{grid-template-columns:84px 190px minmax(0,1fr);gap:6px 16px}
+  .prow .pk{grid-column:2/-1;text-align:left;margin-top:6px}
+}
+@media (max-width:820px){.prow{grid-template-columns:76px 1fr;gap:6px 14px}
+  .prow .pc{grid-column:2}.prow .pw{grid-column:2}.prow .pk{grid-column:2;text-align:left;margin-top:4px}}
+
+/* ---- FEATURED PROJECT CARDS ---- */
+.pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:6px}
+@media (max-width:1000px){.pgrid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:640px){.pgrid{grid-template-columns:1fr}}
+.pcard{border:1px solid var(--line);background:var(--panel);display:flex;flex-direction:column;
+  overflow:hidden;position:relative}
+.pcard.hid{display:none}
+.pimg{position:relative;aspect-ratio:16/10;overflow:hidden;background:#0C1424;flex:none}
+.pimg img{width:100%;height:100%;object-fit:cover;transform:scale(1.02);
+  transition:transform 1s var(--e1)}
+.pcard:hover .pimg img{transform:scale(1.07)}
+.pimg::after{content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(180deg,rgba(6,9,20,.42) 0%,rgba(6,9,20,0) 38%,rgba(6,9,20,.28) 100%)}
+.pchip{position:absolute;z-index:2;left:12px;top:12px;font-family:var(--mono);font-size:.7rem;
+  letter-spacing:.07em;padding:.36em .66em;border-radius:2px;background:rgba(8,12,24,.82);
+  border:1px solid rgba(247,164,35,.42);color:var(--sun);backdrop-filter:blur(8px);
+  -webkit-backdrop-filter:blur(8px);white-space:nowrap}
+.prole{position:absolute;z-index:2;right:12px;top:12px;font-family:var(--mono);font-size:.66rem;
+  letter-spacing:.1em;text-transform:uppercase;padding:.34em .6em;border-radius:2px;
+  background:rgba(8,12,24,.72);border:1px solid var(--line);color:var(--blue);
+  backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.pbody{padding:18px 20px 20px;display:flex;flex-direction:column;gap:8px;flex:1}
+.pbody h3{font-size:1.06rem;letter-spacing:-.006em}
+.ploc{font-family:var(--mono);font-size:.72rem;letter-spacing:.05em;color:var(--text-tertiary)}
+.pdesc{color:var(--text-secondary);font-size:.9rem;flex:1}
+.pmeta{font-family:var(--mono);font-size:.69rem;letter-spacing:.06em;color:var(--leaf);
+  padding-top:9px;border-top:1px solid var(--line);margin-top:4px}
+.morebtn{margin-top:20px;display:flex;justify-content:center}
+.morebtn button{background:none;border:1px solid var(--line-strong);border-radius:3px;
+  padding:.85em 1.7em;cursor:pointer;font-family:var(--mono);font-size:.76rem;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--text-secondary);
+  transition:border-color .3s var(--e1),color .3s var(--e1),background .3s var(--e1)}
+.morebtn button:hover{border-color:var(--sun);color:var(--sun);background:rgba(247,164,35,.05)}
+
+/* ---- WHO WE ARE ---- */
+.aboutgrid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);
+  gap:clamp(26px,4vw,60px);align-items:start}
+@media (max-width:900px){.aboutgrid{grid-template-columns:1fr}}
+.misson{margin-top:26px;padding:24px 26px;border:1px solid var(--line);border-left:2px solid var(--sun);
+  background:rgba(247,164,35,.045)}
+.misson .lk{font-family:var(--mono);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--sun)}
+.misson p{margin-top:12px;font-size:clamp(1.02rem,1.3vw,1.18rem);color:var(--text-primary);
+  line-height:1.55}
+.regcard{background:#fff;border-radius:4px;padding:26px 30px;display:grid;justify-items:center;gap:16px}
+.regcard img{width:min(340px,88%);height:auto}
+.regcard .rl{font-family:var(--mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;
+  color:#5A4632;text-align:center;line-height:1.8}
+.regcard .rl b{color:#2E7D4E;font-weight:500}
+.team{margin-top:clamp(40px,5vh,64px)}
+.tgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid var(--line)}
+@media (max-width:860px){.tgrid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:520px){.tgrid{grid-template-columns:1fr}}
+.tp{padding:22px 24px 24px;border-bottom:1px solid var(--line);border-right:1px solid var(--line)}
+.tgrid .tp:nth-child(3n){border-right:0}
+@media (max-width:860px){.tgrid .tp:nth-child(3n){border-right:1px solid var(--line)}
+  .tgrid .tp:nth-child(2n){border-right:0}}
+@media (max-width:520px){.tp{border-right:0}}
+.tp .tn{font-family:var(--disp);font-weight:700;font-stretch:112%;font-size:1.06rem;
+  letter-spacing:-.006em}
+.tp .tr{margin-top:6px;font-family:var(--mono);font-size:.7rem;letter-spacing:.11em;
+  text-transform:uppercase;color:var(--sun)}
+.tp .tl{margin-top:9px;font-family:var(--mono);font-size:.7rem;color:var(--leaf)}
+.tp p{margin-top:10px;color:var(--text-secondary);font-size:.89rem}
+.crew{margin-top:26px;border:1px solid var(--line);padding:clamp(20px,2.4vw,28px)}
+.crewrow{display:grid;grid-template-columns:190px minmax(0,1fr);gap:16px 24px;padding:15px 0;
+  border-bottom:1px solid var(--line);align-items:baseline}
+.crewrow:last-child{border-bottom:0}
+@media (max-width:660px){.crewrow{grid-template-columns:1fr;gap:8px}}
+.crewrow .ck{font-family:var(--mono);font-size:.72rem;letter-spacing:.11em;text-transform:uppercase;
+  color:var(--blue)}
+.crewrow .ck i{display:block;font-style:normal;color:var(--text-tertiary);letter-spacing:.02em;
+  text-transform:none;margin-top:5px;font-size:.72rem}
+.crewrow .cn{color:var(--text-secondary);font-size:.92rem;line-height:1.85}
+
+/* ---- 3. SYSTEMS: the ledger table ---- */
+.tbl{width:100%;min-width:760px;border-collapse:collapse;font-size:.95rem}
+.tbl th,.tbl td{text-align:left;padding:17px 18px;border-bottom:1px solid var(--line);
+  vertical-align:top}
+.tbl thead th{font-family:var(--disp);font-weight:700;font-stretch:112%;font-size:1.22rem;
+  letter-spacing:-.01em;border-bottom:1px solid var(--line-strong);white-space:nowrap}
+.tbl thead th:first-child{font-family:var(--mono);font-size:.72rem;font-weight:400;
+  letter-spacing:.13em;text-transform:uppercase;color:var(--text-tertiary)}
+.tbl tbody th{font-family:var(--mono);font-size:.73rem;font-weight:400;letter-spacing:.11em;
+  text-transform:uppercase;color:var(--text-tertiary);white-space:nowrap;width:1%}
+.tbl td{color:var(--text-secondary)}
+.tbl .pick{background:rgba(247,164,35,.045)}
+.tbl .pick.hd{color:var(--sun)}
+.tbl .yes{color:var(--leaf)}
+.tbl .no{color:#E88A7D}
+.tblscroll{overflow-x:auto;-webkit-overflow-scrolling:touch;position:relative}
+.tblhint{display:none;align-items:center;gap:9px;font-family:var(--mono);font-size:.7rem;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--text-tertiary);margin-bottom:12px}
+.tblhint span{flex:1;height:1px;background:var(--line)}
+@media (max-width:860px){.tblhint{display:flex}}
+.note + .note{margin-top:14px}
+.note{margin-top:26px;display:flex;gap:14px;align-items:flex-start;padding:18px 20px;
+  border:1px solid var(--line);border-left:2px solid var(--blue);background:rgba(140,172,224,.04)}
+.note p{color:var(--text-secondary);max-width:70ch}
+.note b{color:var(--text-primary);font-weight:500}
+
+/* ---- 4. THE STEP TRACKER ---- */
+.tracker{position:relative;margin-top:6px}
+.trk-rail,.trk-fill,.trk-tailrail{position:absolute;top:26px;height:2px;pointer-events:none}
+.trk-rail{left:27px;right:calc(25% - 27px);background:var(--line)}
+.trk-fill{left:27px;width:calc((75% - 54px) * var(--tp,0));
+  background:linear-gradient(90deg,var(--sun),var(--leaf))}
+.trk-tailrail{left:calc(75% + 27px);right:calc(12.5% - 27px);
+  border-top:2px dashed var(--line-strong);height:0;opacity:.85}
+.trk-steps{display:grid;grid-template-columns:repeat(8,1fr);gap:14px;position:relative}
+.trk-step{display:grid;gap:15px;align-content:start}
+.trk-node{width:54px;height:54px;border-radius:50%;border:1px solid var(--line-strong);
+  background:var(--canvas);display:grid;place-items:center;position:relative;z-index:2;
+  font-family:var(--mono);font-size:.95rem;color:var(--text-tertiary);
+  transition:border-color .55s var(--e1),color .55s var(--e1),background .55s var(--e1)}
+.trk-step.on .trk-node{border-color:var(--sun);color:var(--sun);background:#131A2E}
+.trk-step.now .trk-node::after{content:"";position:absolute;inset:-7px;border-radius:50%;
+  border:1px solid var(--sun);opacity:0;animation:trkpulse 2.4s var(--e2) infinite}
+@keyframes trkpulse{0%{opacity:.7;transform:scale(.86)}70%,100%{opacity:0;transform:scale(1.15)}}
+.trk-step.tail .trk-node{border-style:dashed;border-color:var(--leaf);color:var(--leaf);
+  background:var(--canvas)}
+.trk-step.tail.on .trk-node{border-color:var(--leaf);color:var(--leaf);background:#0F1D18}
+.trk-when{display:inline-block;font-family:var(--mono);font-size:.66rem;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--sun);border:1px solid rgba(247,164,35,.34);
+  border-radius:2px;padding:.32em .6em;justify-self:start;white-space:nowrap}
+.trk-step.tail .trk-when{color:var(--leaf);border-color:rgba(132,208,110,.36)}
+.trk-name{font-size:clamp(.95rem,1.12vw,1.1rem);letter-spacing:-.005em;margin-top:11px;
+  min-height:2.5em}
+.trk-desc{margin-top:9px;color:var(--text-secondary);font-size:.855rem;line-height:1.6}
+@media (max-width:1180px){
+  .trk-steps{grid-template-columns:repeat(4,1fr);gap:30px 18px}
+  .trk-rail,.trk-fill,.trk-tailrail{display:none}
+}
+@media (max-width:760px){
+  .trk-steps{grid-template-columns:1fr;gap:0}
+  .trk-step{grid-template-columns:48px minmax(0,1fr);gap:0 20px;padding:16px 0;
+    border-bottom:1px solid var(--line);align-items:start;position:relative}
+  .trk-step:last-child{border-bottom:0}
+  .trk-node{width:48px;height:48px;font-size:.86rem}
+  .trk-step > .trk-body{grid-column:2}
+  .trk-when{margin-top:2px}
+  .trk-name{margin-top:9px;min-height:0}
+}
+.paynote{margin-top:clamp(30px,4vh,46px);border:1px solid var(--line);background:var(--panel);
+  padding:clamp(22px,3vw,34px);border-left:2px solid var(--sun)}
+.paynote .split{font-family:var(--disp);font-weight:700;font-stretch:118%;
+  font-size:clamp(1.5rem,3vw,2.35rem);letter-spacing:-.015em;color:var(--sun);line-height:1.05;
+  max-width:24ch}
+.paynote p{margin-top:15px;color:var(--text-secondary);max-width:66ch}
+
+/* ---- 5. WORK: the asymmetric grid ---- */
+.work{display:grid;grid-template-columns:repeat(6,1fr);gap:14px}
+.wk{position:relative;overflow:hidden;border:1px solid var(--line);background:var(--panel);
+  min-height:210px;display:block}
+.wk:nth-child(1){grid-column:span 4;min-height:340px}
+.wk:nth-child(2){grid-column:span 2;min-height:340px}
+.wk:nth-child(3){grid-column:span 3}
+.wk:nth-child(4){grid-column:span 3}
+.wk img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+  transition:transform 1.1s var(--e1);transform:scale(1.02)}
+.wk:hover img{transform:scale(1.07)}
+.wk .wkin{position:relative;z-index:2;height:100%;display:flex;flex-direction:column;
+  justify-content:flex-end;padding:20px;
+  background:linear-gradient(180deg,rgba(6,9,20,.18) 0%,rgba(6,9,20,.28) 42%,rgba(6,9,20,.9) 100%)}
+.wk h3{font-size:1.08rem}
+.wk .wkm{margin-top:9px;display:flex;flex-wrap:wrap;gap:7px 16px;font-family:var(--mono);
+  font-size:.71rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-secondary)}
+.wk .wkm b{color:var(--sun);font-weight:400}
+@media (max-width:860px){.work{grid-template-columns:repeat(2,1fr)}
+  .wk:nth-child(1),.wk:nth-child(2){grid-column:span 2;min-height:260px}
+  .wk:nth-child(3),.wk:nth-child(4){grid-column:span 2;min-height:200px}}
+
+/* ---- 6. PRICING ---- */
+.prices{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--line)}
+.pr{padding:clamp(24px,2.9vw,36px);border-right:1px solid var(--line);position:relative}
+.pr:last-child{border-right:0}
+.pr.feat{background:linear-gradient(178deg,rgba(247,164,35,.075),rgba(247,164,35,.015))}
+.pr .tag{position:absolute;top:0;left:0;right:0;height:2px;background:var(--sun);opacity:0}
+.pr.feat .tag{opacity:1}
+.pr .sz{font-family:var(--disp);font-weight:700;font-stretch:112%;font-size:2.05rem;line-height:1}
+.pr .sz small{font-size:.42em;color:var(--text-secondary);margin-left:.3em}
+.pr .who{margin-top:9px;color:var(--text-tertiary);font-family:var(--mono);font-size:.72rem;
+  letter-spacing:.11em;text-transform:uppercase}
+.pr .amt{margin-top:22px;font-family:var(--mono);font-size:1.16rem;color:var(--sun);
+  font-variant-numeric:tabular-nums}
+.pr dl{margin:20px 0 0;display:grid}
+.pr .lrow:last-child{border-bottom:0}
+@media (max-width:860px){.prices{grid-template-columns:1fr}
+  .pr{border-right:0;border-bottom:1px solid var(--line)}}
+
+/* ---- 7. FAQ ---- */
+.faq{border-top:1px solid var(--line)}
+.qa{border-bottom:1px solid var(--line)}
+.qa button{width:100%;display:flex;align-items:baseline;justify-content:space-between;gap:22px;
+  background:none;border:0;padding:23px 0;text-align:left;cursor:pointer;
+  font-family:var(--disp);font-weight:600;font-stretch:112%;font-size:clamp(1.02rem,1.5vw,1.28rem);
+  letter-spacing:-.008em;color:var(--text-primary);transition:color .3s var(--e1)}
+.qa button:hover{color:var(--sun)}
+.qa .pm{flex:none;width:15px;height:15px;position:relative;align-self:center}
+.qa .pm::before,.qa .pm::after{content:"";position:absolute;background:var(--sun);
+  transition:transform .45s var(--e1),opacity .45s var(--e1)}
+.qa .pm::before{left:0;right:0;top:7px;height:1.5px}
+.qa .pm::after{top:0;bottom:0;left:7px;width:1.5px}
+.qa.open .pm::after{transform:rotate(90deg);opacity:0}
+.qa .ans{overflow:hidden;height:0;transition:height .5s var(--e1)}
+.qa .ans p{color:var(--text-secondary);max-width:72ch;padding-bottom:24px}
+.qa .ans p + p{padding-top:0;margin-top:-10px}
+
+/* ---- 8. FORM ---- */
+.quote{display:grid;grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr);
+  gap:clamp(28px,4vw,66px);align-items:start}
+@media (max-width:900px){.quote{grid-template-columns:1fr}}
+.qside dl{margin:26px 0 0;display:grid}
+.qside .lrow:last-child{border-bottom:0}
+.qform{background:var(--panel);border:1px solid var(--line);padding:clamp(22px,3vw,38px);
+  position:relative;overflow:hidden}
+.fgrid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.fgrid .full{grid-column:1/-1}
+@media (max-width:560px){.fgrid{grid-template-columns:1fr}}
+.fld{display:grid;gap:7px}
+.fld label{font-family:var(--mono);font-size:.71rem;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--text-tertiary)}
+.fld input,.fld select,.fld textarea{background:#0B1222;border:1px solid var(--line-strong);
+  border-radius:2px;padding:.82em .9em;font-size:.96rem;font-family:var(--body);
+  transition:border-color .3s var(--e1),background .3s var(--e1);width:100%}
+.fld textarea{resize:vertical;min-height:96px}
+.fld input:focus,.fld select:focus,.fld textarea:focus{border-color:var(--sun);
+  background:#0D1526;outline:none}
+.fld input::placeholder,.fld textarea::placeholder{color:#61748F}
+.qform .btn{margin-top:22px;width:100%}
+.qmicro{margin-top:14px;font-family:var(--mono);font-size:.71rem;letter-spacing:.05em;
+  color:var(--text-tertiary);line-height:1.7}
+.qdone{position:absolute;inset:0;background:var(--panel);display:grid;align-content:center;
+  gap:16px;padding:clamp(22px,3vw,38px);opacity:0;pointer-events:none;
+  transform:translateY(14px);transition:opacity .55s var(--e1),transform .55s var(--e1)}
+.qdone.on{opacity:1;pointer-events:auto;transform:none}
+.qdone .tick{width:46px;height:46px;border-radius:50%;border:1px solid var(--leaf);
+  display:grid;place-items:center;color:var(--leaf)}
+.qdone h3{font-size:1.5rem}
+.qdone p{color:var(--text-secondary);max-width:44ch}
+
+/* ---- FOOTER ---- */
+.foot{border-top:1px solid var(--line);padding:clamp(50px,7vh,84px) var(--gut) 34px;
+  background:linear-gradient(180deg,rgba(11,17,32,0),rgba(11,17,32,.7))}
+.footgrid{display:grid;grid-template-columns:minmax(0,1.3fr) repeat(2,minmax(0,1fr));
+  gap:38px;max-width:1220px;margin:0 auto}
+@media (max-width:760px){.footgrid{grid-template-columns:1fr}}
+.foot h4{font-family:var(--mono);font-weight:400;font-size:.71rem;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--text-tertiary);margin-bottom:15px}
+.foot ul{list-style:none;margin:0;padding:0;display:grid;gap:9px}
+.foot a{color:var(--text-secondary);text-decoration:none;font-size:.93rem;
+  transition:color .3s var(--e1)}
+.foot a:hover{color:var(--sun)}
+.foot .blurb{color:var(--text-secondary);max-width:40ch;margin-top:16px;font-size:.95rem}
+.footbase{max-width:1220px;margin:44px auto 0;padding-top:22px;border-top:1px solid var(--line);
+  display:flex;flex-wrap:wrap;gap:14px 30px;justify-content:space-between;
+  font-family:var(--mono);font-size:.71rem;letter-spacing:.055em;color:var(--text-tertiary)}
+.disclose{max-width:1220px;margin:22px auto 0;padding:15px 18px;border:1px dashed var(--line-strong);
+  font-family:var(--mono);font-size:.71rem;line-height:1.75;color:var(--text-tertiary)}
+
+/* ============ REDUCED MOTION, HONOURED COMPLETELY ============ */
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation:none !important;transition:none !important;
+    transition-delay:0s !important;animation-delay:0s !important}
+  .rv .rvi{opacity:1 !important;transform:none !important}
+  .rv.in .rvi:nth-child(n){transition-delay:0s !important}
+  .env-glow{transform:none}
+  .mote{display:none}
+  .trk-fill{width:calc(75% - 54px) !important}
+  .trk-step .trk-node{border-color:var(--sun);color:var(--sun);background:#131A2E}
+  .trk-step.tail .trk-node{border-color:var(--leaf);color:var(--leaf);background:#0F1D18}
+  .cell.on{fill:#3C6AAE}
+  .hero-h .w,.hero-st{opacity:1 !important;transform:none !important}
+  .hero-img{animation:none;transform:scale(1.05)}
+}
+.stickycta{position:fixed;left:0;right:0;bottom:0;z-index:90;display:none;
+  padding:10px 14px calc(10px + env(safe-area-inset-bottom,0px));
+  background:rgba(8,13,26,.95);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+  border-top:1px solid var(--line);transform:translateY(115%);
+  transition:transform .42s var(--e1)}
+.stickycta.show{transform:none}
+.stickycta .btn{width:100%;padding:1em 1.5em}
+@media (max-width:900px){.stickycta{display:block}
+  body.hascta .foot{padding-bottom:88px}}
+@media (prefers-reduced-motion:reduce){.stickycta{transition:none}}
+body.paused *,body.paused *::before,body.paused *::after{animation-play-state:paused !important}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<div class="env" aria-hidden="true">
+  <div class="env-glow"></div>
+  <div class="env-motes" id="motes"></div>
+  <div class="env-grain"></div>
+</div>
+
+<div class="page">
+<nav class="nav" id="nav">
+  <a class="brand" href="#top" aria-label="Solaris Energie Corporation, back to top">
+    <img src="assets/logo.png" alt="" width="176" height="77" decoding="async">
+    <span class="sr-only">Solaris Energie Corporation</span>
+  </a>
+  <ul class="nav-links" id="navlinks">
+    <li><a href="#calculator">Calculator</a></li>
+    <li><a href="#systems">Systems</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#process">Process</a></li>
+    <li><a href="#work">Track record</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li class="mob-only"><a href="#quote">Get a quote</a></li>
+  </ul>
+  <a class="btn btn-p nav-cta" href="#quote">Get a quote <span class="ar" aria-hidden="true">&rarr;</span></a>
+  <button class="burger" id="burger" aria-label="Menu" aria-expanded="false" aria-controls="navlinks"><span></span></button>
+</nav>
+
+<main id="main" tabindex="-1">
+<h1 class="sr-only">Solaris Energie Corporation. Grid-tied, hybrid and off-grid solar for Philippine homes, resorts and businesses.</h1>
+
+<!-- ============ THE SCROLL JOURNEY ============ -->
+<!-- ============ THE STATIC HERO ============ -->
+<section class="hero" id="top">
+  <img class="hero-img" src="assets/hero-1.webp" alt="A long row of solar panels catching low golden sunlight across open farmland." fetchpriority="high" decoding="async">
+  <div class="hero-scrim" aria-hidden="true"></div>
+  <div class="hero-grain" aria-hidden="true"></div>
+  <div class="hero-in">
+    <span class="kick chip hero-st" style="--d:0">Solaris Energie Corporation</span>
+    <h2 class="hero-h"><span class="w" style="--i:0">Cut</span> <span class="w" style="--i:1">your</span> <span class="w" style="--i:2">electric</span> <span class="w" style="--i:3">bill</span> <span class="w" style="--i:4">with</span> <span class="w" style="--i:5">solar.</span></h2>
+    <p class="sub hero-st" style="--d:820">Solar for Cebu homes and businesses. Registered company, licensed engineers, 42 projects since 2018. We file your net metering for you.</p>
+    <div class="sled hero-st" style="--d:960">
+      <div class="lrow"><span class="lk">Typical saving</span><span class="lv"><em>55 to 70 percent</em> of the bill</span></div>
+      <div class="lrow"><span class="lk">Net metering</span><span class="lv">We file it and chase it</span></div>
+      <div class="lrow"><span class="lk">Delivered since 2018</span><span class="lv">12.96 MWp, 42 projects</span></div>
+      <div class="lrow"><span class="lk">Site survey</span><span class="lv"><em>Free, no obligation</em></span></div>
+    </div>
+    <div class="cta-row hero-st" style="--d:1100">
+      <a class="btn btn-p" href="#quote">Get a quote <span class="ar" aria-hidden="true">&rarr;</span></a>
+      <a class="btn btn-s" href="#calculator">Work out my number</a>
+    </div>
+  </div>
+  <div class="hero-cue" aria-hidden="true">
+    <span>Scroll</span>
+    <svg width="12" height="18" viewBox="0 0 12 18" fill="none" stroke="currentColor" stroke-width="1.4">
+      <path d="M6 1v15M1 11l5 5 5-5"/>
+    </svg>
+  </div>
+</section>
+
+<!-- ============ 2. THE CALCULATOR ============ -->
+<section class="sec alt" id="calculator">
+  <div class="wrap">
+    <div class="sec-head rv" style="max-width:none">
+      <span class="kick rvi">Work out your number</span>
+      <h2 class="rvi">See how much you can save.</h2>
+      <p class="lede rvi">Drag the slider to your monthly bill. The array below sizes itself to match. Every peso figure is a range, and the maths behind it is printed underneath so you can check it. No one can give you an exact price before seeing your roof.</p>
+    </div>
+    <div class="calcwrap">
+      <div class="calcbox rv rvi">
+        <div class="ctl">
+          <span class="lk">Your electricity bill, per month</span>
+          <div class="billval" id="c-bill">&#8369;10,000<small id="c-billkwh">806 kWh</small></div>
+          <input type="range" id="c-slider" min="0" max="100" value="42" step="1"
+                 aria-label="Average monthly electricity bill in pesos" aria-valuetext="10,000 pesos">
+        </div>
+        <div class="ctl">
+          <span class="lk">Property</span>
+          <div class="seg" id="c-prop" role="group" aria-label="Property type">
+            <button type="button" data-v="house" aria-pressed="true">Home</button>
+            <button type="button" data-v="biz" aria-pressed="false">Business</button>
+          </div>
+        </div>
+        <div class="ctl">
+          <span class="lk">System</span>
+          <div class="seg" id="c-sys" role="group" aria-label="System type">
+            <button type="button" data-v="grid" aria-pressed="true">Grid-tied</button>
+            <button type="button" data-v="hyb" aria-pressed="false">Hybrid, with battery</button>
+          </div>
+        </div>
+        <dl class="calcout" aria-live="polite">
+          <div class="lrow"><dt>System size</dt><dd class="lv" id="o-kwp">5.5 kWp</dd></div>
+          <div class="lrow"><dt>Panels at 615 W</dt><dd class="lv" id="o-pan">9 modules</dd></div>
+          <div class="lrow"><dt>Roof space needed</dt><dd class="lv" id="o-roof">28 sqm</dd></div>
+          <div class="lrow"><dt>It makes, per month</dt><dd class="lv" id="o-gen">611 kWh</dd></div>
+          <div class="lrow"><dt>System cost, installed</dt><dd class="lv" id="o-cost">&#8369;288,000 to &#8369;399,000</dd></div>
+          <div class="lrow"><dt>Pays for itself in</dt><dd class="lv" id="o-pay">3.2 to 5.3 years</dd></div>
+          <div class="lrow"><dt>Over 25 years</dt><dd class="lv" id="o-life"><em>&#8369;1.9M to &#8369;2.3M</em></dd></div>
+          <div class="lrow"><dt>Carbon it keeps out of the air</dt><dd class="lv" id="o-co2">4.8 t a year</dd></div>
+          <div class="lrow headline-row"><dt>You stop paying</dt><dd class="lv" id="o-save"><em>&#8369;6,200 to &#8369;7,600</em> / month</dd></div>
+        </dl>
+        <div class="calccta">
+          <a class="btn btn-p" href="#quote" id="c-send">Send these numbers to us <span class="ar" aria-hidden="true">&rarr;</span></a>
+          <p class="calcnote">This is arithmetic, not a quote. The free survey turns it into one.</p>
+        </div>
+      </div>
+
+      <div>
+        <div class="viz rv rvi" id="viz">
+          <span class="vizcap" id="v-cap">9 panels</span>
+          <svg viewBox="0 0 520 300" role="img" aria-labelledby="vizdesc">
+            <title id="vizdesc">A rooftop solar array that grows as the electricity bill increases, with the sun crossing above it.</title>
+            <path id="arcpath" class="arc-track" d="M52 262 C 96 92, 424 92, 468 262"/>
+            <path id="arclive" class="arc-live" d="M52 262 C 96 92, 424 92, 468 262" style="stroke-dasharray:0 999"/>
+            <g id="beams" aria-hidden="true">
+              <line class="beam" x1="0" y1="0" x2="220" y2="196"/>
+              <line class="beam" x1="0" y1="0" x2="266" y2="192"/>
+              <line class="beam" x1="0" y1="0" x2="330" y2="196"/>
+              <line class="beam" x1="0" y1="0" x2="380" y2="230"/>
+              <line class="beam" x1="0" y1="0" x2="200" y2="234"/>
+            </g>
+            <path class="roof-edge" d="M144 258 L424 258 L424 276 L144 276 Z"/>
+            <path class="roof-face" d="M196 182 L372 182 L424 258 L144 258 Z"/>
+            <g id="cells">
+            <polygon class="cell" points="196.9,183.0 223.2,183.0 215.3,200.0 185.6,200.0"/>
+            <polygon class="cell" points="226.5,183.0 252.8,183.0 248.7,200.0 219.0,200.0"/>
+            <polygon class="cell" points="256.1,183.0 282.4,183.0 282.2,200.0 252.4,200.0"/>
+            <polygon class="cell" points="285.6,183.0 311.9,183.0 315.6,200.0 285.8,200.0"/>
+            <polygon class="cell" points="315.2,183.0 341.5,183.0 349.0,200.0 319.3,200.0"/>
+            <polygon class="cell" points="344.8,183.0 371.1,183.0 382.4,200.0 352.7,200.0"/>
+            <polygon class="cell" points="184.1,202.0 214.3,202.0 206.4,219.0 172.8,219.0"/>
+            <polygon class="cell" points="218.1,202.0 248.2,202.0 244.2,219.0 210.6,219.0"/>
+            <polygon class="cell" points="252.0,202.0 282.1,202.0 281.9,219.0 248.3,219.0"/>
+            <polygon class="cell" points="285.9,202.0 316.0,202.0 319.7,219.0 286.1,219.0"/>
+            <polygon class="cell" points="319.8,202.0 349.9,202.0 357.4,219.0 323.8,219.0"/>
+            <polygon class="cell" points="353.7,202.0 383.9,202.0 395.2,219.0 361.6,219.0"/>
+            <polygon class="cell" points="171.4,221.0 205.4,221.0 197.5,238.0 160.0,238.0"/>
+            <polygon class="cell" points="209.6,221.0 243.7,221.0 239.6,238.0 202.1,238.0"/>
+            <polygon class="cell" points="247.9,221.0 281.9,221.0 281.7,238.0 244.2,238.0"/>
+            <polygon class="cell" points="286.1,221.0 320.1,221.0 323.8,238.0 286.3,238.0"/>
+            <polygon class="cell" points="324.3,221.0 358.4,221.0 365.9,238.0 328.4,238.0"/>
+            <polygon class="cell" points="362.6,221.0 396.6,221.0 408.0,238.0 370.5,238.0"/>
+            <polygon class="cell" points="158.6,240.0 196.5,240.0 188.6,257.0 147.3,257.0"/>
+            <polygon class="cell" points="201.2,240.0 239.1,240.0 235.0,257.0 193.7,257.0"/>
+            <polygon class="cell" points="243.8,240.0 281.7,240.0 281.4,257.0 240.1,257.0"/>
+            <polygon class="cell" points="286.3,240.0 324.2,240.0 327.9,257.0 286.6,257.0"/>
+            <polygon class="cell" points="328.9,240.0 366.8,240.0 374.3,257.0 333.0,257.0"/>
+            <polygon class="cell" points="371.5,240.0 409.4,240.0 420.7,257.0 379.4,257.0"/></g>
+            <g class="sun-g" id="sundisc" transform="translate(52,262)">
+              <circle class="halo" r="30"/><circle class="core" r="11"/>
+              <g>
+                <line x1="0" y1="-17" x2="0" y2="-23"/><line x1="0" y1="17" x2="0" y2="23"/>
+                <line x1="-17" y1="0" x2="-23" y2="0"/><line x1="17" y1="0" x2="23" y2="0"/>
+                <line x1="-12" y1="-12" x2="-16.3" y2="-16.3"/><line x1="12" y1="12" x2="16.3" y2="16.3"/>
+                <line x1="-12" y1="12" x2="-16.3" y2="16.3"/><line x1="12" y1="-12" x2="16.3" y2="-16.3"/>
+              </g>
+            </g>
+          </svg>
+          <div class="bills">
+            <div class="billbar now"><span class="bl">Bill now</span>
+              <span class="bt"><i class="bf" style="--bw:100%"></i><span class="bn" id="b-now">&#8369;10,000</span></span></div>
+            <div class="billbar after"><span class="bl">Bill after</span>
+              <span class="bt"><i class="bf" style="--bw:28%"></i><span class="bn" id="b-after">&#8369;2,400 to &#8369;3,800</span></span></div>
+          </div>
+          <div class="dayrow">
+            <button class="holdbtn" id="holdbtn"><i aria-hidden="true"></i><span>Hold to run one day</span></button>
+            <span class="holdhint" id="holdhint">Press and keep holding</span>
+          </div>
+          <div class="teachrow"><p id="teach">Every roof in the Philippines gets about 4.6 hours of full-strength sun a day. That is the whole engine.</p></div>
+        </div>
+        <details class="assump">
+          <summary>The arithmetic behind all of this</summary>
+          <dl>
+            <div class="lrow"><dt>Electricity rate</dt><dd class="lv">&#8369;14.96 / kWh</dd></div>
+            <div class="lrow"><dt>Rate source</dt><dd class="lv">Visayan Electric, Cebu</dd></div>
+            <div class="lrow"><dt>Peak sun-hours</dt><dd class="lv">4.6 a day</dd></div>
+            <div class="lrow"><dt>Performance ratio</dt><dd class="lv">0.79</dd></div>
+            <div class="lrow"><dt>Module</dt><dd class="lv">615 W</dd></div>
+            <div class="lrow"><dt>Installed cost, grid-tied</dt><dd class="lv">&#8369;52,000 to &#8369;72,000 / kWp</dd></div>
+            <div class="lrow"><dt>Cost source</dt><dd class="lv" style="color:var(--sun)">Market range, not yet Solaris pricing</dd></div>
+            <div class="lrow"><dt>Installed cost, hybrid</dt><dd class="lv">&#8369;76,000 to &#8369;102,000 / kWp</dd></div>
+            <div class="lrow"><dt>Value of what you generate</dt><dd class="lv">&#8369;11.80 to &#8369;14.96 / kWh</dd></div>
+            <div class="lrow"><dt>Grid carbon</dt><dd class="lv">0.65 kg CO&#8322; / kWh</dd></div>
+          </dl>
+          <p class="calcnote">The rate is Visayan Electric&#8217;s current residential rate for Cebu. The low end of the peso range assumes more of your output is exported and credited at the utility&#8217;s lower rate; the high end assumes you use most of it yourself. The cost per kWp is a market range and will be replaced by Solaris pricing.</p>
+        </details>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============ 3. SYSTEMS ============ -->
+<section class="sec" id="systems">
+  <div class="wrap rv">
+    <div class="sec-head">
+      <span class="kick rvi">What we build</span>
+      <h2 class="rvi">Pick the right system.</h2>
+      <p class="lede rvi">Most homes need the first one. Resorts, clinics and cold storage usually need the second. Almost nobody needs the third, and we will tell you so.</p>
+    </div>
+    <p class="tblhint rvi">Swipe across to compare<span></span></p>
+    <div class="tblscroll rvi">
+      <table class="tbl">
+        <thead>
+          <tr><th scope="col">System</th><th scope="col">Grid-tied</th><th scope="col" class="pick hd">Hybrid</th><th scope="col">Off-grid</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">What it does</th>
+            <td>Runs your house on sunlight by day and sells the surplus back to the utility.</td>
+            <td class="pick">The same, plus a battery that carries you through the evening and through outages.</td>
+            <td>Runs the whole property on solar and batteries alone. No utility connection.</td>
+          </tr>
+          <tr>
+            <th scope="row">During a brownout</th>
+            <td class="no">Shuts down</td>
+            <td class="pick yes">Keeps running</td>
+            <td class="yes">Keeps running</td>
+          </tr>
+          <tr>
+            <th scope="row">Battery</th>
+            <td>None</td>
+            <td class="pick">5 to 20 kWh</td>
+            <td>30 kWh and up</td>
+          </tr>
+          <tr>
+            <th scope="row">Net metering</th>
+            <td class="yes">Yes, we file it</td>
+            <td class="pick yes">Yes, we file it</td>
+            <td>Not applicable</td>
+          </tr>
+          <tr>
+            <th scope="row">Best for</th>
+            <td>Houses with a daytime load. Offices. Anyone whose bill peaks between 9am and 4pm.</td>
+            <td class="pick">Resorts, clinics, cold storage, and any home in an area that browns out often.</td>
+            <td>Island sites and farms with no line running to them.</td>
+          </tr>
+          <tr>
+            <th scope="row">Indicative cost</th>
+            <td><em>&#8369;52,000 to &#8369;72,000</em> per kWp</td>
+            <td class="pick"><em>&#8369;76,000 to &#8369;102,000</em> per kWp</td>
+            <td><em>&#8369;110,000</em> per kWp and up</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="note rvi">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#F7A423" stroke-width="1.4" aria-hidden="true" style="flex:none;margin-top:3px">
+        <path d="M3 11l5.5-8v6H17l-5.5 8v-6z"/>
+      </svg>
+      <p><b>Panels almost never fail. Wiring does.</b> Whichever column you end up in, the part that decides whether a system is safe in ten years is the part nobody photographs: correct cable sizing, real breakers, surge protection, and a DC isolator you can actually reach. It is also the easiest place for a cheap quote to save money without you noticing.</p>
+    </div>
+    <div class="note rvi" style="border-left-color:var(--blue)">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#8CACE0" stroke-width="1.4" aria-hidden="true" style="flex:none;margin-top:3px">
+        <circle cx="10" cy="10" r="8.4"/><path d="M10 6v5M10 13.6v.4"/>
+      </svg>
+      <p><b>The thing most installers do not tell you before you sign.</b> A plain grid-tied system switches itself off during a brownout, even in full sunlight. That is required by law, so that no power flows back into a line a lineman is working on. If you want the lights to stay on when the grid goes down, you need a battery, and that is the hybrid column.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SERVICES ============ -->
+<section class="sec alt" id="services">
+  <div class="wrap rv">
+    <div class="sec-head">
+      <span class="kick rvi">Services offered</span>
+      <h2 class="rvi">What we do for you.</h2>
+      <p class="lede rvi">Many companies sell you the panels and disappear. Here one team does the design, the build, the net metering and the maintenance. We have looked after a 489 kWp mall roof since 2023.</p>
+    </div>
+    <div class="svcs rvi">
+      <div class="svc">
+        <div class="sn">01</div>
+        <h3>Solar plant system design and integration</h3>
+        <p>Load study, shade study, string layout, single line diagram, structural check. Drawn against your real bills and your real roof before anything is ordered.</p>
+      </div>
+      <div class="svc">
+        <div class="sn">02</div>
+        <h3>Engineering, procurement and construction</h3>
+        <p>We engineer it, buy the equipment, build it, switch it on and file your net metering. One contract, one team to answer for it.</p>
+      </div>
+      <div class="svc">
+        <div class="sn">03</div>
+        <h3>Solar plant operation and maintenance</h3>
+        <p>For plants that have to keep earning. Production monitoring, fault response, inverter servicing and written reports.</p>
+      </div>
+      <div class="svc">
+        <div class="sn">04</div>
+        <h3>Solar plant preventive maintenance</h3>
+        <p>Scheduled washing, thermal and electrical checks, bolt torque checks, and a performance report. Dust and salt air cost more output than most owners expect.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 4. PROCESS ============ -->
+<section class="sec" id="process">
+  <div class="wrap rv">
+    <div class="sec-head">
+      <span class="kick rvi">How it goes</span>
+      <h2 class="rvi">Four weeks from quote to switch-on.</h2>
+      <p class="lede rvi">Seven steps from your first message to a working system. Only the last one is out of our hands, so we file it the same week we hand over. Your system earns while it is processed.</p>
+    </div>
+    <div class="tracker rvi" id="tracker">
+      <span class="trk-rail" aria-hidden="true"></span>
+      <span class="trk-fill" id="trkfill" aria-hidden="true"></span>
+      <span class="trk-tailrail" aria-hidden="true"></span>
+      <ol class="trk-steps">
+        <li class="trk-step" data-t="0">
+          <span class="trk-node">0</span>
+          <div class="trk-body">
+            <span class="trk-when">Instant</span>
+            <h3 class="trk-name">Get a quote</h3>
+            <p class="trk-desc">Send us your bill, or the numbers from the calculator above. A price range comes straight back.</p>
+          </div>
+        </li>
+        <li class="trk-step" data-t="1">
+          <span class="trk-node">1</span>
+          <div class="trk-body">
+            <span class="trk-when">Day 1 to 3</span>
+            <h3 class="trk-name">Site survey</h3>
+            <p class="trk-desc">An engineer measures the roof, tracks the shade, checks the structure and photographs your meter.</p>
+          </div>
+        </li>
+        <li class="trk-step" data-t="2">
+          <span class="trk-node">2</span>
+          <div class="trk-body">
+            <span class="trk-when">Day 3 to 7</span>
+            <h3 class="trk-name">Proposal</h3>
+            <p class="trk-desc">Itemized, not one lump sum. Every panel, inverter, breaker and meter of cable priced on its own line.</p>
+          </div>
+        </li>
+        <li class="trk-step" data-t="3">
+          <span class="trk-node">3</span>
+          <div class="trk-body">
+            <span class="trk-when">Week 3 to 4</span>
+            <h3 class="trk-name">Installation</h3>
+            <p class="trk-desc">Mounting, panels, inverter, DC and AC cabling. Every hole in your roof sealed and photographed.</p>
+          </div>
+        </li>
+        <li class="trk-step" data-t="4">
+          <span class="trk-node">4</span>
+          <div class="trk-body">
+            <span class="trk-when">Same week</span>
+            <h3 class="trk-name">Commissioning</h3>
+            <p class="trk-desc">The system is switched on and set up. Inverter settings, monitoring online, first live reading.</p>
+          </div>
+        </li>
+        <li class="trk-step" data-t="5">
+          <span class="trk-node">5</span>
+          <div class="trk-body">
+            <span class="trk-when">Same week</span>
+            <h3 class="trk-name">Testing</h3>
+            <p class="trk-desc">Insulation, polarity, earthing, breakers, and output checked against the design.</p>
+          </div>
+        </li>
+        <li class="trk-step" data-t="6">
+          <span class="trk-node">6</span>
+          <div class="trk-body">
+            <span class="trk-when">Week 4</span>
+            <h3 class="trk-name">Turnover and net metering filed</h3>
+            <p class="trk-desc">Documents, warranties and your monitoring login. We file with VECO the same week, or your own utility outside Cebu.</p>
+          </div>
+        </li>
+        <li class="trk-step tail" data-t="7">
+          <span class="trk-node" aria-hidden="true">
+            <svg width="19" height="19" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M4.5 18V3.2M4.5 3.2h10l-2 3 2 3h-10"/>
+            </svg>
+          </span>
+          <div class="trk-body">
+            <span class="trk-when">10 to 90 days</span>
+            <h3 class="trk-name">Credits activate</h3>
+            <p class="trk-desc">This part is on the utility&#8217;s clock, not ours. Your system already runs and already cuts the bill while you wait.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+    <div class="paynote rvi">
+      <div class="split">Ask when the last payment is due.</div>
+      <p>Ask any solar company, us included. Net metering is where installers go quiet, because it is paperwork with nothing left to sell. If a company collects everything at handover, that risk has moved to you.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TRACK RECORD ============ -->
+<section class="sec alt" id="work">
+  <div class="wrap rv">
+    <div class="sec-head">
+      <span class="kick rvi">Track record</span>
+      <h2 class="rvi">42 projects we have built.</h2>
+      <p class="lede rvi">From a 2.25 kWp shop in Borongan to a 7.338 MWp field in Batangas. Pick any project, ask us for the owner&#8217;s number, and call them yourself.</p>
+    </div>
+    <div class="bignums rvi">
+      <div><div class="n">12.96<small>MWp</small></div><p class="l">Solar capacity delivered since 2018, across every project listed here.</p></div>
+      <div><div class="n">1.31<small>MWh</small></div><p class="l">Battery storage installed and commissioned, from 10 kWh homes to a 1.2 MWh cold chain.</p></div>
+      <div><div class="n">42</div><p class="l">Projects as EPC, contractor, sub-contractor or installer.</p></div>
+      <div><div class="n">9</div><p class="l">Provinces, from Cebu and Eastern Samar to Batangas, Rizal, Aklan and Camarines Sur.</p></div>
+    </div>
+
+    <div class="rvi" style="margin-top:clamp(38px,5vh,60px)">
+      <h3 style="font-size:clamp(1.3rem,2.2vw,1.85rem);margin-bottom:8px">Project photos.</h3>
+      <p class="lede" style="margin-bottom:22px">Photos from our own crews. Largest first.</p>
+      <div class="pgrid" id="pgrid"></div>
+      <div class="morebtn"><button type="button" id="pmore" aria-expanded="false">Show all 17 projects</button></div>
+    </div>
+
+    <div class="rvi" style="margin-top:clamp(44px,6vh,72px);padding-top:clamp(32px,4vh,48px);border-top:1px solid var(--line)">
+      <h3 style="font-size:clamp(1.3rem,2.2vw,1.85rem);margin-bottom:8px">Full project list.</h3>
+      <p class="lede" style="margin-bottom:4px">Every project we have done. Newest first.</p>
+      <div class="pfilter" id="pfilter" role="group" aria-label="Filter projects">
+        <button type="button" data-f="all" aria-pressed="true">Everything</button>
+        <button type="button" data-f="ci" aria-pressed="false">Commercial &amp; industrial</button>
+        <button type="button" data-f="res" aria-pressed="false">Residential</button>
+        <button type="button" data-f="ongoing" aria-pressed="false">Live right now</button>
+      </div>
+      <div class="plist" id="plist" tabindex="0" aria-label="Project list, scrollable"></div>
+      <p class="fineprint">Totals count only projects with a stated kWp rating. Three repower contracts covering another 854 modules have no capacity figure and are not included. The 7.338 MWp at Tuy was delivered as sub-contractor for the mounting and panel installation, not as EPC. Residential owners are not named, on purpose.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WHO WE ARE ============ -->
+<section class="sec" id="about">
+  <div class="wrap rv">
+    <div class="sec-head">
+      <span class="kick rvi">Who we are</span>
+      <h2 class="rvi">We are a registered solar company.</h2>
+      <p class="lede rvi">Most people lose money on solar by hiring someone with no papers, who is gone before the net metering clears. Here are ours. Check them against anyone else you are talking to.</p>
+    </div>
+    <div class="aboutgrid">
+      <div>
+        <p class="lede rvi">Solaris Energie Ventures Corporation was registered with the Securities and Exchange Commission in March 2022, under registration number 2022030044923-87. The team had already been building solar since 2018.</p>
+        <p class="lede rvi" style="margin-top:18px">Since then we have designed, built and commissioned solar and electrical projects for homes, businesses and industry across the Visayas and beyond. We aim for affordable energy and service that holds up against international practice.</p>
+        <div class="misson rvi">
+          <span class="lk">Our mission</span>
+          <p>With the power of the Solaris Energie Ventures Corporation talented team, we are able to provide customers with superb value; high quality, relevant technology; superior service and support.</p>
+        </div>
+      </div>
+      <div class="rvi">
+        <div class="regcard">
+          <img src="assets/logo.png" alt="Solaris Energie Corporation logo: an orange sunburst beside the word Solaris in green.">
+          <p class="rl">Securities and Exchange Commission<br><b>Reg. No. 2022030044923-87</b><br>Registered March 2022</p>
+        </div>
+        <dl style="margin-top:22px;display:grid">
+          <div class="lrow"><dt>Building solar since</dt><dd class="lv">2018</dd></div>
+          <div class="lrow"><dt>People on the team</dt><dd class="lv">30</dd></div>
+          <div class="lrow"><dt>Licensed engineers</dt><dd class="lv">2 PRC registered</dd></div>
+          <div class="lrow" style="border-bottom:0"><dt>Safety</dt><dd class="lv"><em>BOSH certified officer</em></dd></div>
+        </dl>
+      </div>
+    </div>
+
+    <div class="team">
+      <div class="sec-head rvi" style="margin-bottom:26px">
+        <h3 style="font-size:clamp(1.4rem,2.4vw,2rem)">Our team</h3>
+      </div>
+      <div class="tgrid rvi">
+        <div class="tp"><div class="tn">Arnol C. Aris</div><div class="tr">President and Operations Manager</div>
+          <p>Sets the direction and answers for the quality of every system we deliver.</p></div>
+        <div class="tp"><div class="tn">Joan G. Aris</div><div class="tr">Vice President</div>
+          <p>Runs daily operations and the commercial side of the business.</p></div>
+        <div class="tp"><div class="tn">Engr. Louie Angelo C. Collera</div><div class="tr">Professional Electrical Engineer</div>
+          <div class="tl">PRC License No. 0004005</div>
+          <p>Designs, inspects, tests and supervises electrical work, from homes up to utility scale.</p></div>
+        <div class="tp"><div class="tn">Engr. Roderick Roda</div><div class="tr">Electronics and Communications Engineer</div>
+          <div class="tl">PRC ECE No. 001267</div>
+          <p>Consulting engineer. Catches problems on site before they get expensive.</p></div>
+        <div class="tp"><div class="tn">Christian Dominic G. Aris</div><div class="tr">Solar System Designer</div>
+          <p>Draws the array: string layout, orientation, and the diagram your utility reads.</p></div>
+        <div class="tp"><div class="tn">Nino Rey Escalante</div><div class="tr">Project Manager</div>
+          <p>Runs the job from start to switch-on. Weekly progress reports and site safety.</p></div>
+        <div class="tp"><div class="tn">Engr. Fermin Escalante</div><div class="tr">Project Supervisor</div>
+          <p>On site every day. Runs the work plan and checks the quality of the build.</p></div>
+        <div class="tp"><div class="tn">Roel R. Ramirez</div><div class="tr">Safety Officer</div>
+          <div class="tl">BOSH certified, World Safety Organization</div>
+          <p>Runs safety on every site and handles the Department of Labor reporting.</p></div>
+      </div>
+      <div class="crew rvi">
+        <div class="crewrow">
+          <div class="ck">Technical head <i>Leads installation and commissioning</i></div>
+          <div class="cn">Rogelio Bugay Jr. &middot; Jess Seroma</div>
+        </div>
+        <div class="crewrow">
+          <div class="ck">Installers <i>Mounting system installation and paneling</i></div>
+          <div class="cn">Joel Estenzo &middot; Laurencio Monares &middot; Ivan Bombita &middot; Peter Marianito &middot; Gil Cainto &middot; Paquito Marianito &middot; Maximo Estenzo &middot; Francis Cainto &middot; Kintoy Dingcong &middot; Paolo Ranola &middot; Leonardo Castillo &middot; Andrew Domingo &middot; Randy Ubac &middot; Willy Dela Vega &middot; Gabriel Hapa &middot; Herald Acain &middot; James Rempojo</div>
+        </div>
+        <div class="crewrow">
+          <div class="ck">Electrician <i>DC and AC cabling</i></div>
+          <div class="cn">Michael Gupa</div>
+        </div>
+        <div class="crewrow">
+          <div class="ck">Maintenance crew <i>PV module cleaning</i></div>
+          <div class="cn">Jake Sebirino &middot; Joshua Dohinog</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 7. FAQ ============ -->
+<section class="sec alt" id="faq">
+  <div class="wrap rv">
+    <div class="sec-head">
+      <span class="kick rvi">Straight answers</span>
+      <h2 class="rvi">Questions we get asked.</h2>
+      <p class="lede rvi">Some answers below are reasons to wait, not reasons to buy. We left them in.</p>
+    </div>
+    <div class="faq rvi" id="faqlist">
+      <div class="qa">
+        <h3><button type="button" aria-expanded="false">Magkano ba talaga?<span class="pm" aria-hidden="true"></span></button></h3>
+        <div class="ans"><p>For a 5 kWp grid-tied system, roughly &#8369;260,000 to &#8369;360,000 installed, permits and net metering included. What moves the price is the inverter brand, how many roof planes we work across, and whether your meter needs upgrading. The free survey settles it.</p></div>
+      </div>
+      <div class="qa">
+        <h3><button type="button" aria-expanded="false">Will it survive a typhoon?<span class="pm" aria-hidden="true"></span></button></h3>
+        <div class="ans"><p>Panels are rated for the wind. What fails in a storm is the mounting, usually because someone bolted rails to purlins nobody checked. We calculate the uplift for your roof, use anchors rated above it, and show you those numbers in the proposal.</p></div>
+      </div>
+      <div class="qa">
+        <h3><button type="button" aria-expanded="false">Do the lights stay on during a brownout?<span class="pm" aria-hidden="true"></span></button></h3>
+        <div class="ans"><p>Only if you have a battery. A plain grid-tied system shuts off the moment the grid goes down, even in full sun. That is the law, so nothing flows back into a line someone is repairing. If staying on through brownouts is why you are buying solar, tell us at the survey and we will price a hybrid. It costs more, and it is the only thing that does the job.</p></div>
+      </div>
+      <div class="qa">
+        <h3><button type="button" aria-expanded="false">What happens in the rainy season?<span class="pm" aria-hidden="true"></span></button></h3>
+        <div class="ans"><p>Production drops by roughly a third in July and August. It never goes to zero, because panels run on daylight, not direct sun. We size against your twelve month bill history, so the wet months are already in the numbers.</p></div>
+      </div>
+      <div class="qa">
+        <h3><button type="button" aria-expanded="false">How long does net metering take?<span class="pm" aria-hidden="true"></span></button></h3>
+        <div class="ans"><p>Ten to ninety days after we file, depending on your utility. In Cebu that is VECO. We file the same week we hand over. Your system runs and saves you money the whole time. What you are waiting for is the meter that lets you bank the surplus.</p></div>
+      </div>
+      <div class="qa">
+        <h3><button type="button" aria-expanded="false">What if you close down in three years?<span class="pm" aria-hidden="true"></span></button></h3>
+        <div class="ans"><p>A fair question, because it happens in this industry. Two things protect you. Your panel and inverter warranties are with the manufacturers, not us, so they outlive us. And the payment schedule keeps you from paying far ahead of the work.</p></div>
+      </div>
+      <div class="qa">
+        <h3><button type="button" aria-expanded="false">Will you damage my roof?<span class="pm" aria-hidden="true"></span></button></h3>
+        <div class="ans"><p>Every hole is flashed, sealed and photographed before and after, so there is a dated record. Leaks caused by our work are ours to fix, and that is in the contract.</p></div>
+      </div>
+      <div class="qa">
+        <h3><button type="button" aria-expanded="false">Who exactly are you?<span class="pm" aria-hidden="true"></span></button></h3>
+        <div class="ans"><p>Solaris Energie Ventures Corporation, registered with the Securities and Exchange Commission in March 2022 under number 2022030044923-87. The team has been building solar since 2018, before the corporation existed. Thirty people, two PRC licensed engineers, a BOSH certified safety officer, and 42 projects across nine provinces. All of them are listed on this page, and 17 have photos taken by our own crews.</p></div>
+      </div>
+      <div class="qa">
+        <h3><button type="button" aria-expanded="false">Have you done anything my size?<span class="pm" aria-hidden="true"></span></button></h3>
+        <div class="ans"><p>Probably. The smallest is a 2.25 kWp shop in Borongan, the largest a 7.338 MWp field in Batangas. In between are hotels, an ice plant, a fuel station, a cold store with 1.2 MWh of battery, 13 Gaisano Capital roofs, and houses from 5 to 34 kWp.</p></div>
+      </div>
+      <div class="qa">
+        <h3><button type="button" aria-expanded="false">Do you only work in Cebu?<span class="pm" aria-hidden="true"></span></button></h3>
+        <div class="ans"><p>No. Most of our work is in Cebu and Eastern Samar, but we have built in Masbate, Sorsogon, Aklan, Southern Leyte, Camarines Sur, Rizal and Batangas. Ask anyway. Travel cost is quoted as its own line, not hidden in the price.</p></div>
+      </div>
+      <div class="qa">
+        <h3><button type="button" aria-expanded="false">Can I pay in installments?<span class="pm" aria-hidden="true"></span></button></h3>
+        <div class="ans"><p>Bank financing is the usual route. For most homes the monthly saving lands close to the monthly repayment, so the system largely carries itself while it is paid for. We show you both numbers side by side.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 8. THE FORM ============ -->
+<section class="sec" id="quote">
+  <div class="wrap">
+    <div class="quote">
+      <div class="qside rv">
+        <div class="sec-head">
+          <span class="kick rvi">Get a quote</span>
+          <h2 class="rvi">Get your free quote.</h2>
+          <p class="lede rvi">One business day for a price range by phone. If it looks worth doing, we book the free survey and turn the range into an itemized proposal.</p>
+        </div>
+        <dl class="rvi">
+          <div class="lrow"><dt>Reply time</dt><dd class="lv">1 business day</dd></div>
+          <div class="lrow"><dt>Survey</dt><dd class="lv"><em>Free, no obligation</em></dd></div>
+          <div class="lrow"><dt>Service area</dt><dd class="lv">Cebu and the Visayas</dd></div>
+          <div class="lrow"><dt>Email</dt><dd class="lv"><a href="mailto:solarisenergiecorp@gmail.com" style="color:var(--sun);text-decoration:none">solarisenergiecorp@gmail.com</a></dd></div>
+        </dl>
+      </div>
+      <div class="qform rv rvi">
+        <form id="qf" novalidate>
+          <div class="fgrid">
+            <div class="fld"><label for="f-name">Your name</label><input id="f-name" name="name" type="text" required autocomplete="name" placeholder="Juan dela Cruz"></div>
+            <div class="fld"><label for="f-mob">Mobile</label><input id="f-mob" name="mobile" type="tel" required autocomplete="tel" placeholder="0917 000 0000"></div>
+            <div class="fld"><label for="f-city">City or municipality</label><input id="f-city" name="city" type="text" required placeholder="Quezon City"></div>
+            <div class="fld"><label for="f-type">Property</label>
+              <select id="f-type" name="property">
+                <option>House</option><option>Condominium or townhouse</option>
+                <option>Resort or hotel</option><option>Office or retail</option>
+                <option>Warehouse or factory</option><option>Farm or remote site</option>
+              </select>
+            </div>
+            <div class="fld full"><label for="f-bill">Average monthly electricity bill</label>
+              <select id="f-bill" name="bill">
+                <option>Under &#8369;5,000</option><option>&#8369;5,000 to &#8369;10,000</option>
+                <option>&#8369;10,000 to &#8369;20,000</option><option>&#8369;20,000 to &#8369;50,000</option>
+                <option>Over &#8369;50,000</option>
+              </select>
+            </div>
+            <div class="fld full"><label for="f-msg">Anything we should know</label><textarea id="f-msg" name="message" placeholder="Roof type, brownouts in your area, a deadline you are working to."></textarea></div>
+          </div>
+          <button class="btn btn-p" type="submit">Get my quote <span class="ar" aria-hidden="true">&rarr;</span></button>
+          <p class="qmicro">We call, we do not spam. Your bill range stays between us and the engineer who prices it.</p>
+        </form>
+        <div class="qdone" id="qdone" role="status" aria-live="polite">
+          <span class="tick" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 10.5l4 4 8-9"/></svg>
+          </span>
+          <h3 id="qdone-h">Got it.</h3>
+          <p id="qdone-p">We will call you within one business day.</p>
+          <p class="qmicro">Heads up: this page is a design mockup, so nothing was actually sent. On the live site this is where the enquiry reaches the office.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="footgrid">
+    <div>
+      <a class="brand" href="#top" aria-label="Solaris Energie Corporation, back to top">
+        <img src="assets/logo.png" alt="" width="176" height="77" decoding="async" loading="lazy">
+        <span class="sr-only">Solaris Energie Corporation</span>
+      </a>
+      <p class="blurb">Solar design, installation, operation and maintenance for Cebu homes and businesses.</p>
+      <p class="blurb" style="font-family:var(--mono);font-size:.72rem;line-height:1.9;color:var(--text-tertiary)">
+        Solaris Energie Ventures Corporation<br>
+        SEC Reg. No. 2022030044923-87<br>
+        Registered March 2022
+      </p>
+    </div>
+    <div>
+      <h4>The site</h4>
+      <ul>
+        <li><a href="#calculator">Savings calculator</a></li><li><a href="#systems">Systems</a></li>
+        <li><a href="#services">Services</a></li><li><a href="#process">Process</a></li>
+        <li><a href="#work">Track record</a></li><li><a href="#about">About and team</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Office</h4>
+      <ul>
+        <li><a href="tel:+63285550142">+63 2 8555 0142</a></li>
+        <li><a href="mailto:solarisenergiecorp@gmail.com">solarisenergiecorp@gmail.com</a></li>
+        <li>Mon to Sat, 8am to 6pm</li>
+        <li>Cebu, Eastern Samar and nationwide</li>
+        <li><a href="#quote">Book a free survey</a></li>
+      </ul>
+    </div>
+  </div>
+  <p class="disclose">Working draft for internal review. The company registration, project list, capacity totals and team are real. The email address is real. The phone number and every peso figure are still placeholders: the calculator runs on Visayan Electric&#8217;s current rate but on published market assumptions for installed cost, listed in full under the calculator itself, not on Solaris pricing. The quote form does not send anywhere yet. Replace the phone number and confirm the cost per kWp before this page goes public.</p>
+  <div class="footbase">
+    <span>&copy; 2026 Solaris Energie Ventures Corporation</span>
+    <span>Solar for Cebu homes and businesses.</span>
+  </div>
+</footer>
+  <div class="stickycta" id="stickycta">
+    <a class="btn btn-p" href="#quote">Get a free quote <span class="ar" aria-hidden="true">&rarr;</span></a>
+  </div>
+</div>
+
+<script>
+(function(){
+"use strict";
+var clamp=function(v,lo,hi){return Math.min(hi,Math.max(lo,v))};
+var $=function(s,r){return (r||document).querySelector(s)};
+var $$=function(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s))};
+function rng(seed){var s=seed>>>0;return function(){s=(s*1664525+1013904223)>>>0;return s/4294967296}}
+
+/* ---------- background motes ---------- */
+(function(){
+  var host=$('#motes'); if(!host) return;
+  var r=rng(20260818), html='';
+  for(var i=0;i<15;i++){
+    html+='<span class="mote" style="left:'+(r()*100).toFixed(1)+'%;bottom:'+(-8+r()*20).toFixed(1)+
+      '%;animation-duration:'+(26+r()*24).toFixed(1)+'s;animation-delay:-'+(r()*40).toFixed(1)+
+      's;transform:scale('+(0.7+r()*1.5).toFixed(2)+')"></span>';
+  }
+  host.innerHTML=html;
+})();
+
+/* ---------- nav ---------- */
+var nav=$('#nav'), burger=$('#burger');
+burger.addEventListener('click',function(){
+  var open=nav.classList.toggle('open');
+  burger.setAttribute('aria-expanded',open?'true':'false');
+});
+$$('#navlinks a').forEach(function(a){a.addEventListener('click',function(){
+  nav.classList.remove('open');burger.setAttribute('aria-expanded','false');})});
+
+/* ================= PAGE-LEVEL SCROLL EFFECTS ================= */
+var proc=$('#tracker'), procfill=$('#trkfill'), steps=$$('.trk-step');
+var pageRaf=null, navStuck=false, procCache=-1, stepCache=-1;
+function pageUpdate(){
+  pageRaf=null;
+  var st=window.pageYOffset>28;
+  if(st!==navStuck){navStuck=st;nav.classList.toggle('stuck',st)}
+  if(proc&&!pinned){
+    var r=proc.getBoundingClientRect(), vh=window.innerHeight;
+    var p=clamp((vh*0.80-r.top)/(r.height*0.72),0,1);
+    var pc=Math.round(p*100);
+    if(pc!==procCache){procCache=pc;procfill.style.setProperty('--tp',(pc/100).toFixed(3))}
+    var n=Math.floor(p*steps.length+0.45);
+    if(n!==stepCache){stepCache=n;
+      steps.forEach(function(s,i){s.classList.toggle('on',i<n);
+        s.classList.toggle('now',i===n-1&&n<steps.length)})}
+  }
+}
+function onPageScroll(){if(pageRaf===null) pageRaf=requestAnimationFrame(pageUpdate)}
+addEventListener('scroll',onPageScroll,{passive:true});
+addEventListener('resize',function(){onPageScroll();sizeOpenAnswers()},{passive:true});
+
+/* ================= SECTION ENTRANCES ================= */
+var revs=$$('.rv');
+if('IntersectionObserver' in window){
+  var ro=new IntersectionObserver(function(es){
+    es.forEach(function(e){
+      if(!e.isIntersecting) return;
+      e.target.classList.add('in');
+      ro.unobserve(e.target);
+      var n=$$('.rvi',e.target).length;
+      setTimeout(function(){e.target.classList.add('done')},860+n*85);
+    });
+  },{rootMargin:'0px 0px -12% 0px',threshold:0.06});
+  revs.forEach(function(r){ro.observe(r)});
+}else{revs.forEach(function(r){r.classList.add('in','done')})}
+
+/* ================= THE CALCULATOR ================= */
+/* every constant the page quotes lives here, and the assumptions panel prints the same values */
+var M={rate:14.96,sun:4.6,pr:0.79,panelW:615,sqmPerKwp:5.0,days:30.4,
+       offset:{house:{grid:0.72,hyb:0.90},biz:{grid:0.80,hyb:0.92}},
+       credit:[11.80,14.96],
+       cost:{grid:[52000,72000],hyb:[76000,102000]},
+       co2:0.65,tree:21};
+var BILL_MIN=2000, BILL_MAX=150000;
+var cBill=10000, cProp='house', cSys='grid', cRes=null;
+var slider=$('#c-slider'), viz=$('#viz'), cells=$$('#cells .cell'),
+    arcp=$('#arcpath'), arclive=$('#arclive'), sundisc=$('#sundisc'), beams=$$('#beams .beam');
+var ARC_L=arcp?arcp.getTotalLength():0;
+var peso='₱';
+function money(n){return peso+Math.round(n).toLocaleString('en-US')}
+function moneyShort(n){
+  if(n>=1e6) return peso+(n/1e6).toFixed(n>=1e7?0:1)+'M';
+  if(n>=1e3) return peso+Math.round(n/1e3)+'k';
+  return peso+Math.round(n);
+}
+/* the slider is eased so the low end, where most homes sit, gets most of the travel */
+function sliderToBill(v){var t=v/100;return BILL_MIN+(BILL_MAX-BILL_MIN)*Math.pow(t,2.35)}
+function billToSlider(b){return 100*Math.pow((b-BILL_MIN)/(BILL_MAX-BILL_MIN),1/2.35)}
+
+function compute(bill,prop,sys){
+  var kwhMonth=bill/M.rate;
+  var target=kwhMonth*M.offset[prop][sys];
+  var rawKwp=(target/M.days)/(M.sun*M.pr);
+  var panels=Math.max(4,Math.round(rawKwp*1000/M.panelW));
+  var kwp=panels*M.panelW/1000;
+  var gen=kwp*M.sun*M.pr*M.days;
+  var saveLo=Math.min(bill,gen*M.credit[0]), saveHi=Math.min(bill,gen*M.credit[1]);
+  var costLo=kwp*M.cost[sys][0], costHi=kwp*M.cost[sys][1];
+  return {bill:bill,kwhMonth:kwhMonth,panels:panels,kwp:kwp,gen:gen,
+    roof:kwp*M.sqmPerKwp,saveLo:saveLo,saveHi:saveHi,costLo:costLo,costHi:costHi,
+    payLo:costLo/(saveHi*12), payHi:costHi/(saveLo*12),
+    lifeLo:saveLo*12*25, lifeHi:saveHi*12*25,
+    co2:gen*12*M.co2/1000, trees:Math.round(gen*12*M.co2/M.tree),
+    afterLo:bill-saveHi, afterHi:bill-saveLo};
+}
+function teachLine(r){
+  if(r.kwp<4)   return 'A small array. It will not wipe the bill out, but it takes the daytime off it, and that is usually the expensive part.';
+  if(r.kwp<8)   return 'This is the size most Cebu households land on. Nine or ten modules, one roof plane, done in two days.';
+  if(r.kwp<15)  return 'Now you are in the range we build most often. 18.15 kWp appears three separate times in our own project list.';
+  if(r.kwp<30)  return 'Large home or a small business. At this size a battery usually starts paying for itself in convenience alone.';
+  if(r.kwp<120) return 'Commercial territory. This is where a proper load study stops being optional and our engineers get involved from day one.';
+  return 'Industrial scale. Our largest is a 7.338 MWp ground mount in Tuy, Batangas, so this is familiar ground.';
+}
+var outCache='';
+function paintCalc(){
+  var r=compute(cBill,cProp,cSys); cRes=r;
+  var key=[r.bill,r.panels,cSys,cProp].join('|');
+  $('#c-bill').innerHTML=money(r.bill)+'<small id="c-billkwh">'+Math.round(r.kwhMonth)+' kWh</small>';
+  slider.setAttribute('aria-valuetext',Math.round(r.bill).toLocaleString('en-US')+' pesos');
+  if(key===outCache) return; outCache=key;
+
+  $('#o-kwp').textContent=r.kwp.toFixed(2)+' kWp';
+  $('#o-pan').textContent=r.panels+(r.panels===1?' module':' modules');
+  $('#o-roof').textContent=Math.round(r.roof)+' sqm';
+  $('#o-gen').textContent=Math.round(r.gen).toLocaleString('en-US')+' kWh';
+  $('#o-cost').textContent=moneyShort(r.costLo)+' to '+moneyShort(r.costHi);
+  $('#o-pay').textContent=r.payLo.toFixed(1)+' to '+r.payHi.toFixed(1)+' years';
+  $('#o-life').innerHTML='<em>'+moneyShort(r.lifeLo)+' to '+moneyShort(r.lifeHi)+'</em>';
+  $('#o-co2').textContent=r.co2.toFixed(1)+' t a year, about '+r.trees+' trees';
+  var capped = r.saveLo>=r.bill*0.995;
+  $('#o-save').innerHTML = capped
+    ? '<em>'+money(r.bill)+'</em>, the whole bill'
+    : '<em>'+money(r.saveLo)+' to '+money(r.saveHi)+'</em> / month';
+
+  $('#b-now').textContent=money(r.bill);
+  $('#b-after').textContent=money(r.afterLo)+' to '+money(r.afterHi);
+  var afterPct=Math.max(4,Math.round(100*((r.afterLo+r.afterHi)/2)/r.bill));
+  $('.billbar.after .bf').style.setProperty('--bw',afterPct+'%');
+
+  var shown=Math.min(cells.length,r.panels);
+  cells.forEach(function(c,i){c.classList.toggle('on',i<shown)});
+  $('#v-cap').textContent = r.panels>cells.length
+    ? ('showing '+cells.length+' of '+r.panels+' panels')
+    : (r.panels+' panels');
+  $('#teach').textContent = capped
+    ? 'The smallest array we install already makes more than a bill this size needs. The surplus gets exported and banked for you under net metering.'
+    : teachLine(r);
+}
+function setBill(b){cBill=Math.round(b/100)*100;paintCalc()}
+if(slider){
+  slider.value=billToSlider(10000);
+  slider.addEventListener('input',function(){setBill(sliderToBill(+slider.value))});
+  $$('#c-prop button').forEach(function(b){b.addEventListener('click',function(){
+    cProp=b.dataset.v;$$('#c-prop button').forEach(function(o){o.setAttribute('aria-pressed',o===b)});paintCalc()})});
+  $$('#c-sys button').forEach(function(b){b.addEventListener('click',function(){
+    cSys=b.dataset.v;$$('#c-sys button').forEach(function(o){o.setAttribute('aria-pressed',o===b)});paintCalc()})});
+  paintCalc();
+}
+/* hand the numbers to the form, so the enquiry arrives already sized */
+var sendBtn=$('#c-send');
+if(sendBtn) sendBtn.addEventListener('click',function(){
+  if(!cRes) return;
+  var sel=$('#f-bill'), b=cRes.bill;
+  var band = b<5000?0 : b<10000?1 : b<20000?2 : b<50000?3 : 4;
+  if(sel) sel.selectedIndex=band;
+  var t=$('#f-type'); if(t&&cProp==='biz'&&t.selectedIndex===0) t.selectedIndex=3;
+  var msg=$('#f-msg');
+  if(msg&&!msg.value.trim()){
+    msg.value='From your calculator: about '+cRes.kwp.toFixed(2)+' kWp ('+cRes.panels+
+      ' modules), '+(cSys==='hyb'?'hybrid with battery':'grid-tied')+
+      ', on a monthly bill of around '+money(cRes.bill)+'.';
+  }
+});
+
+/* ---- the interactive moment: hold to run one day across the array ---- */
+var holdbtn=$('#holdbtn'), hinter=$('#holdhint');
+var hold=0, holding=false, holdRaf=null, holdLast=0, holdDone=false, litCache=-1;
+var HOLD_MS=2800, REL_MS=1500;
+var reduceMQ=matchMedia('(prefers-reduced-motion: reduce)');
+function paintHold(){
+  if(!viz) return;
+  viz.style.setProperty('--day',hold.toFixed(3));
+  holdbtn.style.setProperty('--hold',hold.toFixed(3));
+  if(ARC_L){
+    var pt=arcp.getPointAtLength(hold*ARC_L);
+    sundisc.setAttribute('transform','translate('+pt.x.toFixed(1)+','+pt.y.toFixed(1)+')');
+    arclive.style.strokeDasharray=(hold*ARC_L).toFixed(1)+' '+ARC_L.toFixed(1);
+    var bo=(hold>0.06&&hold<0.97)?Math.min(0.45,hold*0.85):0;
+    beams.forEach(function(b){b.setAttribute('x1',pt.x.toFixed(1));
+      b.setAttribute('y1',pt.y.toFixed(1));b.style.opacity=bo});
+  }
+  var lit=Math.round(hold*cells.length);
+  if(lit!==litCache){litCache=lit;
+    cells.forEach(function(c,i){c.classList.toggle('day',i<lit&&c.classList.contains('on'))})}
+  if(cRes&&hinter&&!holdDone)
+    hinter.textContent=(hold*cRes.gen/M.days).toFixed(1)+' kWh so far today';
+}
+function finishHold(){
+  if(holdDone) return; holdDone=true; hold=1; paintHold();
+  holdbtn.classList.add('done');
+  holdbtn.querySelector('span').textContent='One full day';
+  if(cRes) hinter.textContent=(cRes.gen/M.days).toFixed(1)+' kWh, worth about '+
+    money(cRes.saveHi/M.days)+' off today';
+}
+function holdTick(now){
+  var dt=Math.min(80,now-(holdLast||now)); holdLast=now;
+  hold=clamp(hold+(holding?dt/HOLD_MS:-dt/REL_MS),0,1);
+  paintHold();
+  if(holding&&hold>=1){holdRaf=null;holdLast=0;finishHold();return}
+  if(!holding&&hold<=0){holdRaf=null;holdLast=0;
+    if(hinter&&!holdDone)hinter.textContent='Press and keep holding';return}
+  holdRaf=requestAnimationFrame(holdTick);
+}
+function startHold(e){
+  if(holdDone) return;
+  if(e&&e.preventDefault) e.preventDefault();
+  if(reduceMQ.matches){finishHold();return}
+  holding=true;
+  if(holdRaf===null){holdLast=0;holdRaf=requestAnimationFrame(holdTick)}
+}
+function endHold(){if(holdDone)return;holding=false;
+  if(holdRaf===null&&hold>0){holdLast=0;holdRaf=requestAnimationFrame(holdTick)}}
+if(holdbtn){
+  holdbtn.addEventListener('pointerdown',startHold);
+  addEventListener('pointerup',endHold); addEventListener('pointercancel',endHold);
+  holdbtn.addEventListener('keydown',function(e){
+    if(e.key===' '||e.key==='Enter'){e.preventDefault();startHold()}});
+  holdbtn.addEventListener('keyup',function(e){
+    if(e.key===' '||e.key==='Enter'){endHold()}});
+  paintHold();
+}
+/* ================= THE TRACK RECORD =================
+   One array drives both the photo cards and the full list.
+   To add a project later, append one object and nothing else changes. */
+var PROJECTS=[{"y":2026,"seg":"ci","st":"ongoing","kwp":425.6,"mod":1120,"role":"Contractor","what":"Repower and refurbish, 1120 PV modules","where":"Gaisano Capital Masbate branch","client":"Total Solar Renewable Energies"},{"y":2023,"seg":"ci","st":"ongoing","kwp":489.12,"role":"O&M","what":"Operation and maintenance of the full 489.12 kWp roof mount plant","where":"Wilsam Uptown Mall, Borongan City, Eastern Samar","client":"Zhanlin Marketing and Wilsam","note":"Since 2023"},{"y":2026,"seg":"ci","st":"done","kwp":7338,"role":"Sub-contractor","what":"Ground mount PV mounting system and panel installation","where":"Agrivoltaics Inc., Tuy, Batangas","client":"Renesource Inc. as general contractor","when":"January 2026","photo":"tuy-batangas","feat":1,"cap":"The largest plant this team has worked on. Mounting system and panel installation across 7.338 MWp of ground mount array.","name":"Agrivoltaics ground mount","loc":"Tuy, Batangas"},{"y":2026,"seg":"ci","st":"done","kwp":16.87,"role":"Contractor","what":"Hybrid on-grid system with battery storage","where":"Brgy. Tejero, Cebu City","client":"Future Solar Energy Corporation","when":"February 2026"},{"y":2026,"seg":"ci","st":"done","mod":148,"role":"Contractor","what":"Repower and refurbish, 148 PV modules","where":"Gaisano Capital Binangonan, Rizal","client":"Total Solar Renewable Energies","when":"February 2026"},{"y":2025,"seg":"ci","st":"done","kwp":680.4,"kwh":1200,"role":"Contractor","what":"Roof mount plant with 1.2 MWh battery storage","where":"Gaisano Capital Cold Storage, HVG Mandaue City, Cebu","client":"Gaisano Capital","when":"Completed 7 September 2025","photo":"hvg-mandaue","feat":1,"cap":"Cold storage runs around the clock, so this one carries 1.2 MWh of battery to hold the load when the sun is off.","name":"Gaisano Capital Cold Storage","loc":"HVG, Mandaue City, Cebu"},{"y":2025,"seg":"ci","st":"done","kwp":37.12,"role":"Contractor","what":"Roof mount grid-tie system","where":"Eversteel warehouse, Minglanilla, Cebu","client":"Eversteel Inc.","when":"December 2025"},{"y":2025,"seg":"res","st":"done","kwp":34.16,"kwh":40.96,"role":"EPC","what":"Hybrid system with battery storage","where":"Santo Nino Village, Banilad, Cebu City"},{"y":2025,"seg":"res","st":"done","kwp":10.44,"kwh":10.24,"role":"EPC","what":"Hybrid system with lithium battery storage","where":"Emerald Estate, Cabangcalan, Mandaue City, Cebu","when":"11 to 17 February 2025"},{"y":2025,"seg":"res","st":"done","kwp":8.12,"kwh":10.24,"role":"EPC","what":"Hybrid system with battery storage","where":"Cabreros, Cebu City"},{"y":2025,"seg":"res","st":"done","kwp":6.96,"kwh":10.24,"role":"EPC","what":"Hybrid system with battery storage","where":"Amara subdivision, Catarman, Liloan, Cebu"},{"y":2025,"seg":"ci","st":"done","mod":160,"role":"Contractor","what":"Repower and refurbish, 160 PV modules","where":"Gaisano Capital Kalibo, Aklan","client":"EDC Siklab Power Corporation","when":"October 2025"},{"y":2024,"seg":"ci","st":"done","kwp":443.2,"mod":1385,"role":"Contractor","what":"Removal and restoration of 1385 PV modules, testing and commissioning","where":"Gaisano Capital Sorsogon branch","client":"EDC","when":"29 July to 7 September 2024","photo":"gaisano-sorsogon","feat":1,"cap":"1385 modules in six weeks. The crew that did it, on the roof they finished.","name":"Gaisano Capital Sorsogon","loc":"Sorsogon City"},{"y":2024,"seg":"ci","st":"done","kwp":378.95,"mod":1429,"role":"Contractor","what":"Removal and restoration of 1429 PV modules and mounting frames","where":"Gaisano Capital Casuntingan branch, Mandaue","client":"Total Solar Renewable Energies","when":"14 August to 23 December 2024","photo":"gaisano-casuntingan","feat":1,"cap":"1429 modules off, roof leak tested, frames replaced, and the whole plant re-energized.","name":"Gaisano Capital Casuntingan","loc":"Mandaue City, Cebu"},{"y":2024,"seg":"ci","st":"done","kwp":351.55,"mod":890,"role":"Contractor","what":"Removal and restoration of 890 PV modules and mounting frames","where":"Gaisano Capital Iriga branch","client":"PI Energy","when":"27 November to 17 December 2024","photo":"gaisano-iriga","feat":1,"cap":"Stripped to the deck and rebuilt: 890 modules and every mounting frame, back online in three weeks.","name":"Gaisano Capital Iriga","loc":"Iriga City, Camarines Sur"},{"y":2024,"seg":"ci","st":"done","kwp":200.2,"mod":540,"role":"Contractor","what":"Removal and restoration of 540 PV modules and mounting frames","where":"Gaisano Capital Sogod branch, Southern Leyte","client":"EDC","when":"30 October to 18 December 2024","photo":"gaisano-sogod","feat":1,"cap":"Southern Leyte. Removal, restoration and re-energizing of a 200.2 kWp mall roof.","name":"Gaisano Capital Sogod","loc":"Sogod, Southern Leyte"},{"y":2024,"seg":"res","st":"done","kwp":18.15,"kwh":15.36,"role":"EPC","what":"Hybrid system with lithium battery storage","where":"Baybay 2, Borongan City, Eastern Samar"},{"y":2024,"seg":"res","st":"done","kwp":18.15,"role":"EPC","what":"Grid-tie system","where":"Libanan Street, Borongan City, Eastern Samar","when":"7 to 10 January 2024"},{"y":2024,"seg":"ci","st":"done","kwp":16.5,"role":"EPC","what":"Supply, design, installation and commissioning of an on-grid rooftop system","where":"Galaxy Fuels, Brgy. Hindang, Borongan City, Eastern Samar","when":"12 to 15 January 2024","photo":"galaxy-fuels","feat":1,"cap":"Three days from first bolt to energized, including the switchgear.","name":"Galaxy Fuels","loc":"Brgy. Hindang, Borongan City"},{"y":2024,"seg":"res","st":"done","kwp":6.6,"role":"EPC","what":"Grid-tie system","where":"Real Street, Borongan City, Eastern Samar"},{"y":2024,"seg":"ci","st":"done","mod":426,"role":"Contractor","what":"Rehabilitation and system commissioning: 426 PV modules, DC cables and cable trays","where":"Gaisano Capital T. Padilla branch, Cebu City","when":"20 May to 17 July 2024","photo":"gaisano-tpadilla","feat":1,"cap":"Modules, DC cabling and cable trays out and back in, then tested and commissioned.","name":"Gaisano Capital T. Padilla","loc":"Cebu City"},{"y":2023,"seg":"res","st":"done","kwp":16,"role":"EPC","what":"Hybrid on-grid roof mount system with storage","where":"South Hills, Tisa, Cebu City","when":"Completed 9 January 2023"},{"y":2023,"seg":"ci","st":"done","kwp":2.25,"role":"EPC","what":"Grid-tie solar plant","where":"Real Street, Borongan City, Eastern Samar","client":"936 Mini Store"},{"y":2022,"seg":"ci","st":"done","kwp":104.64,"role":"EPC","what":"On-grid commercial 3 phase rooftop system","where":"Zhanlin Marketing Warehouse, Libanan Road, Borongan City","client":"Zhanlin Marketing","when":"Completed 17 April 2022","photo":"zhanlin-warehouse","feat":1,"cap":"100 kW of inverter across a warehouse roof, laid out in two clean banks either side of the ridge.","name":"Zhanlin Marketing Warehouse","loc":"Libanan Road, Borongan City"},{"y":2022,"seg":"ci","st":"done","kwp":61.04,"role":"EPC","what":"Commercial 3 phase roof mount system with net metering","where":"Talamban, Cebu City","client":"Vismotor Corporation","when":"Completed 7 March 2022","photo":"vismotor","feat":1,"cap":"60 kW three phase, net metering filed and approved, on a dealership roof in Talamban.","name":"Vismotor Corporation","loc":"Talamban, Cebu City"},{"y":2022,"seg":"ci","st":"done","kwp":20,"role":"EPC","what":"On-grid commercial 3 phase roof mount system","where":"Real Street, Borongan City, Eastern Samar","client":"Domsowir Hotel","when":"Completed 7 October 2022","photo":"domsowir-hotel","feat":1,"cap":"20 kW three phase on a hotel roof deck in the middle of Borongan.","name":"Domsowir Hotel","loc":"Real Street, Borongan City"},{"y":2022,"seg":"ci","st":"done","kwp":19.5,"role":"EPC","what":"Hybrid on-grid roof mount system with storage","where":"Baybay 5, Borongan City, Eastern Samar","client":"Kristina Hotel and Restaurant","when":"Turned over 23 December 2022","photo":"kristina-hotel","feat":1,"cap":"A hotel cannot lose power at check-in, so this one went in hybrid with storage.","name":"Kristina Hotel and Restaurant","loc":"Baybay 5, Borongan City"},{"y":2022,"seg":"ci","st":"done","kwp":16.5,"role":"EPC","what":"Grid-tie solar plant","where":"Real Street, Borongan City, Eastern Samar","client":"Zhanlin Fuel"},{"y":2022,"seg":"res","st":"done","kwp":8,"kwh":19.2,"role":"EPC","what":"Hybrid system with LiFePO4 powerwall storage","where":"Baybay 3, Borongan City, Eastern Samar"},{"y":2022,"seg":"ci","st":"done","kwp":7,"role":"EPC","what":"On-grid roof mount system","where":"Borongan City, Eastern Samar","client":"JMD Tube Ice","when":"Completed 8 December 2022","photo":"jmd-tube-ice","feat":1,"cap":"An ice plant runs its compressors in daylight, which is exactly when solar is cheapest.","name":"JMD Tube Ice","loc":"Borongan City, Eastern Samar"},{"y":2022,"seg":"ci","st":"done","mod":120,"role":"Contractor","what":"Removal and re-installation of 120 modules, 172 L-feet, 20 m catwalk and 60 m cable tray","where":"Gaisano Capital Masbate","when":"Completed 29 January 2022","photo":"gaisano-masbate","feat":1,"cap":"Modules, catwalk and cable tray in one scope. Access is what makes the next repair cheap.","name":"Gaisano Capital Masbate","loc":"Masbate"},{"y":2022,"seg":"ci","st":"done","role":"Contractor","what":"Malfunctioning inverter removed and replaced, commissioning, testing and fiber cabling","where":"Gaisano Capital South, Cebu City","when":"Completed 4 February 2022"},{"y":2021,"seg":"ci","st":"done","kwp":536,"role":"Contractor","what":"Repair and energize of the roof mount plant","where":"Gaisano Capital Binangonan, Rizal","client":"Total Solar Renewable"},{"y":2021,"seg":"ci","st":"done","kwp":375,"role":"Contractor","what":"Repair and energize of the roof mount plant","where":"Gaisano Capital Masbate","client":"Total Solar Renewable"},{"y":2021,"seg":"ci","st":"done","kwp":320,"role":"Contractor","what":"Solar module clearing, stringing, string check and testing, panel re-tightening","where":"Gaisano Capital SRP, Cebu City","client":"Total Solar Renewable","photo":"gaisano-srp","feat":1,"cap":"320 kWp on the SRP roof, walked panel by panel and re-tightened by hand.","name":"Gaisano Capital SRP","loc":"Cebu City"},{"y":2021,"seg":"ci","st":"done","kwp":294,"role":"Contractor","what":"Clearing, re-stringing, panel re-tightening, string test and energize, plus inverter canopy restoration","where":"Gaisano Capital South, corner Colon and Leon Kilat St, Cebu City","client":"Total Solar Renewable","photo":"gaisano-south","feat":1,"cap":"A 294 kW plant that had stopped earning. Cleared, re-strung, re-tightened, tested and switched back on.","name":"Gaisano Capital South","loc":"Colon and Leon Kilat, Cebu City"},{"y":2021,"seg":"ci","st":"done","kwp":191,"role":"Contractor","what":"Repair and energize of the roof mount plant","where":"Gaisano Savers Mart, Mactan, Cebu","client":"Total Solar Renewable"},{"y":2021,"seg":"res","st":"done","kwp":8,"role":"Installer","what":"On-grid system, labor, tools and supervision","where":"Maria Luisa South, Guadalupe, Cebu City"},{"y":2021,"seg":"res","st":"done","kwp":5,"role":"Installer","what":"On-grid system, labor, tools and supervision","where":"Prestina North, Talamban, Cebu City"},{"y":2020,"seg":"res","st":"done","kwp":5,"role":"EPC","what":"On-grid system, supply, design and installation","where":"Nivel Hills, Lahug, Cebu City"},{"y":2019,"seg":"ci","st":"done","kwp":129.6,"role":"EPC and O&M","what":"Roof deck mount system, first phase of the mall plant","where":"Wilsam Uptown Mall, Real Street, Borongan City, Eastern Samar","client":"Wilsam Realty Development Corporation"},{"y":2018,"seg":"ci","st":"done","kwp":359.52,"role":"EPC","what":"On-grid commercial rooftop system, the main phase of the mall plant","where":"Wilsam Uptown Mall, Borongan City, Eastern Samar","client":"Zhanlin Marketing and Wilsam Realty Development Corporation","photo":"wilsam-uptown","feat":1,"cap":"The main phase of the Wilsam plant. With the 2019 roof deck it makes the 489.12 kWp we still maintain today.","name":"Wilsam Uptown Mall","loc":"Borongan City, Eastern Samar"}];
+var plist=$("#plist"), pgrid=$("#pgrid");
+function cap(p){
+  var s="";
+  if(p.kwp) s = p.kwp>=1000 ? (p.kwp/1000).toFixed(3).replace(/0+$/,"").replace(/\.$/,"")+" MWp"
+                            : (p.kwp%1?p.kwp.toFixed(2):p.kwp)+" kWp";
+  else if(p.mod) s = p.mod+" modules";
+  if(p.kwh) s += p.kwh>=1000 ? " + "+(p.kwh/1000).toFixed(1)+" MWh" : " + "+p.kwh+" kWh";
+  return s||"Service work";
+}
+function esc(t){return String(t).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/"/g,"&quot;")}
+function title(p){
+  return p.name || p.where.split(",")[0].replace(/ branch$/i,"");
+}
+/* ---- the photo cards ---- */
+var FEAT=PROJECTS.filter(function(p){return p.feat}).sort(function(a,b){return (b.kwp||0)-(a.kwp||0)});
+var SHOWN=6;
+function renderCards(all){
+  if(!pgrid) return;
+  pgrid.innerHTML=FEAT.map(function(p,i){
+    return '<article class="pcard'+((!all&&i>=SHOWN)?" hid":"")+'">'+
+      '<div class="pimg"><img src="assets/projects/'+p.photo+'.jpg" alt="'+
+        esc(p.what+" at "+p.where)+'" loading="lazy" decoding="async">'+
+      '<span class="pchip">'+cap(p)+'</span><span class="prole">'+esc(p.role)+'</span></div>'+
+      '<div class="pbody"><h3>'+esc(title(p))+'</h3>'+
+      '<p class="ploc">'+esc(p.loc||p.where)+'</p>'+
+      '<p class="pdesc">'+esc(p.cap||p.what)+'</p>'+
+      '<p class="pmeta">'+esc(p.when||("Completed "+p.y))+'</p></div></article>';
+  }).join("");
+}
+var pmore=$("#pmore"), allShown=false;
+if(pmore) pmore.addEventListener("click",function(){
+  allShown=!allShown;
+  renderCards(allShown);
+  pmore.setAttribute("aria-expanded",allShown);
+  pmore.textContent=allShown?"Show fewer":"Show all "+FEAT.length+" projects";
+  if(!allShown) pgrid.scrollIntoView({block:"start"});
+});
+renderCards(false);
+/* ---- the full list ---- */
+function renderProjects(f){
+  if(!plist) return;
+  var rows=PROJECTS.filter(function(p){
+    return f==="all" ? true : f==="ongoing" ? p.st==="ongoing" : p.seg===f;
+  });
+  plist.innerHTML=rows.map(function(p){
+    return '<div class="prow'+(p.st==="ongoing"?" live":"")+'">'+
+      '<span class="py">'+(p.note?esc(p.note):p.y)+'</span>'+
+      '<span class="pc">'+cap(p)+'</span>'+
+      '<span class="pw">'+esc(p.what)+'<i>'+esc(p.where)+'</i></span>'+
+      '<span class="pk"><b>'+esc(p.role)+'</b>'+esc(p.client||"Private residence")+'</span>'+
+      '</div>';
+  }).join("")||'<div class="prow"><span class="pw">Nothing under that filter yet.</span></div>';
+}
+$$("#pfilter button").forEach(function(b){
+  b.addEventListener("click",function(){
+    $$("#pfilter button").forEach(function(o){o.setAttribute("aria-pressed",o===b)});
+    renderProjects(b.dataset.f);
+    if(plist) plist.scrollTop=0;
+  });
+});
+renderProjects("all");
+
+/* ================= FAQ ================= */
+var faqBtns=$$('#faqlist .qa button');
+function sizeOpenAnswers(){
+  $$('#faqlist .qa.open .ans').forEach(function(a){a.style.height=a.scrollHeight+'px'});
+}
+faqBtns.forEach(function(b){
+  b.addEventListener('click',function(){
+    var qa=b.closest('.qa'), ans=$('.ans',qa), open=qa.classList.contains('open');
+    if(open){ans.style.height=ans.scrollHeight+'px';void ans.offsetHeight;ans.style.height='0px'}
+    else{ans.style.height=ans.scrollHeight+'px'}
+    qa.classList.toggle('open',!open);
+    b.setAttribute('aria-expanded',open?'false':'true');
+  });
+});
+
+/* ================= THE FORM (mockup: nothing is sent) ================= */
+var qf=$('#qf'), qdone=$('#qdone');
+if(qf){
+  qf.addEventListener('submit',function(e){
+    e.preventDefault();
+    var bad=null;
+    ['f-name','f-mob','f-city'].forEach(function(id){
+      var el=document.getElementById(id);
+      if(!el.value.trim()){el.style.borderColor='#E88A7D';if(!bad)bad=el}
+      else el.style.borderColor='';
+    });
+    if(bad){bad.focus();return}
+    var name=$('#f-name').value.trim().split(' ')[0];
+    var mob=$('#f-mob').value.trim();
+    $('#qdone-h').textContent='Thanks, '+name+'.';
+    $('#qdone-p').textContent='An engineer will call '+mob+' within one business day with an indicative range for your roof.';
+    qdone.classList.add('on');
+    qdone.focus&&qdone.setAttribute('tabindex','-1');
+  });
+}
+
+/* ================= REDUCED MOTION, LIVE, IN BOTH DIRECTIONS ================= */
+var pinned=false;
+function pinToFinalStates(){
+  pinned=true;
+  if(procfill){procfill.style.setProperty('--tp','1');procCache=100}
+  steps.forEach(function(s){s.classList.add('on');s.classList.remove('now')});
+  stepCache=steps.length;
+  revs.forEach(function(r){r.classList.add('in','done')});
+  if(pageRaf!==null){cancelAnimationFrame(pageRaf);pageRaf=null}
+  if(holdRaf!==null){cancelAnimationFrame(holdRaf);holdRaf=null}
+  holding=false; if(!holdDone){hold=1;finishHold()}
+}
+function unpinFinalStates(){
+  if(!pinned) return;
+  pinned=false;
+  procCache=-1; stepCache=-1;
+  steps.forEach(function(s){s.classList.remove('on','now')});
+  onPageScroll();
+}
+if(reduceMQ.addEventListener){
+  reduceMQ.addEventListener('change',function(e){
+    if(e.matches) pinToFinalStates(); else unpinFinalStates();
+  });
+}
+
+/* ---- the sticky phone CTA: on once the hero is gone, off over the form itself ---- */
+(function(){
+  var bar=$('#stickycta'), heroEl=$('.hero'), quoteEl=$('#quote');
+  if(!bar||!heroEl||!quoteEl||!('IntersectionObserver' in window)) return;
+  var heroGone=false, atForm=false;
+  function apply(){
+    var show=heroGone&&!atForm;
+    bar.classList.toggle('show',show);
+    document.body.classList.toggle('hascta',show);
+  }
+  new IntersectionObserver(function(e){heroGone=!e[0].isIntersecting;apply()},
+    {rootMargin:'-40% 0px 0px 0px'}).observe(heroEl);
+  new IntersectionObserver(function(e){atForm=e[0].isIntersecting;apply()},
+    {rootMargin:'0px 0px -25% 0px'}).observe(quoteEl);
+})();
+
+/* ================= HOUSEKEEPING ================= */
+document.addEventListener('visibilitychange',function(){
+  document.body.classList.toggle('paused',document.hidden);
+});
+if(reduceMQ.matches) pinToFinalStates();
+onPageScroll();
+/* pause the hero's slow drift once it is scrolled past */
+if('IntersectionObserver' in window){
+  var heroEl=document.querySelector('.hero');
+  if(heroEl) new IntersectionObserver(function(es){
+    heroEl.classList.toggle('off',!es[0].isIntersecting);
+  },{rootMargin:'80px'}).observe(heroEl);
+}
+})();
+</script>
+</body>
+</html>
