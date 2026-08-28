@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Solaris Energie Corporation | Solar for Philippine homes and businesses</title>
 <meta name="description" content="Grid-tied, hybrid and off-grid solar designed on your real electricity bills and built for Philippine weather. Free site survey, itemized proposal, net metering filed for you.">
-<meta name="theme-color" content="#080D1A">
+<meta name="theme-color" content="#0A0F08">
 <meta property="og:title" content="Solaris Energie Corporation">
 <meta property="og:description" content="Sun-hours in. Pesos out. Solar designed on your real bills and your real roof.">
 <meta property="og:type" content="website">
@@ -19,13 +19,13 @@
 <style>
 /* ============ TOKENS ============ */
 :root{
-  --canvas:#080D1A; --canvas-2:#0B1120; --panel:#111B2E; --panel-2:#16223A;
-  --line:#22314C; --line-strong:#40567F;
-  --blue:#8CACE0; --blue-deep:#3F5C8F;
-  --sun:#F7A423; --sun-hi:#FFC65E; --leaf:#84D06E;
-  --text-primary:#E9EEF7; --text-secondary:#A6B6CF; --text-tertiary:#8095B4;
+  --canvas:#0A0F08; --canvas-2:#0D1409; --panel:#101B0D; --panel-2:#172712;
+  --line:#223016; --line-strong:#4E6C2C;
+  --blue:#8FBF6A; --blue-deep:#3E5C24;
+  --sun:#A6D608; --sun-hi:#C6E24A; --leaf:#7FA80A;
+  --text-primary:#EAF5E6; --text-secondary:#A9C69E; --text-tertiary:#7C9770;
   --e1:cubic-bezier(.22,.61,.36,1); --e2:cubic-bezier(.65,0,.35,1);
-  --tshadow:0 1px 2px rgba(4,6,14,.95),0 3px 12px rgba(4,6,14,.78),0 10px 44px rgba(4,6,14,.8);
+  --tshadow:0 1px 2px rgba(7,12,5,.95),0 3px 12px rgba(7,12,5,.78),0 10px 44px rgba(7,12,5,.8);
   --disp:'Archivo',system-ui,sans-serif;
   --body:'IBM Plex Sans',system-ui,sans-serif;
   --mono:'IBM Plex Mono',ui-monospace,monospace;
@@ -46,15 +46,15 @@ button,input,select,textarea{font:inherit;color:inherit}
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;
   clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap;border:0}
 :focus-visible{outline:2px solid var(--sun);outline-offset:3px;border-radius:2px}
-::selection{background:var(--sun);color:#0A1120}
+::selection{background:var(--sun);color:#0A1400}
 
 /* ============ FIXED ENVIRONMENT LAYER ============ */
 .env{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
 .env-glow{position:absolute;inset:-20%;
   background:
-    radial-gradient(60% 45% at 18% 12%,rgba(247,164,35,.10) 0%,rgba(247,164,35,0) 60%),
-    radial-gradient(70% 50% at 84% 74%,rgba(63,92,143,.20) 0%,rgba(63,92,143,0) 62%),
-    radial-gradient(50% 40% at 50% 108%,rgba(132,208,110,.06) 0%,rgba(132,208,110,0) 60%);
+    radial-gradient(60% 45% at 18% 12%,rgba(166,214,8,.10) 0%,rgba(166,214,8,0) 60%),
+    radial-gradient(70% 50% at 84% 74%,rgba(62,92,36,.20) 0%,rgba(62,92,36,0) 62%),
+    radial-gradient(50% 40% at 50% 108%,rgba(127,168,10,.06) 0%,rgba(127,168,10,0) 60%);
   animation:envdrift 96s var(--e2) -22s infinite alternate}
 @keyframes envdrift{
   0%{transform:translate3d(0,0,0) scale(1)}
@@ -77,8 +77,8 @@ button,input,select,textarea{font:inherit;color:inherit}
 .led::before{content:"";position:absolute;inset:0 0 auto 0;height:5px;
   background-image:linear-gradient(90deg,var(--line) 0 1px,transparent 1px 100%);
   background-size:11px 100%;opacity:.85}
-.led.gold{border-top-color:rgba(247,164,35,.5)}
-.led.gold::before{background-image:linear-gradient(90deg,rgba(247,164,35,.55) 0 1px,transparent 1px 100%)}
+.led.gold{border-top-color:rgba(166,214,8,.5)}
+.led.gold::before{background-image:linear-gradient(90deg,rgba(166,214,8,.55) 0 1px,transparent 1px 100%)}
 .lrow{display:grid;grid-template-columns:1fr auto;align-items:baseline;gap:16px;
   padding:13px 0;border-bottom:1px solid var(--line)}
 .lrow dt,.lrow .lk{font-family:var(--mono);font-size:.735rem;letter-spacing:.1em;
@@ -92,26 +92,33 @@ button,input,select,textarea{font:inherit;color:inherit}
   transform:translateY(-.28em)}
 .unit{font-family:var(--mono);font-size:.7rem;letter-spacing:.13em;text-transform:uppercase;
   color:var(--text-tertiary)}
-.chip{display:inline-block;padding:.42em .8em;background:rgba(8,12,24,.55);
-  border:1px solid rgba(140,172,224,.28);border-radius:10px;backdrop-filter:blur(10px);
-  -webkit-backdrop-filter:blur(10px);text-shadow:0 1px 3px rgba(4,6,14,.85)}
+.chip{display:inline-block;padding:.42em .8em;background:rgba(12,19,9,.55);
+  border:1px solid rgba(143,191,106,.28);border-radius:10px;backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);text-shadow:0 1px 3px rgba(7,12,5,.85)}
 
 /* ============ BUTTONS ============ */
+/* the click effect: a scatter of light released from wherever a button is pressed */
+.photon-fx{position:fixed;z-index:9999;width:5px;height:5px;border-radius:50%;
+  background:#E8FCA0;box-shadow:0 0 9px 2px rgba(166,214,8,.7);pointer-events:none;
+  left:0;top:0;will-change:transform,opacity}
+@keyframes photonfly{
+  0%{transform:translate(-50%,-50%) translate(0,0) scale(1);opacity:1}
+  100%{transform:translate(-50%,-50%) translate(var(--dx),var(--dy)) scale(.3);opacity:0}}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:.6em;
   padding:.86em 1.5em;border-radius:3px;border:1px solid transparent;cursor:pointer;
   font-family:var(--mono);font-size:.82rem;letter-spacing:.09em;text-transform:uppercase;
   text-decoration:none;text-shadow:none;position:relative;overflow:hidden;
   transition:background .35s var(--e1),color .35s var(--e1),border-color .35s var(--e1),transform .35s var(--e1)}
-.btn-p{background:var(--sun);color:#0A1120;font-weight:500}
+.btn-p{background:var(--sun);color:#0A1400;font-weight:500}
 .btn-p:hover{background:var(--sun-hi);transform:translateY(-2px)}
-.btn-s{background:rgba(140,172,224,.06);color:var(--text-primary);border-color:var(--line-strong)}
-.btn-s:hover{border-color:var(--blue);background:rgba(140,172,224,.13);transform:translateY(-2px)}
+.btn-s{background:rgba(143,191,106,.06);color:var(--text-primary);border-color:var(--line-strong)}
+.btn-s:hover{border-color:var(--blue);background:rgba(143,191,106,.13);transform:translateY(-2px)}
 .btn .ar{transition:transform .35s var(--e1)}
 .btn:hover .ar{transform:translateX(4px)}
 @media (pointer:coarse){.btn{min-height:44px;display:inline-flex;align-items:center;justify-content:center}}
 
 /* ============ NAV ============ */
-.skip{position:absolute;left:-9999px;top:0;z-index:200;background:var(--sun);color:#0A1120;
+.skip{position:absolute;left:-9999px;top:0;z-index:200;background:var(--sun);color:#0A1400;
   padding:12px 20px;font-family:var(--mono);font-size:.8rem}
 .skip:focus{left:12px;top:12px}
 .nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;
@@ -122,7 +129,7 @@ button,input,select,textarea{font:inherit;color:inherit}
   -webkit-backdrop-filter:blur(16px);border-bottom-color:var(--line)}
 .brand{display:flex;align-items:center;text-decoration:none;flex:none;
   background:#fff;border-radius:3px;padding:5px 9px;line-height:0;
-  box-shadow:0 2px 14px rgba(4,6,14,.35)}
+  box-shadow:0 2px 14px rgba(7,12,5,.35)}
 .brand img{width:clamp(104px,10.5vw,134px);height:auto;flex:none;display:block}
 .brand .bt{display:flex;flex-direction:column;line-height:1}
 .brand .b1{font-family:var(--disp);font-weight:700;font-stretch:112%;font-size:1.06rem;
@@ -167,7 +174,7 @@ button,input,select,textarea{font:inherit;color:inherit}
 
 /* ============ THE STATIC HERO ============ */
 .hero{position:relative;min-height:100svh;overflow:hidden;
-  background:linear-gradient(168deg,#0B1526,#080D1A)}
+  background:linear-gradient(168deg,#0E1810,#0A0F08)}
 .hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
   object-position:52% 46%;transform-origin:50% 50%;will-change:transform;
   animation:kenburns 46s var(--e2) -8s infinite alternate}
@@ -176,16 +183,16 @@ button,input,select,textarea{font:inherit;color:inherit}
   to{transform:scale(1.135) translate(-1.1%,-1.5%)}}
 .hero.off .hero-img{animation-play-state:paused}
 .hero-scrim{position:absolute;inset:0;pointer-events:none;background:
-  linear-gradient(180deg,rgba(6,9,20,.72) 0%,rgba(6,9,20,.24) 19%,rgba(6,9,20,.52) 47%,rgba(6,9,20,.90) 100%),
-  linear-gradient(101deg,rgba(4,6,14,.88) 0%,rgba(4,6,14,.74) 26%,rgba(4,6,14,.30) 52%,rgba(4,6,14,0) 74%),
-  radial-gradient(ellipse 88% 58% at 24% 74%,rgba(4,6,14,.58) 0%,rgba(4,6,14,0) 78%)}
+  linear-gradient(180deg,rgba(9,15,7,.72) 0%,rgba(9,15,7,.24) 19%,rgba(9,15,7,.52) 47%,rgba(9,15,7,.90) 100%),
+  linear-gradient(101deg,rgba(7,12,5,.88) 0%,rgba(7,12,5,.74) 26%,rgba(7,12,5,.30) 52%,rgba(7,12,5,0) 74%),
+  radial-gradient(ellipse 88% 58% at 24% 74%,rgba(7,12,5,.58) 0%,rgba(7,12,5,0) 78%)}
 /* on a phone the text runs the full width, so the wash has to come from below instead */
 @media (max-width:720px){
   /* crop to the array rather than the field, so the dark panels do the work
      and the wash can stay light enough to keep the sunset alive */
   .hero-img{object-position:33% 54%}
   .hero-scrim{background:
-    linear-gradient(180deg,rgba(6,9,20,.58) 0%,rgba(6,9,20,.18) 15%,rgba(6,9,20,.70) 35%,rgba(6,9,20,.88) 62%,rgba(6,9,20,.92) 100%)}
+    linear-gradient(180deg,rgba(9,15,7,.58) 0%,rgba(9,15,7,.18) 15%,rgba(9,15,7,.70) 35%,rgba(9,15,7,.88) 62%,rgba(9,15,7,.92) 100%)}
 }
 .hero-grain{position:absolute;inset:0;pointer-events:none;opacity:.3;mix-blend-mode:overlay;
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='m'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23m)' opacity='.5'/%3E%3C/svg%3E")}
@@ -257,7 +264,7 @@ button,input,select,textarea{font:inherit;color:inherit}
 .calcwrap{display:grid;grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);
   gap:clamp(24px,3.4vw,56px);align-items:start}
 @media (max-width:1000px){.calcwrap{grid-template-columns:1fr}}
-.calcbox{background:linear-gradient(165deg,var(--panel),#0D1626);border:1px solid var(--line);
+.calcbox{background:linear-gradient(165deg,var(--panel),#101C0B);border:1px solid var(--line);
   border-radius:4px;padding:clamp(20px,2.6vw,32px)}
 .ctl{display:grid;gap:9px;margin-bottom:24px}
 .ctl:last-of-type{margin-bottom:0}
@@ -272,10 +279,10 @@ input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:26px
 input[type=range]::-webkit-slider-runnable-track{height:3px;background:var(--line-strong);border-radius:2px}
 input[type=range]::-moz-range-track{height:3px;background:var(--line-strong);border-radius:2px}
 input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:20px;height:20px;border-radius:50%;
-  background:var(--sun);border:3px solid #0C1424;margin-top:-8.5px;
-  box-shadow:0 0 0 1px var(--sun),0 3px 12px rgba(247,164,35,.4)}
+  background:var(--sun);border:3px solid #0E1709;margin-top:-8.5px;
+  box-shadow:0 0 0 1px var(--sun),0 3px 12px rgba(166,214,8,.4)}
 input[type=range]::-moz-range-thumb{width:20px;height:20px;border-radius:50%;background:var(--sun);
-  border:3px solid #0C1424;box-shadow:0 0 0 1px var(--sun)}
+  border:3px solid #0E1709;box-shadow:0 0 0 1px var(--sun)}
 input[type=range]:focus-visible{outline:2px solid var(--sun);outline-offset:6px;border-radius:4px}
 .seg{display:flex;gap:0;border:1px solid var(--line-strong);border-radius:3px;overflow:hidden}
 .seg button{flex:1;background:none;border:0;padding:.78em .5em;cursor:pointer;font-family:var(--mono);
@@ -283,57 +290,57 @@ input[type=range]:focus-visible{outline:2px solid var(--sun);outline-offset:6px;
   border-right:1px solid var(--line-strong);
   transition:background .3s var(--e1),color .3s var(--e1)}
 .seg button:last-child{border-right:0}
-.seg button:hover{background:rgba(140,172,224,.08);color:var(--text-primary)}
-.seg button[aria-pressed=true]{background:var(--sun);color:#0A1120;font-weight:500}
+.seg button:hover{background:rgba(143,191,106,.08);color:var(--text-primary)}
+.seg button[aria-pressed=true]{background:var(--sun);color:#0A1400;font-weight:500}
 .calcout{margin-top:26px;display:grid}
 .calcout .lrow:last-child{border-bottom:0}
 .calcout .lv{font-size:1rem}
 .headline-row{border-top:1px solid var(--sun);border-bottom:1px solid var(--sun) !important;
-  background:rgba(247,164,35,.06);padding:16px 14px !important;margin-top:6px}
+  background:rgba(166,214,8,.06);padding:16px 14px !important;margin-top:6px}
 .headline-row .lv{font-size:1.18rem !important}
 .calccta{margin-top:22px;display:grid;gap:12px}
 .calccta .btn{width:100%}
 .calcnote{font-family:var(--mono);font-size:.7rem;line-height:1.75;color:var(--text-tertiary)}
 /* the live diagram */
-.viz{position:relative;background:linear-gradient(168deg,#0E1930,#0A1120);border:1px solid var(--line);
+.viz{position:relative;background:linear-gradient(168deg,#10210C,#0A1400);border:1px solid var(--line);
   border-radius:4px;padding:clamp(16px,2vw,26px);overflow:hidden}
 .viz::before{content:"";position:absolute;inset:0;pointer-events:none;
-  background:radial-gradient(58% 40% at 50% 4%,rgba(247,164,35,.16),transparent 70%);
+  background:radial-gradient(58% 40% at 50% 4%,rgba(166,214,8,.16),transparent 70%);
   opacity:calc(.3 + .7*var(--day,0))}
 .viz svg{width:100%;height:auto;display:block;position:relative}
 .arc-track{stroke:var(--line-strong);stroke-width:1;stroke-dasharray:2 6;fill:none;opacity:.7}
 .arc-live{stroke:var(--sun);stroke-width:1.6;fill:none;opacity:.85}
-.roof-face{fill:#0E1728;stroke:var(--line-strong);stroke-width:1.2}
-.roof-edge{fill:#0A1120;stroke:var(--line-strong);stroke-width:1.2}
-.cell{fill:#111C30;stroke:#0A1120;stroke-width:1.1;
+.roof-face{fill:#101F0A;stroke:var(--line-strong);stroke-width:1.2}
+.roof-edge{fill:#0A1400;stroke:var(--line-strong);stroke-width:1.2}
+.cell{fill:#16230F;stroke:#0A1400;stroke-width:1.1;
   transition:fill .45s var(--e1),opacity .45s var(--e1)}
-.cell.on{fill:#2E5490}
-.cell.on.day{fill:#4C82CC}
+.cell.on{fill:#5C8016}
+.cell.on.day{fill:#A6D608}
 .sun-g circle.core{fill:var(--sun-hi)}
 .sun-g circle.halo{fill:var(--sun);opacity:.2}
 .sun-g line{stroke:var(--sun);stroke-width:1.6;stroke-linecap:round}
 .beam{stroke:var(--sun-hi);stroke-width:1;opacity:0;stroke-linecap:round}
 .vizcap{position:absolute;top:clamp(16px,2vw,26px);right:clamp(16px,2vw,26px);z-index:2;
   font-family:var(--mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;
-  padding:.4em .7em;background:rgba(8,12,24,.7);border:1px solid var(--line);border-radius:3px;
+  padding:.4em .7em;background:rgba(12,19,9,.7);border:1px solid var(--line);border-radius:3px;
   color:var(--text-secondary);backdrop-filter:blur(8px)}
 .bills{margin-top:18px;display:grid;gap:11px}
 .billbar{display:grid;grid-template-columns:88px 1fr;gap:13px;align-items:center}
 .billbar .bl{font-family:var(--mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;
   color:var(--text-tertiary);text-align:right}
-.billbar .bt{position:relative;height:32px;background:rgba(140,172,224,.07);border-radius:2px;
+.billbar .bt{position:relative;height:32px;background:rgba(143,191,106,.07);border-radius:2px;
   overflow:hidden}
 .billbar .bf{position:absolute;inset:0 auto 0 0;width:var(--bw,0%);border-radius:2px;
   transition:width .55s var(--e1)}
 .billbar.now .bf{background:linear-gradient(90deg,#4A5B78,#65799B)}
 .billbar.after .bf{background:linear-gradient(90deg,var(--sun),var(--sun-hi))}
 .billbar .bn{position:absolute;top:50%;transform:translateY(-50%);left:11px;font-family:var(--mono);
-  font-size:.79rem;color:#fff;font-variant-numeric:tabular-nums;text-shadow:0 1px 3px rgba(4,6,14,.9);
+  font-size:.79rem;color:#fff;font-variant-numeric:tabular-nums;text-shadow:0 1px 3px rgba(7,12,5,.9);
   white-space:nowrap}
-.billbar.after .bn{color:#0A1120;text-shadow:none;font-weight:500}
+.billbar.after .bn{color:#0A1400;text-shadow:none;font-weight:500}
 .teachrow{margin-top:16px;display:flex;gap:11px;align-items:flex-start;min-height:52px;
   padding:12px 14px;border:1px solid var(--line);border-left:2px solid var(--leaf);
-  background:rgba(132,208,110,.045)}
+  background:rgba(127,168,10,.045)}
 .teachrow p{font-size:.9rem;color:var(--text-secondary)}
 .dayrow{margin-top:16px;display:flex;gap:14px;align-items:center;flex-wrap:wrap}
 .assump{margin-top:20px;border-top:1px solid var(--line)}
@@ -385,7 +392,7 @@ input[type=range]:focus-visible{outline:2px solid var(--sun);outline-offset:6px;
   text-transform:uppercase;color:var(--text-secondary);
   transition:background .3s var(--e1),color .3s var(--e1),border-color .3s var(--e1)}
 .pfilter button:hover{border-color:var(--blue);color:var(--text-primary)}
-.pfilter button[aria-pressed=true]{background:var(--sun);border-color:var(--sun);color:#0A1120}
+.pfilter button[aria-pressed=true]{background:var(--sun);border-color:var(--sun);color:#0A1400}
 .plist{max-height:min(620px,72vh);overflow-y:auto;border:1px solid var(--line);
   background:linear-gradient(180deg,rgba(17,27,46,.55),rgba(11,17,32,.3))}
 .prow{display:grid;grid-template-columns:84px 202px minmax(0,1fr) minmax(0,.86fr);gap:16px;
@@ -419,19 +426,19 @@ input[type=range]:focus-visible{outline:2px solid var(--sun);outline-offset:6px;
 .pcard{border:1px solid var(--line);background:var(--panel);display:flex;flex-direction:column;
   overflow:hidden;position:relative}
 .pcard.hid{display:none}
-.pimg{position:relative;aspect-ratio:16/10;overflow:hidden;background:#0C1424;flex:none}
+.pimg{position:relative;aspect-ratio:16/10;overflow:hidden;background:#0E1709;flex:none}
 .pimg img{width:100%;height:100%;object-fit:cover;transform:scale(1.02);
   transition:transform 1s var(--e1)}
 .pcard:hover .pimg img{transform:scale(1.07)}
 .pimg::after{content:"";position:absolute;inset:0;pointer-events:none;
-  background:linear-gradient(180deg,rgba(6,9,20,.42) 0%,rgba(6,9,20,0) 38%,rgba(6,9,20,.28) 100%)}
+  background:linear-gradient(180deg,rgba(9,15,7,.42) 0%,rgba(9,15,7,0) 38%,rgba(9,15,7,.28) 100%)}
 .pchip{position:absolute;z-index:2;left:12px;top:12px;font-family:var(--mono);font-size:.7rem;
-  letter-spacing:.07em;padding:.36em .66em;border-radius:2px;background:rgba(8,12,24,.82);
-  border:1px solid rgba(247,164,35,.42);color:var(--sun);backdrop-filter:blur(8px);
+  letter-spacing:.07em;padding:.36em .66em;border-radius:2px;background:rgba(12,19,9,.82);
+  border:1px solid rgba(166,214,8,.42);color:var(--sun);backdrop-filter:blur(8px);
   -webkit-backdrop-filter:blur(8px);white-space:nowrap}
 .prole{position:absolute;z-index:2;right:12px;top:12px;font-family:var(--mono);font-size:.66rem;
   letter-spacing:.1em;text-transform:uppercase;padding:.34em .6em;border-radius:2px;
-  background:rgba(8,12,24,.72);border:1px solid var(--line);color:var(--blue);
+  background:rgba(12,19,9,.72);border:1px solid var(--line);color:var(--blue);
   backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
 .pbody{padding:18px 20px 20px;display:flex;flex-direction:column;gap:8px;flex:1}
 .pbody h3{font-size:1.06rem;letter-spacing:-.006em}
@@ -444,14 +451,14 @@ input[type=range]:focus-visible{outline:2px solid var(--sun);outline-offset:6px;
   padding:.85em 1.7em;cursor:pointer;font-family:var(--mono);font-size:.76rem;letter-spacing:.1em;
   text-transform:uppercase;color:var(--text-secondary);
   transition:border-color .3s var(--e1),color .3s var(--e1),background .3s var(--e1)}
-.morebtn button:hover{border-color:var(--sun);color:var(--sun);background:rgba(247,164,35,.05)}
+.morebtn button:hover{border-color:var(--sun);color:var(--sun);background:rgba(166,214,8,.05)}
 
 /* ---- WHO WE ARE ---- */
 .aboutgrid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);
   gap:clamp(26px,4vw,60px);align-items:start}
 @media (max-width:900px){.aboutgrid{grid-template-columns:1fr}}
 .misson{margin-top:26px;padding:24px 26px;border:1px solid var(--line);border-left:2px solid var(--sun);
-  background:rgba(247,164,35,.045)}
+  background:rgba(166,214,8,.045)}
 .misson .lk{font-family:var(--mono);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;
   color:var(--sun)}
 .misson p{margin-top:12px;font-size:clamp(1.02rem,1.3vw,1.18rem);color:var(--text-primary);
@@ -498,7 +505,7 @@ input[type=range]:focus-visible{outline:2px solid var(--sun);outline-offset:6px;
 .tbl tbody th{font-family:var(--mono);font-size:.73rem;font-weight:400;letter-spacing:.11em;
   text-transform:uppercase;color:var(--text-tertiary);white-space:nowrap;width:1%}
 .tbl td{color:var(--text-secondary)}
-.tbl .pick{background:rgba(247,164,35,.045)}
+.tbl .pick{background:rgba(166,214,8,.045)}
 .tbl .pick.hd{color:var(--sun)}
 .tbl .yes{color:var(--leaf)}
 .tbl .no{color:#E88A7D}
@@ -509,7 +516,7 @@ input[type=range]:focus-visible{outline:2px solid var(--sun);outline-offset:6px;
 @media (max-width:860px){.tblhint{display:flex}}
 .note + .note{margin-top:14px}
 .note{margin-top:26px;display:flex;gap:14px;align-items:flex-start;padding:18px 20px;
-  border:1px solid var(--line);border-left:2px solid var(--blue);background:rgba(140,172,224,.04)}
+  border:1px solid var(--line);border-left:2px solid var(--blue);background:rgba(143,191,106,.04)}
 .note p{color:var(--text-secondary);max-width:70ch}
 .note b{color:var(--text-primary);font-weight:500}
 
@@ -527,17 +534,17 @@ input[type=range]:focus-visible{outline:2px solid var(--sun);outline-offset:6px;
   background:var(--canvas);display:grid;place-items:center;position:relative;z-index:2;
   font-family:var(--mono);font-size:.95rem;color:var(--text-tertiary);
   transition:border-color .55s var(--e1),color .55s var(--e1),background .55s var(--e1)}
-.trk-step.on .trk-node{border-color:var(--sun);color:var(--sun);background:#131A2E}
+.trk-step.on .trk-node{border-color:var(--sun);color:var(--sun);background:#17240D}
 .trk-step.now .trk-node::after{content:"";position:absolute;inset:-7px;border-radius:50%;
   border:1px solid var(--sun);opacity:0;animation:trkpulse 2.4s var(--e2) infinite}
 @keyframes trkpulse{0%{opacity:.7;transform:scale(.86)}70%,100%{opacity:0;transform:scale(1.15)}}
 .trk-step.tail .trk-node{border-style:dashed;border-color:var(--leaf);color:var(--leaf);
   background:var(--canvas)}
-.trk-step.tail.on .trk-node{border-color:var(--leaf);color:var(--leaf);background:#0F1D18}
+.trk-step.tail.on .trk-node{border-color:var(--leaf);color:var(--leaf);background:#10200C}
 .trk-when{display:inline-block;font-family:var(--mono);font-size:.66rem;letter-spacing:.1em;
-  text-transform:uppercase;color:var(--sun);border:1px solid rgba(247,164,35,.34);
+  text-transform:uppercase;color:var(--sun);border:1px solid rgba(166,214,8,.34);
   border-radius:2px;padding:.32em .6em;justify-self:start;white-space:nowrap}
-.trk-step.tail .trk-when{color:var(--leaf);border-color:rgba(132,208,110,.36)}
+.trk-step.tail .trk-when{color:var(--leaf);border-color:rgba(127,168,10,.36)}
 .trk-name{font-size:clamp(.95rem,1.12vw,1.1rem);letter-spacing:-.005em;margin-top:11px;
   min-height:2.5em}
 .trk-desc{margin-top:9px;color:var(--text-secondary);font-size:.855rem;line-height:1.6}
@@ -555,12 +562,6 @@ input[type=range]:focus-visible{outline:2px solid var(--sun);outline-offset:6px;
   .trk-when{margin-top:2px}
   .trk-name{margin-top:9px;min-height:0}
 }
-.paynote{margin-top:clamp(30px,4vh,46px);border:1px solid var(--line);background:var(--panel);
-  padding:clamp(22px,3vw,34px);border-left:2px solid var(--sun)}
-.paynote .split{font-family:var(--disp);font-weight:700;font-stretch:118%;
-  font-size:clamp(1.5rem,3vw,2.35rem);letter-spacing:-.015em;color:var(--sun);line-height:1.05;
-  max-width:24ch}
-.paynote p{margin-top:15px;color:var(--text-secondary);max-width:66ch}
 
 /* ---- 5. WORK: the asymmetric grid ---- */
 .work{display:grid;grid-template-columns:repeat(6,1fr);gap:14px}
@@ -575,7 +576,7 @@ input[type=range]:focus-visible{outline:2px solid var(--sun);outline-offset:6px;
 .wk:hover img{transform:scale(1.07)}
 .wk .wkin{position:relative;z-index:2;height:100%;display:flex;flex-direction:column;
   justify-content:flex-end;padding:20px;
-  background:linear-gradient(180deg,rgba(6,9,20,.18) 0%,rgba(6,9,20,.28) 42%,rgba(6,9,20,.9) 100%)}
+  background:linear-gradient(180deg,rgba(9,15,7,.18) 0%,rgba(9,15,7,.28) 42%,rgba(9,15,7,.9) 100%)}
 .wk h3{font-size:1.08rem}
 .wk .wkm{margin-top:9px;display:flex;flex-wrap:wrap;gap:7px 16px;font-family:var(--mono);
   font-size:.71rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-secondary)}
@@ -588,7 +589,7 @@ input[type=range]:focus-visible{outline:2px solid var(--sun);outline-offset:6px;
 .prices{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--line)}
 .pr{padding:clamp(24px,2.9vw,36px);border-right:1px solid var(--line);position:relative}
 .pr:last-child{border-right:0}
-.pr.feat{background:linear-gradient(178deg,rgba(247,164,35,.075),rgba(247,164,35,.015))}
+.pr.feat{background:linear-gradient(178deg,rgba(166,214,8,.075),rgba(166,214,8,.015))}
 .pr .tag{position:absolute;top:0;left:0;right:0;height:2px;background:var(--sun);opacity:0}
 .pr.feat .tag{opacity:1}
 .pr .sz{font-family:var(--disp);font-weight:700;font-stretch:112%;font-size:2.05rem;line-height:1}
@@ -639,7 +640,7 @@ input[type=range]:focus-visible{outline:2px solid var(--sun);outline-offset:6px;
   transition:border-color .3s var(--e1),background .3s var(--e1);width:100%}
 .fld textarea{resize:vertical;min-height:96px}
 .fld input:focus,.fld select:focus,.fld textarea:focus{border-color:var(--sun);
-  background:#0D1526;outline:none}
+  background:#101C0B;outline:none}
 .fld input::placeholder,.fld textarea::placeholder{color:#61748F}
 .qform .btn{margin-top:22px;width:100%}
 .qmicro{margin-top:14px;font-family:var(--mono);font-size:.71rem;letter-spacing:.05em;
@@ -681,9 +682,9 @@ input[type=range]:focus-visible{outline:2px solid var(--sun);outline-offset:6px;
   .env-glow{transform:none}
   .mote{display:none}
   .trk-fill{width:calc(75% - 54px) !important}
-  .trk-step .trk-node{border-color:var(--sun);color:var(--sun);background:#131A2E}
-  .trk-step.tail .trk-node{border-color:var(--leaf);color:var(--leaf);background:#0F1D18}
-  .cell.on{fill:#3C6AAE}
+  .trk-step .trk-node{border-color:var(--sun);color:var(--sun);background:#17240D}
+  .trk-step.tail .trk-node{border-color:var(--leaf);color:var(--leaf);background:#10200C}
+  .cell.on{fill:#7FA80A}
   .hero-h .w,.hero-st{opacity:1 !important;transform:none !important}
   .hero-img{animation:none;transform:scale(1.05)}
 }
@@ -741,11 +742,11 @@ body.paused *,body.paused *::before,body.paused *::after{animation-play-state:pa
   <div class="hero-in">
     <span class="kick chip hero-st" style="--d:0">Solaris Energie Corporation</span>
     <h2 class="hero-h"><span class="w" style="--i:0">Cut</span> <span class="w" style="--i:1">your</span> <span class="w" style="--i:2">electric</span> <span class="w" style="--i:3">bill</span> <span class="w" style="--i:4">with</span> <span class="w" style="--i:5">solar.</span></h2>
-    <p class="sub hero-st" style="--d:820">Solar for Cebu homes and businesses. Registered company, licensed engineers, 42 projects since 2018. We file your net metering for you.</p>
+    <p class="sub hero-st" style="--d:820">Solar for Cebu homes and businesses. Registered company, licensed engineers, 41 projects since 2018. Net metering filed by you or by us.</p>
     <div class="sled hero-st" style="--d:960">
       <div class="lrow"><span class="lk">Typical saving</span><span class="lv"><em>55 to 70 percent</em> of the bill</span></div>
-      <div class="lrow"><span class="lk">Net metering</span><span class="lv">We file it and chase it</span></div>
-      <div class="lrow"><span class="lk">Delivered since 2018</span><span class="lv">12.96 MWp, 42 projects</span></div>
+      <div class="lrow"><span class="lk">Net metering</span><span class="lv">You file it, or we can</span></div>
+      <div class="lrow"><span class="lk">Delivered since 2018</span><span class="lv">12.94 MWp, 41 projects</span></div>
       <div class="lrow"><span class="lk">Site survey</span><span class="lv"><em>Free, no obligation</em></span></div>
     </div>
     <div class="cta-row hero-st" style="--d:1100">
@@ -928,8 +929,8 @@ body.paused *,body.paused *::before,body.paused *::after{animation-play-state:pa
           </tr>
           <tr>
             <th scope="row">Net metering</th>
-            <td class="yes">Yes, we file it</td>
-            <td class="pick yes">Yes, we file it</td>
+            <td class="yes">You or we can file it</td>
+            <td class="pick yes">You or we can file it</td>
             <td>Not applicable</td>
           </tr>
           <tr>
@@ -948,13 +949,13 @@ body.paused *,body.paused *::before,body.paused *::after{animation-play-state:pa
       </table>
     </div>
     <div class="note rvi">
-      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#F7A423" stroke-width="1.4" aria-hidden="true" style="flex:none;margin-top:3px">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#A6D608" stroke-width="1.4" aria-hidden="true" style="flex:none;margin-top:3px">
         <path d="M3 11l5.5-8v6H17l-5.5 8v-6z"/>
       </svg>
       <p><b>Panels almost never fail. Wiring does.</b> Whichever column you end up in, the part that decides whether a system is safe in ten years is the part nobody photographs: correct cable sizing, real breakers, surge protection, and a DC isolator you can actually reach. It is also the easiest place for a cheap quote to save money without you noticing.</p>
     </div>
     <div class="note rvi" style="border-left-color:var(--blue)">
-      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#8CACE0" stroke-width="1.4" aria-hidden="true" style="flex:none;margin-top:3px">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#8FBF6A" stroke-width="1.4" aria-hidden="true" style="flex:none;margin-top:3px">
         <circle cx="10" cy="10" r="8.4"/><path d="M10 6v5M10 13.6v.4"/>
       </svg>
       <p><b>The thing most installers do not tell you before you sign.</b> A plain grid-tied system switches itself off during a brownout, even in full sunlight. That is required by law, so that no power flows back into a line a lineman is working on. If you want the lights to stay on when the grid goes down, you need a battery, and that is the hybrid column.</p>
@@ -979,7 +980,7 @@ body.paused *,body.paused *::before,body.paused *::after{animation-play-state:pa
       <div class="svc">
         <div class="sn">02</div>
         <h3>Engineering, procurement and construction</h3>
-        <p>We engineer it, buy the equipment, build it, switch it on and file your net metering. One contract, one team to answer for it.</p>
+        <p>We engineer it, buy the equipment, build it and switch it on. Net metering can be filed by you, or we can process it for you. One contract, one team to answer for it.</p>
       </div>
       <div class="svc">
         <div class="sn">03</div>
@@ -1061,7 +1062,7 @@ body.paused *,body.paused *::before,body.paused *::after{animation-play-state:pa
           <div class="trk-body">
             <span class="trk-when">Week 4</span>
             <h3 class="trk-name">Turnover and net metering filed</h3>
-            <p class="trk-desc">Documents, warranties and your monitoring login. We file with VECO the same week, or your own utility outside Cebu.</p>
+            <p class="trk-desc">Documents, warranties and your monitoring login. Net metering can be filed by you, or we can process it for you with VECO.</p>
           </div>
         </li>
         <li class="trk-step tail" data-t="7">
@@ -1078,10 +1079,6 @@ body.paused *,body.paused *::before,body.paused *::after{animation-play-state:pa
         </li>
       </ol>
     </div>
-    <div class="paynote rvi">
-      <div class="split">Ask when the last payment is due.</div>
-      <p>Ask any solar company, us included. Net metering is where installers go quiet, because it is paperwork with nothing left to sell. If a company collects everything at handover, that risk has moved to you.</p>
-    </div>
   </div>
 </section>
 
@@ -1090,13 +1087,13 @@ body.paused *,body.paused *::before,body.paused *::after{animation-play-state:pa
   <div class="wrap rv">
     <div class="sec-head">
       <span class="kick rvi">Track record</span>
-      <h2 class="rvi">42 projects we have built.</h2>
+      <h2 class="rvi">41 projects we have built.</h2>
       <p class="lede rvi">From a 2.25 kWp shop in Borongan to a 7.338 MWp field in Batangas. Pick any project, ask us for the owner&#8217;s number, and call them yourself.</p>
     </div>
     <div class="bignums rvi">
-      <div><div class="n">12.96<small>MWp</small></div><p class="l">Solar capacity delivered since 2018, across every project listed here.</p></div>
+      <div><div class="n">12.94<small>MWp</small></div><p class="l">Solar capacity delivered since 2018, across every project listed here.</p></div>
       <div><div class="n">1.31<small>MWh</small></div><p class="l">Battery storage installed and commissioned, from 10 kWh homes to a 1.2 MWh cold chain.</p></div>
-      <div><div class="n">42</div><p class="l">Projects as EPC, contractor, sub-contractor or installer.</p></div>
+      <div><div class="n">41</div><p class="l">Projects as EPC, contractor, sub-contractor or installer.</p></div>
       <div><div class="n">9</div><p class="l">Provinces, from Cebu and Eastern Samar to Batangas, Rizal, Aklan and Camarines Sur.</p></div>
     </div>
 
@@ -1227,7 +1224,7 @@ body.paused *,body.paused *::before,body.paused *::after{animation-play-state:pa
       </div>
       <div class="qa">
         <h3><button type="button" aria-expanded="false">How long does net metering take?<span class="pm" aria-hidden="true"></span></button></h3>
-        <div class="ans"><p>Ten to ninety days after we file, depending on your utility. In Cebu that is VECO. We file the same week we hand over. Your system runs and saves you money the whole time. What you are waiting for is the meter that lets you bank the surplus.</p></div>
+        <div class="ans"><p>Ten to ninety days after filing, depending on your utility. In Cebu that is VECO. You can file it yourself, or we can process it for you the same week we hand over. Your system runs and saves you money the whole time. What you are waiting for is the meter that lets you bank the surplus.</p></div>
       </div>
       <div class="qa">
         <h3><button type="button" aria-expanded="false">What if you close down in three years?<span class="pm" aria-hidden="true"></span></button></h3>
@@ -1239,15 +1236,15 @@ body.paused *,body.paused *::before,body.paused *::after{animation-play-state:pa
       </div>
       <div class="qa">
         <h3><button type="button" aria-expanded="false">Who exactly are you?<span class="pm" aria-hidden="true"></span></button></h3>
-        <div class="ans"><p>Solaris Energie Ventures Corporation, registered with the Securities and Exchange Commission in March 2022 under number 2022030044923-87. The team has been building solar since 2018, before the corporation existed. Thirty people, two PRC licensed engineers, a BOSH certified safety officer, and 42 projects across nine provinces. All of them are listed on this page, and 17 have photos taken by our own crews.</p></div>
+        <div class="ans"><p>Solaris Energie Ventures Corporation, registered with the Securities and Exchange Commission in March 2022 under number 2022030044923-87. The team has been building solar since 2018, before the corporation existed. Thirty people, two PRC licensed engineers, a BOSH certified safety officer, and 41 projects across nine provinces. All of them are listed on this page, and 16 have photos taken by our own crews.</p></div>
       </div>
       <div class="qa">
         <h3><button type="button" aria-expanded="false">Have you done anything my size?<span class="pm" aria-hidden="true"></span></button></h3>
         <div class="ans"><p>Probably. The smallest is a 2.25 kWp shop in Borongan, the largest a 7.338 MWp field in Batangas. In between are hotels, an ice plant, a fuel station, a cold store with 1.2 MWh of battery, 13 Gaisano Capital roofs, and houses from 5 to 34 kWp.</p></div>
       </div>
       <div class="qa">
-        <h3><button type="button" aria-expanded="false">Do you only work in Cebu?<span class="pm" aria-hidden="true"></span></button></h3>
-        <div class="ans"><p>No. Most of our work is in Cebu and Eastern Samar, but we have built in Masbate, Sorsogon, Aklan, Southern Leyte, Camarines Sur, Rizal and Batangas. Ask anyway. Travel cost is quoted as its own line, not hidden in the price.</p></div>
+        <h3><button type="button" aria-expanded="false">What is your service area?<span class="pm" aria-hidden="true"></span></button></h3>
+        <div class="ans"><p>Cebu. Our project history includes work across other provinces, all listed in the track record below, but our active service area today is Cebu.</p></div>
       </div>
       <div class="qa">
         <h3><button type="button" aria-expanded="false">Can I pay in installments?<span class="pm" aria-hidden="true"></span></button></h3>
@@ -1270,8 +1267,8 @@ body.paused *,body.paused *::before,body.paused *::after{animation-play-state:pa
         <dl class="rvi">
           <div class="lrow"><dt>Reply time</dt><dd class="lv">1 business day</dd></div>
           <div class="lrow"><dt>Survey</dt><dd class="lv"><em>Free, no obligation</em></dd></div>
-          <div class="lrow"><dt>Service area</dt><dd class="lv">Cebu and the Visayas</dd></div>
-          <div class="lrow"><dt>Email</dt><dd class="lv"><a href="mailto:solarisenergiecorp@gmail.com" style="color:var(--sun);text-decoration:none">solarisenergiecorp@gmail.com</a></dd></div>
+          <div class="lrow"><dt>Service area</dt><dd class="lv">Cebu</dd></div>
+          <div class="lrow"><dt>Email</dt><dd class="lv"><a href="mailto:arnolaris@solarisenergiecorp.com" style="color:var(--sun);text-decoration:none">arnolaris@solarisenergiecorp.com</a></dd></div>
         </dl>
       </div>
       <div class="qform rv rvi">
@@ -1301,7 +1298,7 @@ body.paused *,body.paused *::before,body.paused *::after{animation-play-state:pa
           <button class="btn btn-p" type="submit">Get my quote <span class="ar" aria-hidden="true">&rarr;</span></button>
           <p class="qmicro">We call, we do not spam. Your bill range stays between us and the engineer who prices it.</p>
           <p class="qmicro" id="qfail" role="alert" style="display:none;color:#E88A7D">
-            That did not send. Please email <a href="mailto:solarisenergiecorp@gmail.com" style="color:var(--sun)">solarisenergiecorp@gmail.com</a> instead, or call us.
+            That did not send. Please email <a href="mailto:arnolaris@solarisenergiecorp.com" style="color:var(--sun)">arnolaris@solarisenergiecorp.com</a> instead, or call us.
           </p>
         </form>
         <div class="qdone" id="qdone" role="status" aria-live="polite">
@@ -1344,10 +1341,10 @@ body.paused *,body.paused *::before,body.paused *::after{animation-play-state:pa
     <div>
       <h4>Office</h4>
       <ul>
-        <li><a href="tel:+63285550142">+63 2 8555 0142</a></li>
-        <li><a href="mailto:solarisenergiecorp@gmail.com">solarisenergiecorp@gmail.com</a></li>
+        <li><a href="tel:+639209499779">0920 949 9779</a></li>
+        <li><a href="mailto:arnolaris@solarisenergiecorp.com">arnolaris@solarisenergiecorp.com</a></li>
         <li>Mon to Sat, 8am to 6pm</li>
-        <li>Cebu, Eastern Samar and nationwide</li>
+        <li>Cebu</li>
         <li><a href="#quote">Book a free survey</a></li>
       </ul>
     </div>
@@ -1615,7 +1612,7 @@ if(holdbtn){
 /* ================= THE TRACK RECORD =================
    One array drives both the photo cards and the full list.
    To add a project later, append one object and nothing else changes. */
-var PROJECTS=[{"y":2026,"seg":"ci","st":"ongoing","kwp":425.6,"mod":1120,"role":"Contractor","what":"Repower and refurbish, 1120 PV modules","where":"Gaisano Capital Masbate branch","client":"Total Solar Renewable Energies"},{"y":2023,"seg":"ci","st":"ongoing","kwp":489.12,"role":"O&M","what":"Operation and maintenance of the full 489.12 kWp roof mount plant","where":"Wilsam Uptown Mall, Borongan City, Eastern Samar","client":"Zhanlin Marketing and Wilsam","note":"Since 2023"},{"y":2026,"seg":"ci","st":"done","kwp":7338,"role":"Sub-contractor","what":"Ground mount PV mounting system and panel installation","where":"Agrivoltaics Inc., Tuy, Batangas","client":"Renesource Inc. as general contractor","when":"January 2026","photo":"tuy-batangas","feat":1,"cap":"The largest plant this team has worked on. Mounting system and panel installation across 7.338 MWp of ground mount array.","name":"Agrivoltaics ground mount","loc":"Tuy, Batangas"},{"y":2026,"seg":"ci","st":"done","kwp":16.87,"role":"Contractor","what":"Hybrid on-grid system with battery storage","where":"Brgy. Tejero, Cebu City","client":"Future Solar Energy Corporation","when":"February 2026"},{"y":2026,"seg":"ci","st":"done","mod":148,"role":"Contractor","what":"Repower and refurbish, 148 PV modules","where":"Gaisano Capital Binangonan, Rizal","client":"Total Solar Renewable Energies","when":"February 2026"},{"y":2025,"seg":"ci","st":"done","kwp":680.4,"kwh":1200,"role":"Contractor","what":"Roof mount plant with 1.2 MWh battery storage","where":"Gaisano Capital Cold Storage, HVG Mandaue City, Cebu","client":"Gaisano Capital","when":"Completed 7 September 2025","photo":"hvg-mandaue","feat":1,"cap":"Cold storage runs around the clock, so this one carries 1.2 MWh of battery to hold the load when the sun is off.","name":"Gaisano Capital Cold Storage","loc":"HVG, Mandaue City, Cebu"},{"y":2025,"seg":"ci","st":"done","kwp":37.12,"role":"Contractor","what":"Roof mount grid-tie system","where":"Eversteel warehouse, Minglanilla, Cebu","client":"Eversteel Inc.","when":"December 2025"},{"y":2025,"seg":"res","st":"done","kwp":34.16,"kwh":40.96,"role":"EPC","what":"Hybrid system with battery storage","where":"Santo Nino Village, Banilad, Cebu City"},{"y":2025,"seg":"res","st":"done","kwp":10.44,"kwh":10.24,"role":"EPC","what":"Hybrid system with lithium battery storage","where":"Emerald Estate, Cabangcalan, Mandaue City, Cebu","when":"11 to 17 February 2025"},{"y":2025,"seg":"res","st":"done","kwp":8.12,"kwh":10.24,"role":"EPC","what":"Hybrid system with battery storage","where":"Cabreros, Cebu City"},{"y":2025,"seg":"res","st":"done","kwp":6.96,"kwh":10.24,"role":"EPC","what":"Hybrid system with battery storage","where":"Amara subdivision, Catarman, Liloan, Cebu"},{"y":2025,"seg":"ci","st":"done","mod":160,"role":"Contractor","what":"Repower and refurbish, 160 PV modules","where":"Gaisano Capital Kalibo, Aklan","client":"EDC Siklab Power Corporation","when":"October 2025"},{"y":2024,"seg":"ci","st":"done","kwp":443.2,"mod":1385,"role":"Contractor","what":"Removal and restoration of 1385 PV modules, testing and commissioning","where":"Gaisano Capital Sorsogon branch","client":"EDC","when":"29 July to 7 September 2024","photo":"gaisano-sorsogon","feat":1,"cap":"1385 modules in six weeks. The crew that did it, on the roof they finished.","name":"Gaisano Capital Sorsogon","loc":"Sorsogon City"},{"y":2024,"seg":"ci","st":"done","kwp":378.95,"mod":1429,"role":"Contractor","what":"Removal and restoration of 1429 PV modules and mounting frames","where":"Gaisano Capital Casuntingan branch, Mandaue","client":"Total Solar Renewable Energies","when":"14 August to 23 December 2024","photo":"gaisano-casuntingan","feat":1,"cap":"1429 modules off, roof leak tested, frames replaced, and the whole plant re-energized.","name":"Gaisano Capital Casuntingan","loc":"Mandaue City, Cebu"},{"y":2024,"seg":"ci","st":"done","kwp":351.55,"mod":890,"role":"Contractor","what":"Removal and restoration of 890 PV modules and mounting frames","where":"Gaisano Capital Iriga branch","client":"PI Energy","when":"27 November to 17 December 2024","photo":"gaisano-iriga","feat":1,"cap":"Stripped to the deck and rebuilt: 890 modules and every mounting frame, back online in three weeks.","name":"Gaisano Capital Iriga","loc":"Iriga City, Camarines Sur"},{"y":2024,"seg":"ci","st":"done","kwp":200.2,"mod":540,"role":"Contractor","what":"Removal and restoration of 540 PV modules and mounting frames","where":"Gaisano Capital Sogod branch, Southern Leyte","client":"EDC","when":"30 October to 18 December 2024","photo":"gaisano-sogod","feat":1,"cap":"Southern Leyte. Removal, restoration and re-energizing of a 200.2 kWp mall roof.","name":"Gaisano Capital Sogod","loc":"Sogod, Southern Leyte"},{"y":2024,"seg":"res","st":"done","kwp":18.15,"kwh":15.36,"role":"EPC","what":"Hybrid system with lithium battery storage","where":"Baybay 2, Borongan City, Eastern Samar"},{"y":2024,"seg":"res","st":"done","kwp":18.15,"role":"EPC","what":"Grid-tie system","where":"Libanan Street, Borongan City, Eastern Samar","when":"7 to 10 January 2024"},{"y":2024,"seg":"ci","st":"done","kwp":16.5,"role":"EPC","what":"Supply, design, installation and commissioning of an on-grid rooftop system","where":"Galaxy Fuels, Brgy. Hindang, Borongan City, Eastern Samar","when":"12 to 15 January 2024","photo":"galaxy-fuels","feat":1,"cap":"Three days from first bolt to energized, including the switchgear.","name":"Galaxy Fuels","loc":"Brgy. Hindang, Borongan City"},{"y":2024,"seg":"res","st":"done","kwp":6.6,"role":"EPC","what":"Grid-tie system","where":"Real Street, Borongan City, Eastern Samar"},{"y":2024,"seg":"ci","st":"done","mod":426,"role":"Contractor","what":"Rehabilitation and system commissioning: 426 PV modules, DC cables and cable trays","where":"Gaisano Capital T. Padilla branch, Cebu City","when":"20 May to 17 July 2024","photo":"gaisano-tpadilla","feat":1,"cap":"Modules, DC cabling and cable trays out and back in, then tested and commissioned.","name":"Gaisano Capital T. Padilla","loc":"Cebu City"},{"y":2023,"seg":"res","st":"done","kwp":16,"role":"EPC","what":"Hybrid on-grid roof mount system with storage","where":"South Hills, Tisa, Cebu City","when":"Completed 9 January 2023"},{"y":2023,"seg":"ci","st":"done","kwp":2.25,"role":"EPC","what":"Grid-tie solar plant","where":"Real Street, Borongan City, Eastern Samar","client":"936 Mini Store"},{"y":2022,"seg":"ci","st":"done","kwp":104.64,"role":"EPC","what":"On-grid commercial 3 phase rooftop system","where":"Zhanlin Marketing Warehouse, Libanan Road, Borongan City","client":"Zhanlin Marketing","when":"Completed 17 April 2022","photo":"zhanlin-warehouse","feat":1,"cap":"100 kW of inverter across a warehouse roof, laid out in two clean banks either side of the ridge.","name":"Zhanlin Marketing Warehouse","loc":"Libanan Road, Borongan City"},{"y":2022,"seg":"ci","st":"done","kwp":61.04,"role":"EPC","what":"Commercial 3 phase roof mount system with net metering","where":"Talamban, Cebu City","client":"Vismotor Corporation","when":"Completed 7 March 2022","photo":"vismotor","feat":1,"cap":"60 kW three phase, net metering filed and approved, on a dealership roof in Talamban.","name":"Vismotor Corporation","loc":"Talamban, Cebu City"},{"y":2022,"seg":"ci","st":"done","kwp":20,"role":"EPC","what":"On-grid commercial 3 phase roof mount system","where":"Real Street, Borongan City, Eastern Samar","client":"Domsowir Hotel","when":"Completed 7 October 2022","photo":"domsowir-hotel","feat":1,"cap":"20 kW three phase on a hotel roof deck in the middle of Borongan.","name":"Domsowir Hotel","loc":"Real Street, Borongan City"},{"y":2022,"seg":"ci","st":"done","kwp":19.5,"role":"EPC","what":"Hybrid on-grid roof mount system with storage","where":"Baybay 5, Borongan City, Eastern Samar","client":"Kristina Hotel and Restaurant","when":"Turned over 23 December 2022","photo":"kristina-hotel","feat":1,"cap":"A hotel cannot lose power at check-in, so this one went in hybrid with storage.","name":"Kristina Hotel and Restaurant","loc":"Baybay 5, Borongan City"},{"y":2022,"seg":"ci","st":"done","kwp":16.5,"role":"EPC","what":"Grid-tie solar plant","where":"Real Street, Borongan City, Eastern Samar","client":"Zhanlin Fuel"},{"y":2022,"seg":"res","st":"done","kwp":8,"kwh":19.2,"role":"EPC","what":"Hybrid system with LiFePO4 powerwall storage","where":"Baybay 3, Borongan City, Eastern Samar"},{"y":2022,"seg":"ci","st":"done","kwp":7,"role":"EPC","what":"On-grid roof mount system","where":"Borongan City, Eastern Samar","client":"JMD Tube Ice","when":"Completed 8 December 2022","photo":"jmd-tube-ice","feat":1,"cap":"An ice plant runs its compressors in daylight, which is exactly when solar is cheapest.","name":"JMD Tube Ice","loc":"Borongan City, Eastern Samar"},{"y":2022,"seg":"ci","st":"done","mod":120,"role":"Contractor","what":"Removal and re-installation of 120 modules, 172 L-feet, 20 m catwalk and 60 m cable tray","where":"Gaisano Capital Masbate","when":"Completed 29 January 2022","photo":"gaisano-masbate","feat":1,"cap":"Modules, catwalk and cable tray in one scope. Access is what makes the next repair cheap.","name":"Gaisano Capital Masbate","loc":"Masbate"},{"y":2022,"seg":"ci","st":"done","role":"Contractor","what":"Malfunctioning inverter removed and replaced, commissioning, testing and fiber cabling","where":"Gaisano Capital South, Cebu City","when":"Completed 4 February 2022"},{"y":2021,"seg":"ci","st":"done","kwp":536,"role":"Contractor","what":"Repair and energize of the roof mount plant","where":"Gaisano Capital Binangonan, Rizal","client":"Total Solar Renewable"},{"y":2021,"seg":"ci","st":"done","kwp":375,"role":"Contractor","what":"Repair and energize of the roof mount plant","where":"Gaisano Capital Masbate","client":"Total Solar Renewable"},{"y":2021,"seg":"ci","st":"done","kwp":320,"role":"Contractor","what":"Solar module clearing, stringing, string check and testing, panel re-tightening","where":"Gaisano Capital SRP, Cebu City","client":"Total Solar Renewable","photo":"gaisano-srp","feat":1,"cap":"320 kWp on the SRP roof, walked panel by panel and re-tightened by hand.","name":"Gaisano Capital SRP","loc":"Cebu City"},{"y":2021,"seg":"ci","st":"done","kwp":294,"role":"Contractor","what":"Clearing, re-stringing, panel re-tightening, string test and energize, plus inverter canopy restoration","where":"Gaisano Capital South, corner Colon and Leon Kilat St, Cebu City","client":"Total Solar Renewable","photo":"gaisano-south","feat":1,"cap":"A 294 kW plant that had stopped earning. Cleared, re-strung, re-tightened, tested and switched back on.","name":"Gaisano Capital South","loc":"Colon and Leon Kilat, Cebu City"},{"y":2021,"seg":"ci","st":"done","kwp":191,"role":"Contractor","what":"Repair and energize of the roof mount plant","where":"Gaisano Savers Mart, Mactan, Cebu","client":"Total Solar Renewable"},{"y":2021,"seg":"res","st":"done","kwp":8,"role":"Installer","what":"On-grid system, labor, tools and supervision","where":"Maria Luisa South, Guadalupe, Cebu City"},{"y":2021,"seg":"res","st":"done","kwp":5,"role":"Installer","what":"On-grid system, labor, tools and supervision","where":"Prestina North, Talamban, Cebu City"},{"y":2020,"seg":"res","st":"done","kwp":5,"role":"EPC","what":"On-grid system, supply, design and installation","where":"Nivel Hills, Lahug, Cebu City"},{"y":2019,"seg":"ci","st":"done","kwp":129.6,"role":"EPC and O&M","what":"Roof deck mount system, first phase of the mall plant","where":"Wilsam Uptown Mall, Real Street, Borongan City, Eastern Samar","client":"Wilsam Realty Development Corporation"},{"y":2018,"seg":"ci","st":"done","kwp":359.52,"role":"EPC","what":"On-grid commercial rooftop system, the main phase of the mall plant","where":"Wilsam Uptown Mall, Borongan City, Eastern Samar","client":"Zhanlin Marketing and Wilsam Realty Development Corporation","photo":"wilsam-uptown","feat":1,"cap":"The main phase of the Wilsam plant. With the 2019 roof deck it makes the 489.12 kWp we still maintain today.","name":"Wilsam Uptown Mall","loc":"Borongan City, Eastern Samar"}];
+var PROJECTS=[{"y":2026,"seg":"ci","st":"ongoing","kwp":425.6,"mod":1120,"role":"Contractor","what":"Repower and refurbish, 1120 PV modules","where":"Gaisano Capital Masbate branch","client":"Total Solar Renewable Energies"},{"y":2023,"seg":"ci","st":"ongoing","kwp":489.12,"role":"O&M","what":"Operation and maintenance of the full 489.12 kWp roof mount plant","where":"Wilsam Uptown Mall, Borongan City, Eastern Samar","client":"Zhanlin Marketing and Wilsam","note":"Since 2023"},{"y":2026,"seg":"ci","st":"done","kwp":7338,"role":"Sub-contractor","what":"Ground mount PV mounting system and panel installation","where":"Agrivoltaics Inc., Tuy, Batangas","client":"Renesource Inc. as general contractor","when":"January 2026","photo":"tuy-batangas","feat":1,"cap":"The largest plant this team has worked on. Mounting system and panel installation across 7.338 MWp of ground mount array.","name":"Agrivoltaics ground mount","loc":"Tuy, Batangas"},{"y":2026,"seg":"ci","st":"done","kwp":16.87,"role":"Contractor","what":"Hybrid on-grid system with battery storage","where":"Brgy. Tejero, Cebu City","client":"Future Solar Energy Corporation","when":"February 2026"},{"y":2026,"seg":"ci","st":"done","mod":148,"role":"Contractor","what":"Repower and refurbish, 148 PV modules","where":"Gaisano Capital Binangonan, Rizal","client":"Total Solar Renewable Energies","when":"February 2026"},{"y":2025,"seg":"ci","st":"done","kwp":680.4,"kwh":1200,"role":"Contractor","what":"Roof mount plant with 1.2 MWh battery storage","where":"Gaisano Capital Cold Storage, HVG Mandaue City, Cebu","client":"Gaisano Capital","when":"Completed 7 September 2025","photo":"hvg-mandaue","feat":1,"cap":"Cold storage runs around the clock, so this one carries 1.2 MWh of battery to hold the load when the sun is off.","name":"Gaisano Capital Cold Storage","loc":"HVG, Mandaue City, Cebu"},{"y":2025,"seg":"ci","st":"done","kwp":37.12,"role":"Contractor","what":"Roof mount grid-tie system","where":"Eversteel warehouse, Minglanilla, Cebu","client":"Eversteel Inc.","when":"December 2025"},{"y":2025,"seg":"res","st":"done","kwp":34.16,"kwh":40.96,"role":"EPC","what":"Hybrid system with battery storage","where":"Santo Nino Village, Banilad, Cebu City"},{"y":2025,"seg":"res","st":"done","kwp":10.44,"kwh":10.24,"role":"EPC","what":"Hybrid system with lithium battery storage","where":"Emerald Estate, Cabangcalan, Mandaue City, Cebu","when":"11 to 17 February 2025"},{"y":2025,"seg":"res","st":"done","kwp":8.12,"kwh":10.24,"role":"EPC","what":"Hybrid system with battery storage","where":"Cabreros, Cebu City"},{"y":2025,"seg":"res","st":"done","kwp":6.96,"kwh":10.24,"role":"EPC","what":"Hybrid system with battery storage","where":"Amara subdivision, Catarman, Liloan, Cebu"},{"y":2025,"seg":"ci","st":"done","mod":160,"role":"Contractor","what":"Repower and refurbish, 160 PV modules","where":"Gaisano Capital Kalibo, Aklan","client":"EDC Siklab Power Corporation","when":"October 2025"},{"y":2024,"seg":"ci","st":"done","kwp":443.2,"mod":1385,"role":"Contractor","what":"Removal and restoration of 1385 PV modules, testing and commissioning","where":"Gaisano Capital Sorsogon branch","client":"EDC","when":"29 July to 7 September 2024","photo":"gaisano-sorsogon","feat":1,"cap":"1385 modules in six weeks. The crew that did it, on the roof they finished.","name":"Gaisano Capital Sorsogon","loc":"Sorsogon City"},{"y":2024,"seg":"ci","st":"done","kwp":378.95,"mod":1429,"role":"Contractor","what":"Removal and restoration of 1429 PV modules and mounting frames","where":"Gaisano Capital Casuntingan branch, Mandaue","client":"Total Solar Renewable Energies","when":"14 August to 23 December 2024","photo":"gaisano-casuntingan","feat":1,"cap":"1429 modules off, roof leak tested, frames replaced, and the whole plant re-energized.","name":"Gaisano Capital Casuntingan","loc":"Mandaue City, Cebu"},{"y":2024,"seg":"ci","st":"done","kwp":351.55,"mod":890,"role":"Contractor","what":"Removal and restoration of 890 PV modules and mounting frames","where":"Gaisano Capital Iriga branch","client":"PI Energy","when":"27 November to 17 December 2024","photo":"gaisano-iriga","feat":1,"cap":"Stripped to the deck and rebuilt: 890 modules and every mounting frame, back online in three weeks.","name":"Gaisano Capital Iriga","loc":"Iriga City, Camarines Sur"},{"y":2024,"seg":"ci","st":"done","kwp":200.2,"mod":540,"role":"Contractor","what":"Removal and restoration of 540 PV modules and mounting frames","where":"Gaisano Capital Sogod branch, Southern Leyte","client":"EDC","when":"30 October to 18 December 2024","photo":"gaisano-sogod","feat":1,"cap":"Southern Leyte. Removal, restoration and re-energizing of a 200.2 kWp mall roof.","name":"Gaisano Capital Sogod","loc":"Sogod, Southern Leyte"},{"y":2024,"seg":"res","st":"done","kwp":18.15,"kwh":15.36,"role":"EPC","what":"Hybrid system with lithium battery storage","where":"Baybay 2, Borongan City, Eastern Samar"},{"y":2024,"seg":"res","st":"done","kwp":18.15,"role":"EPC","what":"Grid-tie system","where":"Libanan Street, Borongan City, Eastern Samar","when":"7 to 10 January 2024"},{"y":2024,"seg":"res","st":"done","kwp":6.6,"role":"EPC","what":"Grid-tie system","where":"Real Street, Borongan City, Eastern Samar"},{"y":2024,"seg":"ci","st":"done","mod":426,"role":"Contractor","what":"Rehabilitation and system commissioning: 426 PV modules, DC cables and cable trays","where":"Gaisano Capital T. Padilla branch, Cebu City","when":"20 May to 17 July 2024","photo":"gaisano-tpadilla","feat":1,"cap":"Modules, DC cabling and cable trays out and back in, then tested and commissioned.","name":"Gaisano Capital T. Padilla","loc":"Cebu City"},{"y":2023,"seg":"res","st":"done","kwp":16,"role":"EPC","what":"Hybrid on-grid roof mount system with storage","where":"South Hills, Tisa, Cebu City","when":"Completed 9 January 2023"},{"y":2023,"seg":"ci","st":"done","kwp":2.25,"role":"EPC","what":"Grid-tie solar plant","where":"Real Street, Borongan City, Eastern Samar","client":"936 Mini Store"},{"y":2022,"seg":"ci","st":"done","kwp":104.64,"role":"EPC","what":"On-grid commercial 3 phase rooftop system","where":"Zhanlin Marketing Warehouse, Libanan Road, Borongan City","client":"Zhanlin Marketing","when":"Completed 17 April 2022","photo":"zhanlin-warehouse","feat":1,"cap":"100 kW of inverter across a warehouse roof, laid out in two clean banks either side of the ridge.","name":"Zhanlin Marketing Warehouse","loc":"Libanan Road, Borongan City"},{"y":2022,"seg":"ci","st":"done","kwp":61.04,"role":"EPC","what":"Commercial 3 phase roof mount system with net metering","where":"Talamban, Cebu City","client":"Vismotor Corporation","when":"Completed 7 March 2022","photo":"vismotor","feat":1,"cap":"60 kW three phase, net metering filed and approved, on a dealership roof in Talamban.","name":"Vismotor Corporation","loc":"Talamban, Cebu City"},{"y":2022,"seg":"ci","st":"done","kwp":20,"role":"EPC","what":"On-grid commercial 3 phase roof mount system","where":"Real Street, Borongan City, Eastern Samar","client":"Domsowir Hotel","when":"Completed 7 October 2022","photo":"domsowir-hotel","feat":1,"cap":"20 kW three phase on a hotel roof deck in the middle of Borongan.","name":"Domsowir Hotel","loc":"Real Street, Borongan City"},{"y":2022,"seg":"ci","st":"done","kwp":19.5,"role":"EPC","what":"Hybrid on-grid roof mount system with storage","where":"Baybay 5, Borongan City, Eastern Samar","client":"Kristina Hotel and Restaurant","when":"Turned over 23 December 2022","photo":"kristina-hotel","feat":1,"cap":"A hotel cannot lose power at check-in, so this one went in hybrid with storage.","name":"Kristina Hotel and Restaurant","loc":"Baybay 5, Borongan City"},{"y":2022,"seg":"ci","st":"done","kwp":16.5,"role":"EPC","what":"Grid-tie solar plant","where":"Real Street, Borongan City, Eastern Samar","client":"Zhanlin Fuel"},{"y":2022,"seg":"res","st":"done","kwp":8,"kwh":19.2,"role":"EPC","what":"Hybrid system with LiFePO4 powerwall storage","where":"Baybay 3, Borongan City, Eastern Samar"},{"y":2022,"seg":"ci","st":"done","kwp":7,"role":"EPC","what":"On-grid roof mount system","where":"Borongan City, Eastern Samar","client":"JMD Tube Ice","when":"Completed 8 December 2022","photo":"jmd-tube-ice","feat":1,"cap":"An ice plant runs its compressors in daylight, which is exactly when solar is cheapest.","name":"JMD Tube Ice","loc":"Borongan City, Eastern Samar"},{"y":2022,"seg":"ci","st":"done","mod":120,"role":"Contractor","what":"Removal and re-installation of 120 modules, 172 L-feet, 20 m catwalk and 60 m cable tray","where":"Gaisano Capital Masbate","when":"Completed 29 January 2022","photo":"gaisano-masbate","feat":1,"cap":"Modules, catwalk and cable tray in one scope. Access is what makes the next repair cheap.","name":"Gaisano Capital Masbate","loc":"Masbate"},{"y":2022,"seg":"ci","st":"done","role":"Contractor","what":"Malfunctioning inverter removed and replaced, commissioning, testing and fiber cabling","where":"Gaisano Capital South, Cebu City","when":"Completed 4 February 2022"},{"y":2021,"seg":"ci","st":"done","kwp":536,"role":"Contractor","what":"Repair and energize of the roof mount plant","where":"Gaisano Capital Binangonan, Rizal","client":"Total Solar Renewable"},{"y":2021,"seg":"ci","st":"done","kwp":375,"role":"Contractor","what":"Repair and energize of the roof mount plant","where":"Gaisano Capital Masbate","client":"Total Solar Renewable"},{"y":2021,"seg":"ci","st":"done","kwp":320,"role":"Contractor","what":"Solar module clearing, stringing, string check and testing, panel re-tightening","where":"Gaisano Capital SRP, Cebu City","client":"Total Solar Renewable","photo":"gaisano-srp","feat":1,"cap":"320 kWp on the SRP roof, walked panel by panel and re-tightened by hand.","name":"Gaisano Capital SRP","loc":"Cebu City"},{"y":2021,"seg":"ci","st":"done","kwp":294,"role":"Contractor","what":"Clearing, re-stringing, panel re-tightening, string test and energize, plus inverter canopy restoration","where":"Gaisano Capital South, corner Colon and Leon Kilat St, Cebu City","client":"Total Solar Renewable","photo":"gaisano-south","feat":1,"cap":"A 294 kW plant that had stopped earning. Cleared, re-strung, re-tightened, tested and switched back on.","name":"Gaisano Capital South","loc":"Colon and Leon Kilat, Cebu City"},{"y":2021,"seg":"ci","st":"done","kwp":191,"role":"Contractor","what":"Repair and energize of the roof mount plant","where":"Gaisano Savers Mart, Mactan, Cebu","client":"Total Solar Renewable"},{"y":2021,"seg":"res","st":"done","kwp":8,"role":"Installer","what":"On-grid system, labor, tools and supervision","where":"Maria Luisa South, Guadalupe, Cebu City"},{"y":2021,"seg":"res","st":"done","kwp":5,"role":"Installer","what":"On-grid system, labor, tools and supervision","where":"Prestina North, Talamban, Cebu City"},{"y":2020,"seg":"res","st":"done","kwp":5,"role":"EPC","what":"On-grid system, supply, design and installation","where":"Nivel Hills, Lahug, Cebu City"},{"y":2019,"seg":"ci","st":"done","kwp":129.6,"role":"EPC and O&M","what":"Roof deck mount system, first phase of the mall plant","where":"Wilsam Uptown Mall, Real Street, Borongan City, Eastern Samar","client":"Wilsam Realty Development Corporation"},{"y":2018,"seg":"ci","st":"done","kwp":359.52,"role":"EPC","what":"On-grid commercial rooftop system, the main phase of the mall plant","where":"Wilsam Uptown Mall, Borongan City, Eastern Samar","client":"Zhanlin Marketing and Wilsam Realty Development Corporation","photo":"wilsam-uptown","feat":1,"cap":"The main phase of the Wilsam plant. With the 2019 roof deck it makes the 489.12 kWp we still maintain today.","name":"Wilsam Uptown Mall","loc":"Borongan City, Eastern Samar"}];
 var plist=$("#plist"), pgrid=$("#pgrid");
 function cap(p){
   var s="";
@@ -1767,6 +1764,26 @@ if(reduceMQ.addEventListener){
   new IntersectionObserver(function(e){atForm=e[0].isIntersecting;apply()},
     {rootMargin:'0px 0px -25% 0px'}).observe(quoteEl);
 })();
+
+/* ================= THE CLICK EFFECT (photon scatter) ================= */
+document.addEventListener('click', function(e){
+  if(reduceMQ.matches) return;              // reduced motion: no particles, ever
+  var btn = e.target.closest ? e.target.closest('.btn') : null;
+  if(!btn) return;
+  var n = 14;
+  for(var i=0;i<n;i++){
+    var p = document.createElement('span');
+    p.className = 'photon-fx';
+    var ang = Math.random()*Math.PI*2, dist = 34+Math.random()*58;
+    p.style.left = e.clientX+'px';
+    p.style.top  = e.clientY+'px';
+    p.style.setProperty('--dx',(Math.cos(ang)*dist).toFixed(1)+'px');
+    p.style.setProperty('--dy',(Math.sin(ang)*dist).toFixed(1)+'px');
+    p.style.animation = 'photonfly '+(0.55+Math.random()*0.35).toFixed(2)+'s ease-out forwards';
+    document.body.appendChild(p);
+    (function(el){ setTimeout(function(){ el.remove() }, 1000) })(p);
+  }
+}, {passive:true});
 
 /* ================= HOUSEKEEPING ================= */
 document.addEventListener('visibilitychange',function(){

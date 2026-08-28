@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Solaris — green-dominant theme, round 2</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --disp:'Archivo',system-ui,sans-serif; --body:'IBM Plex Sans',system-ui,sans-serif; --mono:'IBM Plex Mono',ui-monospace,monospace;
+  --e1:cubic-bezier(.22,.61,.36,1);
+}
+*{box-sizing:border-box}
+body{margin:0;background:#060B06;color:#E9F5E7;font-family:var(--body);padding:0 0 80px}
+h1,h2,h3{font-family:var(--disp);font-weight:700;font-stretch:112%;margin:0;letter-spacing:-.01em}
+.top{padding:40px 5vw 20px;max-width:1100px;margin:0 auto}
+.top h1{font-size:1.8rem}
+.top p{color:#96AF90;max-width:74ch;line-height:1.6;margin-top:10px}
+.tag{display:inline-block;font-family:var(--mono);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;
+  color:#5FE37E;border:1px solid rgba(95,227,126,.4);padding:.3em .7em;border-radius:2px;margin-bottom:14px}
+.note-inline{background:rgba(95,227,126,.07);border:1px solid rgba(95,227,126,.25);border-left:2px solid #5FE37E;
+  padding:14px 18px;margin-top:16px;max-width:74ch;border-radius:2px}
+.note-inline p{color:#B8D2B2;font-size:.86rem;line-height:1.6;margin:0}
+
+.optwrap{max-width:1400px;margin:30px auto;padding:0 5vw;display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+@media (max-width:1050px){.optwrap{grid-template-columns:1fr;max-width:700px}}
+.opt{border:1px solid #1B2A1C;border-radius:6px;overflow:hidden;background:var(--canvas)}
+.opt-head{padding:16px 18px;border-bottom:1px solid var(--line)}
+.opt-head .lab{font-family:var(--mono);font-size:.68rem;letter-spacing:.13em;text-transform:uppercase;color:var(--accent2)}
+.opt-head h3{font-size:1.15rem;margin-top:6px;color:var(--text-primary)}
+.opt-head p{font-size:.82rem;color:var(--text-secondary);margin-top:8px;line-height:1.55}
+
+.snav{display:flex;align-items:center;justify-content:space-between;padding:10px 16px;background:var(--panel);border-bottom:1px solid var(--line)}
+.sbrand{font-family:var(--disp);font-weight:700;font-size:.85rem;color:var(--text-primary);display:flex;align-items:center;gap:6px}
+.sbrand .dot{width:9px;height:9px;border-radius:50%;background:var(--accent);box-shadow:0 0 8px 1px var(--glow)}
+.slinks{display:flex;gap:12px;font-family:var(--mono);font-size:.6rem;letter-spacing:.08em;text-transform:uppercase}
+.slinks span{color:var(--text-tertiary)}
+.slinks span.cur{color:var(--accent);position:relative;text-shadow:0 0 10px var(--glow)}
+.slinks span.cur::after{content:"";position:absolute;left:0;right:0;bottom:-4px;height:1px;background:var(--accent);box-shadow:0 0 6px var(--glow)}
+
+.shero{padding:24px 18px;background:var(--canvas-2);position:relative;overflow:hidden}
+.shero::before{content:"";position:absolute;inset:-30% -10% auto auto;width:60%;height:160%;
+  background:radial-gradient(ellipse,var(--glow-field),transparent 70%);pointer-events:none;opacity:.55}
+.shero .kick{position:relative;display:inline-block;font-family:var(--mono);font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--accent);border:1px solid var(--accent-dim);padding:.3em .6em;border-radius:2px}
+.shero h4{position:relative;font-family:var(--disp);font-weight:700;font-size:1.5rem;margin-top:12px;line-height:1.05;color:var(--text-primary)}
+.shero h4 .hl{color:var(--accent);text-shadow:0 0 18px var(--glow)}
+.shero p{position:relative;color:var(--text-secondary);font-size:.78rem;margin-top:8px;max-width:32ch;line-height:1.5}
+.sbtnrow{position:relative;display:flex;gap:8px;margin-top:14px}
+.sbtn{font-family:var(--mono);font-size:.65rem;letter-spacing:.06em;text-transform:uppercase;padding:.65em 1.1em;border-radius:3px;
+  border:1px solid transparent;cursor:pointer}
+.sbtn.p{background:var(--accent);color:var(--on-accent);font-weight:600;box-shadow:0 0 22px -2px var(--glow-strong),0 3px 10px rgba(0,0,0,.4)}
+.sbtn.s{background:transparent;border-color:var(--line-strong);color:var(--text-primary)}
+
+.sledger{padding:16px 18px;background:var(--canvas)}
+.srow{display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px solid var(--line);font-size:.76rem}
+.srow:last-child{border-bottom:0}
+.srow .k{font-family:var(--mono);font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:var(--text-tertiary)}
+.srow .v{font-family:var(--mono);color:var(--text-primary)}
+.srow .v em{font-style:normal;color:var(--accent);text-shadow:0 0 8px var(--glow)}
+
+.scard{margin:14px 18px 18px;padding:14px;background:var(--panel);border:1px solid var(--line);border-left:2px solid var(--accent2)}
+.scard p{font-size:.76rem;color:var(--text-secondary);line-height:1.5}
+.scard b{color:var(--text-primary)}
+
+.pulserow{display:flex;gap:6px;align-items:center;padding:10px 18px;background:var(--canvas);border-top:1px solid var(--line)}
+.pulserow .pd{width:6px;height:6px;border-radius:50%;background:var(--accent);animation:beat 1.8s ease-in-out infinite;
+  box-shadow:0 0 6px var(--glow)}
+.pulserow span{font-family:var(--mono);font-size:.6rem;letter-spacing:.08em;color:var(--text-tertiary);text-transform:uppercase}
+@keyframes beat{0%,100%{opacity:.4;transform:scale(.8)}50%{opacity:1;transform:scale(1.3)}}
+
+/* ============ D: Charged Emerald — saturated, high-contrast, green does everything ============ */
+.d{--canvas:#071009;--canvas-2:#0A150C;--panel:#0C1B0F;--line:#173420;--line-strong:#245C36;
+   --text-primary:#EAFBEC;--text-secondary:#9FC9A5;--text-tertiary:#6E9575;
+   --accent:#22D46B;--accent-dim:rgba(34,212,107,.35);--accent2:#F0A63A;--on-accent:#04170B;
+   --glow:rgba(34,212,107,.55);--glow-strong:rgba(34,212,107,.75);--glow-field:rgba(34,212,107,.25)}
+
+/* ============ E: Electric Current — brighter lime-leaning green, near-neon, gold nearly gone ============ */
+.e{--canvas:#080F06;--canvas-2:#0B140A;--panel:#0E1A0C;--line:#1D3517;--line-strong:#325A24;
+   --text-primary:#F1FAEA;--text-secondary:#A9C99E;--text-tertiary:#7A9970;
+   --accent:#8CE23C;--accent-dim:rgba(140,226,60,.35);--accent2:#4AA7C9;--on-accent:#0A1706;
+   --glow:rgba(140,226,60,.55);--glow-strong:rgba(140,226,60,.8);--glow-field:rgba(140,226,60,.22)}
+
+/* ============ F: Solar Bloom — green dominant, sunlight-through-leaves gold glow kept as warmth ============ */
+.f{--canvas:#070F08;--canvas-2:#0B160C;--panel:#0F1C11;--line:#1C3721;--line-strong:#2E5C37;
+   --text-primary:#EFFAEC;--text-secondary:#A6CBA3;--text-tertiary:#799B76;
+   --accent:#3BCB6E;--accent-dim:rgba(59,203,110,.35);--accent2:#F7B547;--on-accent:#052110;
+   --glow:rgba(59,203,110,.5);--glow-strong:rgba(59,203,110,.7);--glow-field:rgba(247,181,71,.16)}
+
+/* ============ CLICK EFFECT: re-tuned to the new green, "energy" framing ============ */
+.fxwrap{max-width:1400px;margin:56px auto 0;padding:0 5vw}
+.fxgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:22px}
+@media (max-width:1050px){.fxgrid{grid-template-columns:1fr;max-width:700px;margin-left:auto;margin-right:auto}}
+.fxcard{border:1px solid #1B2A1C;border-radius:6px;background:#0A140B;padding:22px;text-align:center}
+.fxcard .lab{font-family:var(--mono);font-size:.68rem;letter-spacing:.13em;text-transform:uppercase;color:#5FE37E}
+.fxcard h3{font-size:1.05rem;margin-top:8px;color:#EAF3EA}
+.fxcard p{font-size:.8rem;color:#96AF90;margin-top:8px;line-height:1.5;min-height:3.4em}
+.fxstage{position:relative;height:150px;margin-top:18px;border-radius:4px;
+  background:radial-gradient(ellipse 90% 70% at 50% 30%,#0E1D10,#070F08);
+  display:flex;align-items:center;justify-content:center;overflow:hidden}
+.fxbtn{position:relative;z-index:3;font-family:var(--mono);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;
+  padding:.85em 1.6em;border-radius:3px;border:1px solid transparent;background:#22D46B;color:#04170B;font-weight:600;cursor:pointer;
+  box-shadow:0 0 22px -4px rgba(34,212,107,.7);transition:transform .3s var(--e1)}
+.fxbtn:active{transform:scale(.96)}
+
+.ray{position:absolute;left:50%;top:50%;width:2px;height:0;background:linear-gradient(180deg,#B6FFCB,rgba(182,255,203,0));
+  transform-origin:50% 0;pointer-events:none;border-radius:2px}
+@keyframes rayfire{0%{height:0;opacity:1}70%{opacity:.7}100%{height:80px;opacity:0}}
+
+.photon{position:absolute;left:50%;top:50%;width:5px;height:5px;border-radius:50%;background:#C6FFD6;
+  box-shadow:0 0 9px 2px rgba(140,226,60,.75);pointer-events:none}
+@keyframes photonfly{0%{transform:translate(-50%,-50%) translate(0,0) scale(1);opacity:1}
+  100%{transform:translate(-50%,-50%) translate(var(--dx),var(--dy)) scale(.3);opacity:0}}
+
+.ripple{position:absolute;left:50%;top:50%;width:14px;height:14px;margin:-7px 0 0 -7px;border-radius:50%;
+  border:1.5px solid #7CF29B;pointer-events:none}
+@keyframes ripplego{0%{transform:scale(1);opacity:.9;border-color:#7CF29B}
+  60%{border-color:#22D46B}100%{transform:scale(11);opacity:0;border-color:#22D46B}}
+.ripple2{position:absolute;left:50%;top:50%;width:14px;height:14px;margin:-7px 0 0 -7px;border-radius:50%;
+  background:radial-gradient(circle,rgba(140,226,60,.55),rgba(140,226,60,0) 70%);pointer-events:none}
+@keyframes glowpulse{0%{transform:scale(.6);opacity:.9}100%{transform:scale(6);opacity:0}}
+
+.note{max-width:1400px;margin:44px auto 0;padding:16px 5vw;border-top:1px solid #1B2A1C}
+.note p{color:#8FA286;font-size:.82rem;max-width:80ch;line-height:1.7}
+</style>
+</head>
+<body>
+
+<div class="top">
+  <span class="tag">Round 2 — green as the major color</span>
+  <h1>Green does the work now, not just the tint</h1>
+  <p>Same slice of the real site as before, but this time green is what your eye lands on: it's the button, the active nav, the number that matters, and it glows a little, the way an "energy" brand usually signals it's alive. Gold is nearly retired to a whisper, and in one version it's basically gone.</p>
+  <div class="note-inline"><p>The old accent (gold, and blue in the first round) is still technically present in each option below, in the smallest dose I could make it and still call it "blended." If even that reads as too much leftover, tell me and Option D can go full green with zero gold left.</p></div>
+</div>
+
+<div class="optwrap">
+
+  <div class="opt d">
+    <div class="opt-head"><span class="lab">Option D</span><h3>Charged Emerald</h3>
+      <p>A saturated, high-contrast emerald as the one color everything important uses: the button, the active nav, the numbers, with a soft glow behind each. Gold survives only as a hairline border on cards, almost invisible unless you look for it.</p></div>
+    <div class="snav"><span class="sbrand"><span class="dot"></span>SOLARIS</span>
+      <span class="slinks"><span>Systems</span><span class="cur">Services</span><span>Process</span></span></div>
+    <div class="shero"><span class="kick">Solaris Energie Corporation</span>
+      <h4>Cut your <span class="hl">electric bill</span> with solar.</h4>
+      <p>Solar for Cebu homes and businesses.</p>
+      <div class="sbtnrow"><button class="sbtn p">Get a quote</button><button class="sbtn s">Work out my number</button></div></div>
+    <div class="sledger">
+      <div class="srow"><span class="k">Typical saving</span><span class="v"><em>55 to 70%</em> of the bill</span></div>
+      <div class="srow"><span class="k">Delivered since 2018</span><span class="v">12.96 MWp</span></div>
+    </div>
+    <div class="scard"><p><b>Panels almost never fail.</b> Wiring does. Correct cable sizing and real breakers are what protects the system for ten years.</p></div>
+    <div class="pulserow"><span class="pd"></span><span>System live &middot; generating now</span></div>
+  </div>
+
+  <div class="opt e">
+    <div class="opt-head"><span class="lab">Option E</span><h3>Electric Current</h3>
+      <p>The brightest and most "electric" of the three, a lime-leaning green closer to a charge indicator than a plant. Gold is gone entirely; the old blue survives in one place only, as a quiet technical detail color, which is closest to a real "blend" without gold competing with green for attention.</p></div>
+    <div class="snav"><span class="sbrand"><span class="dot"></span>SOLARIS</span>
+      <span class="slinks"><span>Systems</span><span class="cur">Services</span><span>Process</span></span></div>
+    <div class="shero"><span class="kick">Solaris Energie Corporation</span>
+      <h4>Cut your <span class="hl">electric bill</span> with solar.</h4>
+      <p>Solar for Cebu homes and businesses.</p>
+      <div class="sbtnrow"><button class="sbtn p">Get a quote</button><button class="sbtn s">Work out my number</button></div></div>
+    <div class="sledger">
+      <div class="srow"><span class="k">Typical saving</span><span class="v"><em>55 to 70%</em> of the bill</span></div>
+      <div class="srow"><span class="k">Delivered since 2018</span><span class="v">12.96 MWp</span></div>
+    </div>
+    <div class="scard"><p><b>Panels almost never fail.</b> Wiring does. Correct cable sizing and real breakers are what protects the system for ten years.</p></div>
+    <div class="pulserow"><span class="pd"></span><span>System live &middot; generating now</span></div>
+  </div>
+
+  <div class="opt f">
+    <div class="opt-head"><span class="lab">Option F</span><h3>Solar Bloom</h3>
+      <p>Green is still clearly the major color everywhere it matters, but a warm gold glow sits low behind the hero, like late sun through leaves, so the "blend" reads as light hitting a green world rather than two accent colors fighting for the same button.</p></div>
+    <div class="snav"><span class="sbrand"><span class="dot"></span>SOLARIS</span>
+      <span class="slinks"><span>Systems</span><span class="cur">Services</span><span>Process</span></span></div>
+    <div class="shero"><span class="kick">Solaris Energie Corporation</span>
+      <h4>Cut your <span class="hl">electric bill</span> with solar.</h4>
+      <p>Solar for Cebu homes and businesses.</p>
+      <div class="sbtnrow"><button class="sbtn p">Get a quote</button><button class="sbtn s">Work out my number</button></div></div>
+    <div class="sledger">
+      <div class="srow"><span class="k">Typical saving</span><span class="v"><em>55 to 70%</em> of the bill</span></div>
+      <div class="srow"><span class="k">Delivered since 2018</span><span class="v">12.96 MWp</span></div>
+    </div>
+    <div class="scard"><p><b>Panels almost never fail.</b> Wiring does. Correct cable sizing and real breakers are what protects the system for ten years.</p></div>
+    <div class="pulserow"><span class="pd"></span><span>System live &middot; generating now</span></div>
+  </div>
+
+</div>
+
+<div class="fxwrap">
+  <span class="tag">Click effect, re-tuned to the new green</span>
+  <h1>The same three effects, now in Charged Emerald</h1>
+  <p style="color:#96AF90;max-width:70ch;line-height:1.6;margin-top:10px">Click each one, more than once. Colors now match Option D so you see how the effect actually looks against the real accent, not the old gold.</p>
+  <div class="fxgrid">
+    <div class="fxcard"><span class="lab">Effect 1</span><h3>Sunburst rays</h3>
+      <p>Rays fire outward from the click in pale green-white, like light hitting a cell.</p>
+      <div class="fxstage" id="stage1"><button class="fxbtn" onclick="burst(event,'stage1')">Click me</button></div></div>
+    <div class="fxcard"><span class="lab">Effect 2</span><h3>Photon scatter</h3>
+      <p>A scatter of green-white particles flies out and fades. Playful, quieter than the rays.</p>
+      <div class="fxstage" id="stage2"><button class="fxbtn" onclick="photons(event,'stage2')">Click me</button></div></div>
+    <div class="fxcard"><span class="lab">Effect 3</span><h3>Energy ripple</h3>
+      <p>A ring of charge pulses outward with a green glow blooming behind it.</p>
+      <div class="fxstage" id="stage3"><button class="fxbtn" onclick="ripple(event,'stage3')">Click me</button></div></div>
+  </div>
+</div>
+
+<div class="note">
+  <p><b style="color:#EAF3EA">My read on these three:</b> Option D is the safest "green energy company" default, saturated but not gimmicky. Option E is the boldest and most literally "electric," best if the owner wants the site to feel unmistakably techy and current-flowing rather than plant-like. Option F is the compromise if he still wants some warmth left from the old gold, without gold competing with green for the eye. If none of these three land, tell me what's off and I'll adjust the actual color, not just offer another named option.</p>
+</div>
+
+<script>
+function burst(e,stageId){
+  var stage=document.getElementById(stageId);
+  var r=e.currentTarget.getBoundingClientRect(), sr=stage.getBoundingClientRect();
+  var cx=r.left+r.width/2-sr.left, cy=r.top+r.height/2-sr.top;
+  var n=14;
+  for(var i=0;i<n;i++){
+    var ray=document.createElement('span');
+    ray.className='ray';
+    var ang=(360/n)*i;
+    ray.style.left=cx+'px'; ray.style.top=cy+'px';
+    ray.style.transform='rotate('+ang+'deg)';
+    ray.style.animation='rayfire .68s ease-out forwards';
+    ray.style.animationDelay=(Math.random()*40)+'ms';
+    stage.appendChild(ray);
+    (function(el){setTimeout(function(){el.remove()},900)})(ray);
+  }
+}
+function photons(e,stageId){
+  var stage=document.getElementById(stageId);
+  var r=e.currentTarget.getBoundingClientRect(), sr=stage.getBoundingClientRect();
+  var cx=r.left+r.width/2-sr.left, cy=r.top+r.height/2-sr.top;
+  var n=18;
+  for(var i=0;i<n;i++){
+    var p=document.createElement('span');
+    p.className='photon';
+    var ang=Math.random()*Math.PI*2, dist=40+Math.random()*70;
+    p.style.left=cx+'px'; p.style.top=cy+'px';
+    p.style.setProperty('--dx',(Math.cos(ang)*dist)+'px');
+    p.style.setProperty('--dy',(Math.sin(ang)*dist)+'px');
+    p.style.animation='photonfly '+(.6+Math.random()*.4)+'s ease-out forwards';
+    stage.appendChild(p);
+    (function(el){setTimeout(function(){el.remove()},1100)})(p);
+  }
+}
+function ripple(e,stageId){
+  var stage=document.getElementById(stageId);
+  var r=e.currentTarget.getBoundingClientRect(), sr=stage.getBoundingClientRect();
+  var cx=r.left+r.width/2-sr.left, cy=r.top+r.height/2-sr.top;
+  var ring=document.createElement('span'); ring.className='ripple';
+  ring.style.left=cx+'px'; ring.style.top=cy+'px';
+  ring.style.animation='ripplego .85s ease-out forwards';
+  var glow=document.createElement('span'); glow.className='ripple2';
+  glow.style.left=cx+'px'; glow.style.top=cy+'px';
+  glow.style.animation='glowpulse .7s ease-out forwards';
+  stage.appendChild(ring); stage.appendChild(glow);
+  setTimeout(function(){ring.remove();glow.remove()},1000);
+}
+</script>
+</body>
+</html>
