@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Solaris Energie Corporation | Solar for Philippine homes and businesses</title>
-<meta name="description" content="Grid-tied, hybrid and off-grid solar for Cebu homes and businesses, designed on your real electricity bills. Free site survey, itemized proposal, and net metering you can file yourself or have us process.">
+<meta name="description" content="Grid-tied, hybrid and off-grid solar for Cebu homes and businesses, designed on your real electricity bills. Free site survey within Cebu, itemized proposal, and net metering you can file yourself or have us process.">
 <meta name="theme-color" content="#070B05">
 <meta property="og:title" content="Solaris Energie Corporation">
 <meta property="og:description" content="Solar for Cebu homes and businesses. Registered company, licensed engineers, 41 projects since 2018.">
@@ -548,6 +548,19 @@ input[type=range]:focus-visible{outline:2px solid var(--sun);outline-offset:6px;
 .trk-name{font-size:clamp(.95rem,1.12vw,1.1rem);letter-spacing:-.005em;margin-top:11px;
   min-height:2.5em}
 .trk-desc{margin-top:9px;color:var(--text-secondary);font-size:.855rem;line-height:1.6}
+.warranty{margin-top:clamp(52px,7vh,84px);padding-top:clamp(34px,4.5vh,52px);border-top:1px solid var(--line);
+  display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(28px,4vw,72px);align-items:start}
+.warranty h3{margin-top:16px;font-size:clamp(1.35rem,2.3vw,1.9rem);letter-spacing:-.01em;max-width:16ch}
+.warranty .wr-note{margin-top:12px;color:var(--text-secondary);font-size:.95rem;max-width:40ch}
+.warranty dl{margin:0;display:grid}
+.warranty .lrow{padding:14px 0}
+.warranty .lrow:first-child{padding-top:0}
+.warranty .lrow dd{text-align:right}
+.warranty .fineprint{margin-top:18px;max-width:none}
+.warranty .chem{text-transform:none}
+@media (max-width:860px){.warranty{grid-template-columns:1fr;gap:26px}}
+@media (max-width:480px){.warranty .lrow{grid-template-columns:1fr;gap:5px;align-items:start}
+  .warranty .lrow dd{text-align:left}}
 @media (max-width:1180px){
   .trk-steps{grid-template-columns:repeat(4,1fr);gap:30px 18px}
   .trk-rail,.trk-fill,.trk-tailrail{display:none}
@@ -620,6 +633,7 @@ input[type=range]:focus-visible{outline:2px solid var(--sun);outline-offset:6px;
 .qa .ans{overflow:hidden;height:0;transition:height .5s var(--e1)}
 .qa .ans p{color:var(--text-secondary);max-width:72ch;padding-bottom:24px}
 .qa .ans p + p{padding-top:0;margin-top:-10px}
+.qa .ans a{color:var(--sun);text-decoration:underline;text-underline-offset:3px;text-decoration-color:rgba(196,255,61,.45)}
 
 /* ---- 8. FORM ---- */
 .quote{display:grid;grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr);
@@ -747,7 +761,7 @@ body.paused *,body.paused *::before,body.paused *::after{animation-play-state:pa
       <div class="lrow"><span class="lk">Typical saving</span><span class="lv"><em>55 to 70 percent</em> of the bill</span></div>
       <div class="lrow"><span class="lk">Net metering</span><span class="lv">You file it, or we can</span></div>
       <div class="lrow"><span class="lk">Delivered since 2018</span><span class="lv">12.94 MWp, 41 projects</span></div>
-      <div class="lrow"><span class="lk">Site survey</span><span class="lv"><em>Free, no obligation</em></span></div>
+      <div class="lrow"><span class="lk">Site survey</span><span class="lv"><em>Free within Cebu</em>, no obligation</span></div>
     </div>
     <div class="cta-row hero-st" style="--d:1100">
       <a class="btn btn-p" href="#quote">Get a quote <span class="ar" aria-hidden="true">&rarr;</span></a>
@@ -805,7 +819,7 @@ body.paused *,body.paused *::before,body.paused *::after{animation-play-state:pa
         </dl>
         <div class="calccta">
           <a class="btn btn-p" href="#quote" id="c-send">Send these numbers to us <span class="ar" aria-hidden="true">&rarr;</span></a>
-          <p class="calcnote">This is arithmetic, not a quote. The free survey turns it into one.</p>
+          <p class="calcnote">This is arithmetic, not a quote. The site survey turns it into one, free within Cebu.</p>
         </div>
       </div>
 
@@ -1022,7 +1036,7 @@ body.paused *,body.paused *::before,body.paused *::after{animation-play-state:pa
           <div class="trk-body">
             <span class="trk-when">Day 1 to 3</span>
             <h3 class="trk-name">Site survey</h3>
-            <p class="trk-desc">An engineer measures the roof, tracks the shade, checks the structure and photographs your meter.</p>
+            <p class="trk-desc">An engineer measures the roof, tracks the shade, checks the structure and photographs your meter. Free within Cebu.</p>
           </div>
         </li>
         <li class="trk-step" data-t="2">
@@ -1078,6 +1092,23 @@ body.paused *,body.paused *::before,body.paused *::after{animation-play-state:pa
           </div>
         </li>
       </ol>
+    </div>
+    <div class="warranty rvi" id="warranty">
+      <div class="wr-head">
+        <span class="kick">Warranty</span>
+        <h3>What is covered after turnover.</h3>
+        <p class="wr-note">Hardware components, parts and accessories, under normal use.</p>
+      </div>
+      <div>
+        <dl class="wr-terms">
+          <div class="lrow"><dt>Solar panel</dt><dd class="lv"><em>12 years</em> manufacturer, <em>30 years</em> linear power</dd></div>
+          <div class="lrow"><dt>Inverter</dt><dd class="lv"><em>5 years</em></dd></div>
+          <div class="lrow"><dt><span class="chem">LiFePO4</span> battery</dt><dd class="lv"><em>5 years</em></dd></div>
+          <div class="lrow"><dt>Workmanship</dt><dd class="lv"><em>1 year</em></dd></div>
+          <div class="lrow"><dt>Technical support</dt><dd class="lv"><em>1 year</em> after installation</dd></div>
+        </dl>
+        <p class="fineprint">Void for theft, misuse, unauthorized repair, or damage caused by typhoon, lightning, fire or flood.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -1208,11 +1239,11 @@ body.paused *,body.paused *::before,body.paused *::after{animation-play-state:pa
     <div class="faq rvi" id="faqlist">
       <div class="qa">
         <h3><button type="button" aria-expanded="false">Magkano ba talaga?<span class="pm" aria-hidden="true"></span></button></h3>
-        <div class="ans"><p>For a 5 kWp grid-tied system, roughly &#8369;260,000 to &#8369;360,000 installed, with permits. Net metering can be filed by you, or we can process it for you. What moves the price is the inverter brand, how many roof planes we work across, and whether your meter needs upgrading. The free survey settles it.</p></div>
+        <div class="ans"><p>For a 5 kWp grid-tied system, roughly &#8369;260,000 to &#8369;360,000 installed, with permits. Net metering can be filed by you, or we can process it for you. What moves the price is the inverter brand, how many roof planes we work across, and whether your meter needs upgrading. The site survey settles it, free within Cebu.</p></div>
       </div>
       <div class="qa">
         <h3><button type="button" aria-expanded="false">Will it survive a typhoon?<span class="pm" aria-hidden="true"></span></button></h3>
-        <div class="ans"><p>Panels are rated for the wind. What fails in a storm is the mounting, usually because someone bolted rails to purlins nobody checked. We calculate the uplift for your roof, use anchors rated above it, and show you those numbers in the proposal.</p></div>
+        <div class="ans"><p>Panels are rated for the wind. What fails in a storm is the mounting, usually because someone bolted rails to purlins nobody checked. We calculate the uplift for your roof, use anchors rated above it, and show you those numbers in the proposal. Storm damage itself is not covered by the <a href="#warranty">warranty</a>.</p></div>
       </div>
       <div class="qa">
         <h3><button type="button" aria-expanded="false">Do the lights stay on during a brownout?<span class="pm" aria-hidden="true"></span></button></h3>
@@ -1228,11 +1259,15 @@ body.paused *,body.paused *::before,body.paused *::after{animation-play-state:pa
       </div>
       <div class="qa">
         <h3><button type="button" aria-expanded="false">What if you close down in three years?<span class="pm" aria-hidden="true"></span></button></h3>
-        <div class="ans"><p>A fair question, because it happens in this industry. Two things protect you. Your panel and inverter warranties are with the manufacturers, not us, so they outlive us. And the payment schedule keeps you from paying far ahead of the work.</p></div>
+        <div class="ans"><p>A fair question, because it happens in this industry. Your panel warranty is with the manufacturer, not us, so it outlives us: 12 years on the product, 30 years on power output. Whether the 5 year inverter and battery warranties are also manufacturer-backed: TBD.</p></div>
+      </div>
+      <div class="qa">
+        <h3><button type="button" aria-expanded="false">What is the warranty?<span class="pm" aria-hidden="true"></span></button></h3>
+        <div class="ans"><p>Panels: 12 years manufacturer warranty, 30 years linear power warranty. Inverter: 5 years. LiFePO4 battery: 5 years. Workmanship: 1 year. Technical support: 1 year after installation. It covers hardware, parts and accessories under normal use. Theft, misuse, unauthorized repair, and damage from typhoon, lightning, fire or flood are not covered.</p></div>
       </div>
       <div class="qa">
         <h3><button type="button" aria-expanded="false">Will you damage my roof?<span class="pm" aria-hidden="true"></span></button></h3>
-        <div class="ans"><p>Every hole is flashed, sealed and photographed before and after, so there is a dated record. Leaks caused by our work are ours to fix, and that is in the contract.</p></div>
+        <div class="ans"><p>Every hole is flashed, sealed and photographed before and after, so there is a dated record. Workmanship carries a one year warranty. The full <a href="#warranty">warranty terms</a> are under Process.</p></div>
       </div>
       <div class="qa">
         <h3><button type="button" aria-expanded="false">Who exactly are you?<span class="pm" aria-hidden="true"></span></button></h3>
@@ -1244,7 +1279,7 @@ body.paused *,body.paused *::before,body.paused *::after{animation-play-state:pa
       </div>
       <div class="qa">
         <h3><button type="button" aria-expanded="false">What is your service area?<span class="pm" aria-hidden="true"></span></button></h3>
-        <div class="ans"><p>Cebu. Our project history includes work across other provinces, all listed in the track record below, but our active service area today is Cebu.</p></div>
+        <div class="ans"><p>Cebu. Our project history includes work across other provinces, all listed in the track record above, but our active service area today is Cebu. The site survey is free within Cebu. Outside Cebu it is not free, and the fee is TBD.</p></div>
       </div>
       <div class="qa">
         <h3><button type="button" aria-expanded="false">Can I pay in installments?<span class="pm" aria-hidden="true"></span></button></h3>
@@ -1262,11 +1297,11 @@ body.paused *,body.paused *::before,body.paused *::after{animation-play-state:pa
         <div class="sec-head">
           <span class="kick rvi">Get a quote</span>
           <h2 class="rvi">Get your free quote.</h2>
-          <p class="lede rvi">One business day for a price range by phone. If it looks worth doing, we book the free survey and turn the range into an itemized proposal.</p>
+          <p class="lede rvi">One business day for a price range by phone. If it looks worth doing, we book the site survey, free within Cebu, and turn the range into an itemized proposal.</p>
         </div>
         <dl class="rvi">
           <div class="lrow"><dt>Reply time</dt><dd class="lv">1 business day</dd></div>
-          <div class="lrow"><dt>Survey</dt><dd class="lv"><em>Free, no obligation</em></dd></div>
+          <div class="lrow"><dt>Survey</dt><dd class="lv"><em>Free within Cebu</em>, no obligation</dd></div>
           <div class="lrow"><dt>Service area</dt><dd class="lv">Cebu</dd></div>
           <div class="lrow"><dt>Email</dt><dd class="lv"><a href="mailto:arnolaris@solarisenergiecorp.com" style="color:var(--sun);text-decoration:none">arnolaris@solarisenergiecorp.com</a></dd></div>
         </dl>
@@ -1345,7 +1380,7 @@ body.paused *,body.paused *::before,body.paused *::after{animation-play-state:pa
         <li><a href="mailto:arnolaris@solarisenergiecorp.com">arnolaris@solarisenergiecorp.com</a></li>
         <li>Mon to Sat, 8am to 6pm</li>
         <li>Cebu</li>
-        <li><a href="#quote">Book a free survey</a></li>
+        <li><a href="#quote">Book a survey, free within Cebu</a></li>
       </ul>
     </div>
   </div>

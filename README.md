@@ -39,7 +39,9 @@ role, what, where, client, when, photo, feat, cap, name, loc.
 - Installed cost per kWp. The calculator currently uses a published market
   range, not Solaris pricing. This drives cost, payback and 25-year savings.
 - The phone number in the footer is a placeholder.
-- Payment schedule and warranty terms.
+- Payment schedule.
+- Site survey fee outside Cebu (free within Cebu is confirmed; the site shows TBD).
+- Whether the 5 year inverter and battery warranties are manufacturer-backed (the site shows TBD).
 - Legal name: the logo reads "Corporation", the SEC record reads
   "Ventures Corporation".
 
