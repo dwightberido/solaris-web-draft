@@ -7,14 +7,21 @@ company registered with the Philippine SEC in March 2022 (Reg. No. 2022030044923
 
     solaris-site/            the website. This folder IS the deployable site.
       index.html             every section, style and script in one file
-      assets/                logo, hero photo
-      assets/projects/       17 project photos cropped from the company profile
-    projects.json            the 42 projects as data. Edit this to add more.
+      assets/logo.png        the logo
+      assets/gen/            generated placeholder photos and the hero video loop
+                             (hero, three system types, survey, maintenance, cell macro).
+                             Replace with photos of Solaris crews and sites before launch.
+      assets/projects/       16 real project photos cropped from the company profile
+    projects.json            the 41 projects as data. Edit this to add more.
     design-package.md        design decisions and brand tokens
+    mockups/                 the palette and effect mockups the owner chose from
+    originals/               the source files the content came from
 
 ## Running it
 
-No build step and no dependencies. Open the file directly:
+No build step. The motion layer loads GSAP, ScrollTrigger and Lenis from
+jsDelivr at runtime; without a connection the page still renders with
+everything visible and static. Open the file directly:
 
     open solaris-site/index.html
 

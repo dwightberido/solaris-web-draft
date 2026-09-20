@@ -1,11 +1,7 @@
 {
   "version": "0.0.1",
   "configurations": [
-    {
-      "name": "solaris",
-      "runtimeExecutable": "npx",
-      "runtimeArgs": ["-y", "http-server", "solaris-site", "-p", "8899", "-c-1", "--silent"],
-      "port": 8899
-    }
+    { "name": "solaris", "runtimeExecutable": "npx", "runtimeArgs": ["http-server", "solaris-site", "-p", "8899", "-c-1"], "port": 8899 },
+    { "name": "draft-v2", "runtimeExecutable": "npx", "runtimeArgs": ["http-server", "draft-v2", "-p", "8898", "-c-1"], "port": 8898 }
   ]
 }

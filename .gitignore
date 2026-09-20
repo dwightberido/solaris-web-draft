@@ -8,3 +8,4 @@ _skill_extract/
 # working backups superseded by git history
 index.v2.backup
 projects.pre-pdf.json
+draft-v2/
